@@ -120,13 +120,20 @@ const BlogPage = async ({ params }) => {
             <div className="flex flex-col w-full gap-2">
               <div className="relative">
                 <div className=" w-full h-full -z-10">
-                  <ImageBlock
-                    src={blogData?.blogFeatureImage}
-                    alt={blogData?.blogFeatureAlt}
-                  />
+                  <div className="w-full aspect-[16/9] bg-zinc-900 relative  rounded-xl overflow-hidden">
+                    {
+                      <Image
+                        src={blogData?.blogFeatureImage}
+                        alt={blogData?.blogFeatureAlt}
+                        fill
+                        objectFit="cover"
+                        className="rounded-lg"
+                      />
+                    }
+                  </div>
                 </div>
 
-                <div className="w-full h-full aspect-[16/9] translate-y-5 bg-gradient-to-b from-zinc-950/70 p-10 rounded-xl to-zinc-950/20 absolute top-0 z-10">
+                <div className="w-full h-full aspect-[16/9] bg-gradient-to-b from-zinc-950/70 p-10 rounded-xl to-zinc-950/20 absolute top-0 z-10">
                   <div className="absolute hidden md:flex flex-row flex-wrap gap-2">
                     {blogData?.blogBody?.tags.map((tag, index) => {
                       return (
@@ -149,7 +156,7 @@ const BlogPage = async ({ params }) => {
                   return (
                     <div
                       key={index}
-                      className="px-2 py-1 bg-gradient-to-r from-zinc-800/50 to-zinc-950/60 rounded-lg backdrop-blur-md "
+                      className="px-2 py-1 bg-gradient-to-r from-zinc-800/30 to-zinc-950/40 rounded-lg backdrop-blur-md "
                     >
                       <h1 className="text-zinc-200 text-sm font-lato">{tag}</h1>
                     </div>
