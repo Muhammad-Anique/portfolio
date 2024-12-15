@@ -1,8 +1,10 @@
 import Image from "next/image";
 
-const OptimizedBackground = ({ src }) => {
+const OptimizedBackground = ({ src, opacity }) => {
   return (
-    <div className={`fixed inset-0 h-screen w-screen bg-center opacity-10`}>
+    <div
+      className={`fixed inset-0 h-screen w-screen bg-center opacity-10 ${opacity}`}
+    >
       {/* Next.js Image component with optimized lazy loading */}
       <Image
         src={src} // Path to your image
