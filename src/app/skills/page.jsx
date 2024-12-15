@@ -84,7 +84,7 @@ const Page = () => {
             Expertise
           </h1>
 
-          <div className="flex flex-col gap-48 w-full items-center justify-center">
+          <div className="flex flex-col gap-16 md:gap-32 w-full items-center justify-center">
             <Skills title="Front-End Development" />
             <Skills title="Back-End Development" />
             <Skills title="DevOps" />

@@ -295,8 +295,10 @@ const Analytics = () => {
     </div>
   );
 };
+
 const Sidebar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [load, setLoad] = useState(false);
   const [screenType, setScreenType] = useState("");
 
   useEffect(() => {
@@ -318,7 +320,12 @@ const Sidebar = () => {
   }, []);
 
   const handleExpand = () => {
-    if (isExpanded === false) setIsExpanded(true);
+    if (isExpanded === false) {
+      setIsExpanded(true);
+      setTimeout(() => {
+        setLoad(true);
+      }, 1000);
+    }
   };
 
   return (
@@ -346,6 +353,7 @@ const Sidebar = () => {
           exit={{ opacity: 0 }}
           transition={{
             duration: 1, // Increased duration for smoother animation
+
             ease: "easeInOut", // Use a smoother ease for better transitions
           }}
         >
@@ -359,38 +367,7 @@ const Sidebar = () => {
               ease: "easeInOut",
             }}
           >
-            {isExpanded && (
-              <AnimatePresence>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{
-                    duration: 0.8,
-                    delay: 0.5,
-                    ease: "easeInOut",
-                  }}
-                  className="w-full h-full grid gap-3 grid-cols-10 grid-rows-12 absolute -skew-y-[2deg] scale-110"
-                >
-                  <div className="col-span-1"></div>
-                  <MyQuickPersonalInfo />
-                  <MyHistory />
-                  <MyExpertiseInANutshell />
-                  <Stats />
-                  <MyRecentProjects />
-                  <Analytics />
-                  <div className="col-span-1 relative"></div>
-                  <div
-                    onClick={() => {
-                      setIsExpanded(false);
-                    }}
-                    className="min-w-[200px] cursor-pointer group w-auto rotate-90 pb-4 pl-5 h-[80px] absolute left-0 z-[50] flex flex-row items-center justify-center gap-3"
-                  >
-                    <X className="w-7 h-7 text-black group-hover:text-zinc-200" />
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            )}
+            {isExpanded && <Data load={load} setIsExpanded={setIsExpanded} />}
           </motion.div>
         </motion.div>
       )}
@@ -399,3 +376,41 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+const Data = ({ load, setIsExpanded }) => {
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{
+          duration: 1.4,
+          delay: 1.0,
+
+          ease: "easeInOut",
+        }}
+        className={`w-full ${
+          load ? "grid" : "hidden"
+        } h-full  gap-3 grid-cols-10 grid-rows-12 absolute -skew-y-[2deg] scale-110`}
+      >
+        <div className="col-span-1"></div>
+        <MyQuickPersonalInfo />
+        <MyHistory />
+        <MyExpertiseInANutshell />
+        <Stats />
+        <MyRecentProjects />
+        <Analytics />
+        <div className="col-span-1 relative"></div>
+        <div
+          onClick={() => {
+            setIsExpanded(false);
+          }}
+          className="min-w-[200px] cursor-pointer group w-auto rotate-90 pb-4 pl-5 h-[80px] absolute left-0 z-[50] flex flex-row items-center justify-center gap-3"
+        >
+          <X className="w-7 h-7 text-black group-hover:text-zinc-200" />
+        </div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
