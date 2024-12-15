@@ -11,10 +11,11 @@ import Banner from "./_sections/Banner";
 import OptimizedBackground from "./_components/OptimizedBackground";
 import Quote from "./_sections/Quote";
 import Footer from "./_sections/Footer";
+// import OpenGraphBlock from "./_components/OpenGraphBlock";
 export default function Home() {
   return (
     <div className="relative w-full text-zinc-200 h-auto flex items-center justify-center flex-col overflow-x-hidden">
-      <OptimizedBackground src={"/corduroy.jpg"} opacity={10} />
+      <OptimizedBackground src={"/corduroy.jpg"} opacity={30} />
       <div className="relative w-screen z-10">
         <Hero />
         <About />
@@ -27,6 +28,7 @@ export default function Home() {
         <div className="scale-90 md:scale-100">
           <Quote />
         </div>
+        {/* <OpenGraphBlock /> */}
 
         <Testimonial />
         <MediaWall />
