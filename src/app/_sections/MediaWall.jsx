@@ -273,11 +273,11 @@ const MediaWall = () => {
     <div className="w-full h-auto flex items-center justify-center">
       <div className="relative py-32  max-w-[1250px] flex justify-center">
         <div
-          className={`absolute z-[60] py-10 px-5 scale-75 md:scale-100 ${
+          className={`absolute z-[60] py-10 px-5 scale-75 md:scale-100   ${
             exploreCliked
-              ? " dark:-translate-y-48"
-              : "backdrop-blur-lg rounded-xl  dark:-translate-y-32 w-[400px] h-auto shadow-3xl -rotate-6  mt-12"
-          } flex items-center justify-center -translate-y-64 flex-col duration-300 transition-transform ease-in-out`}
+              ? " -translate-y-48"
+              : "backdrop-blur-lg rounded-xl bg-zinc-200/90 dark:bg-zinc-950/85 dark:-translate-y-32 w-[400px] h-auto shadow-3xl -rotate-6  mt-12"
+          } flex items-center justify-center -translate-y-32 flex-col duration-300 transition-transform ease-in-out`}
         >
           <h1 className="big-winks-text -rotate-6 text-6xl text-zinc-800 dark:text-zinc-300 top-0 dark:shadow-lg mt-4 ">
             Media Wall
@@ -294,18 +294,18 @@ const MediaWall = () => {
           <div
             className={`${
               exploreCliked ? "hidden" : "flex"
-            } w-full max-w-[1120px] rounded-lg   h-full bg-trasnparent from-black/25 to-black/90 absolute z-[50] flex items-end justify-center `}
+            } w-full max-w-[1120px] rounded-lg   h-full bg-trasnparent from-black/75 to-black/90 absolute z-[50] flex items-end justify-center `}
           >
             <button
               onClick={() => {
                 setExploreCliked(true);
               }}
-              className="flex flex-row px-3 py-2 backdrop-blur-sm from-black/35 to-black/90 bg-gradient-to-r rounded-lg shadow-md items-center gap-4 justify-center mb-8 absolute bottom-0"
+              className="flex flex-row px-3 py-2 backdrop-blur-sm from-zinc-100/60 to-zinc-200/75 dark:from-black/65 dark:to-black/90 bg-gradient-to-r rounded-lg shadow-md items-center gap-4 justify-center mb-8 absolute bottom-0"
             >
-              <h1 className="text-lg text-zinc-200 md:text-2xl big-winks-textp-2">
+              <h1 className="text-lg text-zinc-800 dark:text-zinc-200 md:text-2xl big-winks-textp-2">
                 Explore{" "}
               </h1>
-              <ChevronDown className="w-7 h-7 text-zinc-200 " />
+              <ChevronDown className="w-7 h-7 text-zinc-800 dark:text-zinc-200 " />
             </button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-[82%] md:w-[75%] gap-3 justify-items-center align-items-center ">

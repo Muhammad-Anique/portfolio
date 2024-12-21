@@ -65,7 +65,7 @@ const About = () => {
             About Me
           </h1>
           <div className="flex flex-col  w-full overflow-hidden ">
-            <p className="w-auto text-center xs:text-left pr-2 text-md md:text-xl lg:max-w-3xl max-w-2xl xl:text-xl lg:leading-9 font-lato font-light mt-5">
+            <p className="w-auto text-zinc-800 dark:text-zinc-200 text-center xs:text-left pr-2 text-md md:text-xl lg:max-w-3xl max-w-2xl xl:text-xl lg:leading-9 font-lato font-normal mt-5">
               {"I'"}m a passionate and skilled Full Stack Web Developer with
               expertise in modern web technologies, including <b>Next.js</b> ,
               <b>React.js</b>, <b>Node.js</b> , and <b>Express.js</b>. I

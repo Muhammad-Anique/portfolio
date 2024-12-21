@@ -4,10 +4,10 @@ const ProjectPageHeader = ({ project }) => {
   return (
     <div className="flex flex-col gap-5 lg:gap-0 lg:flex-row items-center justify-between h-auto lg:min-h-[120px] xl:min-h-[150px]">
       <div className="flex flex-col w-full lg:w-[35%] h-full">
-        <h1 className="text-4xl xl:text-7xl text-zinc-900 dark:text-zinc-200  font-playfair">
+        <h1 className="text-5xl xl:text-7xl text-zinc-900 dark:text-zinc-200  font-playfair">
           {project?.projectTitle}
         </h1>
-        <h1 className="text-4xl xl:text-7xl text-zinc-900 dark:text-zinc-200  font-playfair lg:self-end mb-5 lg:mb-0">
+        <h1 className="text-5xl xl:text-7xl text-zinc-900 dark:text-zinc-200  font-playfair lg:self-end mb-5 lg:mb-0">
           {project?.projectBody?.category}
         </h1>
       </div>

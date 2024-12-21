@@ -37,7 +37,7 @@ const BlockSelector = (props) => {
     return <CodeBlock language={body?.language} code={body?.code} />;
   else if (blockType === "list") {
     return (
-      <div className="mt-8">
+      <div className="mt-5 md:mt-8">
         <ListBlock
           type={body?.type}
           elements={body?.elements}
@@ -91,13 +91,13 @@ const ProjectPage = async ({ params }) => {
                   </div>
                 </div>
 
-                <div className="w-full h-full aspect-[16/9] bg-gradient-to-b dark:from-zinc-950/70 p-10 rounded-xl dark:to-zinc-950/20 absolute top-0 z-10">
+                <div className="w-full h-full aspect-[16/9]  p-10 rounded-xl  absolute top-0 z-10">
                   <div className="absolute hidden md:flex flex-row flex-wrap gap-2">
                     {projectData?.projectBody?.tags.map((tag, index) => {
                       return (
                         <div
                           key={index}
-                          className="px-3 py-2 dark:bg-zinc-950/50 bg-zinc-200/90 rounded-lg backdrop-blur-md "
+                          className="px-3 py-2 dark:bg-zinc-950/95 shadow-md bg-zinc-100/95 rounded-lg backdrop-blur-md "
                         >
                           <h1 className="text-zinc-900 dark:text-zinc-200  text-md font-lato">
                             {tag}
@@ -114,7 +114,7 @@ const ProjectPage = async ({ params }) => {
                   return (
                     <div
                       key={index}
-                      className="px-2 py-1 dark:bg-gradient-to-r dark:from-zinc-800/30 dark:to-zinc-950/40 bg-zinc-200/90 rounded-lg backdrop-blur-md "
+                      className="px-2 py-1 bg-gradient-to-r dark:from-zinc-800/30 dark:to-zinc-950/40 from:bg-zinc-200/90 to-zinc-200/80 rounded-lg backdrop-blur-md "
                     >
                       <h1 className="text-zinc-900 dark:text-zinc-200  text-sm font-lato">
                         {tag}

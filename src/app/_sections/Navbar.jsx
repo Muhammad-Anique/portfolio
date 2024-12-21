@@ -30,16 +30,16 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="w-full fixed backdrop-blur-sm 2xl:backdrop-blur-none  h-[80px] md:h-[100px] top-0 z-50 flex items-center justify-center">
+      <div className="w-full fixed backdrop-blur-sm 2xl:backdrop-blur-none  h-[8vh] max-h-[100px] md:h-[10vh] top-0 z-50 flex items-center justify-center">
         <div className="w-full px-7 lg:px-16 2xl:px-24 xl:px-16 flex flex-row justify-between items-center">
-          <div className="relative w-auto h-auto px-3 flex items-start">
+          <div className="relative w-auto h-auto  flex items-start">
             <Link href={"/"}>
-              <h1 className="font-normal text-zinc-900 dark:text-zinc-200  text-4xl md:text-6xl font-playfair -translate-y-1 leading-0">
+              <h1 className="font-normal cursor-pointer text-zinc-900 dark:text-zinc-200  text-3xl md:text-6xl font-playfair -translate-y-1 leading-0">
                 ma{" "}
               </h1>
             </Link>
 
-            <div className="w-3 h-3 rounded-full bg-p1 right-0 bottom-0 absolute -translate-y-1 translate-x-1 md:translate-x-2"></div>
+            <div className="w-2 h-2 md:w-4 md:h-4 rounded-full bg-p1 right-0 bottom-0 absolute -translate-y-[4px] lg:translate-x-6 translate-x-[10px] md:translate-x-2"></div>
           </div>
           <ThemeToggle />
 

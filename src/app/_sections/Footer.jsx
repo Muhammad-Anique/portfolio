@@ -31,14 +31,14 @@ const Footer = () => {
         </div>
 
         <div className=" bottom-5 flex flex-col items-center h-full w-full ">
-          <ChevronUpIcon className="w-10 h-10 text-zinc-500 dark:text-zinc-200 " />
+          <ChevronUpIcon className="w-10 h-10 text-zinc-600 dark:text-zinc-200 " />
 
-          <div className="h-[32px] w-[32px] md:h-[50px] md:w-[50px] border flex items-center justify-center border-zinc-500 dark:border-zinc-200 rounded-full">
+          <div className="h-[32px] w-[32px] md:h-[50px] md:w-[50px] border flex items-center justify-center border-zinc-600 dark:border-zinc-200 rounded-full">
             <ScaleAndScroll />
           </div>
 
-          <div className="h-[100px] md:h-[230px] w-[1px] bg-zinc-500 dark:bg-zinc-200 "></div>
-          <div className="h-[1px] w-[85%] sm:w-[90%]   2xl:w-[100%] bg-zinc-500 dark:bg-zinc-200"></div>
+          <div className="h-[100px] md:h-[230px] w-[1px] bg-zinc-600 dark:bg-zinc-200 "></div>
+          <div className="h-[1px] w-[85%] sm:w-[90%]   2xl:w-[100%] bg-zinc-600 dark:bg-zinc-200"></div>
 
           <div className="w-[85%] sm:w-[90%] 2xl:w-[100%] h-auto py-9 md:py-16 mb-5 flex flex-col md:flex-row items-center justify-between">
             <div className="flex flex-col gap-2">

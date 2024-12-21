@@ -8,7 +8,7 @@ const ListBlock = (props) => {
   if (type == "ol")
     return (
       <div className="w-full ">
-        <ol className="gap-2 flex flex-col ml-3 md:ml-6 ">
+        <ol className="gap-2 flex flex-col ">
           {elements.map((element, index) => (
             <li
               key={index}
@@ -24,7 +24,7 @@ const ListBlock = (props) => {
   else if (type === "ul")
     return (
       <div className="w-full">
-        <ul className="gap-2 flex flex-col ml-3 md:ml-5  ">
+        <ul className="gap-2 flex flex-col  ">
           {elements.map((element, index) => (
             <li
               key={index}

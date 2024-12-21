@@ -133,13 +133,13 @@ const BlogPage = async ({ params }) => {
                   </div>
                 </div>
 
-                <div className="w-full h-full aspect-[16/9] dark:bg-gradient-to-b dark:from-zinc-950/70 p-10 rounded-xl dark:to-zinc-950/20 absolute top-0 z-10">
+                <div className="w-full h-full aspect-[16/9]  p-10 rounded-xl  absolute top-0 z-10">
                   <div className="absolute hidden md:flex flex-row flex-wrap gap-2">
                     {blogData?.blogBody?.tags.map((tag, index) => {
                       return (
                         <div
                           key={index}
-                          className="px-3 py-2 dark:bg-zinc-950/50 bg-zinc-100/80 rounded-lg backdrop-blur-md "
+                          className="px-3 py-2 dark:bg-zinc-950/95 shadow-md bg-zinc-100/95 rounded-lg backdrop-blur-md "
                         >
                           <h1 className="text-zinc-900 dark:text-zinc-200  text-md font-lato">
                             {tag}

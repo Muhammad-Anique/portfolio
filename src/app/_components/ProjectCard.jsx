@@ -22,7 +22,7 @@ const ProjectCard = ({ project }) => {
         <div
           style={{
             left: cursorPosition.x,
-            top: cursorPosition.y,
+            top: cursorPosition.y + window.scrollY,
           }}
           className="fixed hidden p-3 md:flex md:w-[300px] md:h-[300px]  bg-gradient-to-b from-zinc-400/40 to-zinc-200/40 dark:from-[#1c1c1ceb] dark:to-[#0000006c] rounded-lg pointer-events-none transform -translate-x-1/2 -translate-y-1/2 items-center z-50 justify-center"
         >

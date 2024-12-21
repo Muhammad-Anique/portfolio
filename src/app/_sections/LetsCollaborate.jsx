@@ -4,7 +4,7 @@ import React from "react";
 
 const LetsCollaborate = () => {
   return (
-    <div className="w-full h-auto py-12  flex items-center justify-center  md:py-64">
+    <div className="w-full h-auto   flex items-center justify-center xs:py-10 sm:py-16  md:py-48">
       <div className="relative  scale-75 md:scale-90 w-full max-w-[1250px] h-[700px] flex items-center justify-center">
         <Image
           src="/orange-bg.jpg"

@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism"; // Use 'esm' directory
 import { prism } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { CopyIcon } from "lucide-react";
 
 const formatCode = async (code, language = "javascript") => {
   try {
@@ -33,7 +34,7 @@ const CodeBlock = ({ code, language = "javascript", title }) => {
   }, [code]);
 
   return (
-    <div className="w-full h-auto flex flex-col gap-2 mt-8">
+    <div className="w-full h-auto flex flex-col gap-2 mt-5 md:mt-8">
       {title && (
         <h1 className="text-lg text-zinc-900 dark:text-zinc-200  font-lato font-bold">
           {title}
@@ -44,6 +45,7 @@ const CodeBlock = ({ code, language = "javascript", title }) => {
           <span className="text-sm font-medium uppercase text-zinc-700 dark:text-zinc-400">
             {language}
           </span>
+          <CopyIcon className="w-3 h-3 md:w-5 md:h-5 text-zinc-800 dark:text-zinc-200" />
         </div>
         <div className="overflow-auto">
           {/* Only render the SyntaxHighlighter after the code is formatted */}

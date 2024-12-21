@@ -59,8 +59,8 @@ const Testimonials = () => {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <div className="w-full flex items-center justify-center h-auto pb-16 pt-48 md:py-64">
-      <div className="w-full max-w-[1250px] h-full bg-transparent flex items-center justify-center relative">
+    <div className="w-full flex items-center justify-center  -translate-y-10 py-10 md:-translate-y-0  md:py-24 h-auto">
+      <div className="w-full max-w-[1250px] pb-16 h-full bg-transparent flex items-center justify-center relative">
         <div className="absolute -z-10 left-0">
           <div className="relative w-[700px] h-[700px] skew-y-12 rotate-45 opacity-[0.05] -translate-x-20 -translate-y-20">
             <Image

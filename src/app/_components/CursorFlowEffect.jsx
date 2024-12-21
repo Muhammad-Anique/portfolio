@@ -21,7 +21,7 @@ export default function CursorFollowEffect() {
 
   return (
     <div
-      className="bg-gradient-radial from-p1 to-orange-300 rounded-full w-[100px] -z-[100] absolute h-[100px] glow-effect"
+      className="bg-gradient-radial border border-red-500 from-p1 to-orange-300 rounded-full w-[100px] -z-[100] absolute h-[100px] glow-effect"
       style={{
         left: `calc(${cursorPosition.x}px)`, // Center the div on the cursor
         top: `calc(${cursorPosition.y}px)`, // Center the div on the cursor
