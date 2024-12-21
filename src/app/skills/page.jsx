@@ -68,18 +68,18 @@ const Page = () => {
   return (
     <div
       id="downloadable-content"
-      className="w-full h-auto py-7 md:py-16 flex-col gap-10 relative flex items-center justify-center"
+      className="w-full h-auto   flex-col gap-10 relative flex items-center justify-center"
     >
       <OptimizedBackground src={"/l1.jpg"} opacity={0.08} />
 
-      <div className="w-full  h-auto py-20 min-h-[1050px] px-7 flex items-center justify-center">
+      <div className="w-full backdrop-blur-md h-auto py-20  min-h-[1050px] px-7 flex items-center justify-center">
         <div
           name="container"
           className="h-auto max-w-[1250] w-full  flex flex-col items-center justify-center gap-7 "
         >
           <h1
             onClick={downloadDivAsPDF}
-            className="big-winks-text text-3xl md:text-5xl -translate-y-5 md:-translate-y-12 -rotate-6 text-zinc-300"
+            className="big-winks-text mt-20 text-3xl md:text-5xl -translate-y-5 md:-translate-y-12 -rotate-6 text-zinc-900 dark:text-zinc-300"
           >
             Expertise
           </h1>

@@ -9,7 +9,7 @@ const LetsCollaborate = () => {
         <Image
           src="/orange-bg.jpg"
           alt="Spot-water-color"
-          className="absolute hidden md:block -z-10 dark:opacity-80"
+          className="absolute hidden md:block -z-10 "
           height={700}
           width={1980}
           style={{ width: "auto", height: "700px" }}
