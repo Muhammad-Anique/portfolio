@@ -22,7 +22,7 @@ const BlogCard = (props) => {
         <h1 className="text-zinc-900 dark:text-zinc-200  font-bold font-lato  text-4xl md:text-[32px] max-w-[300px]">
           {blog?.blogTitle}
         </h1>
-        <p className="text-sm   w-full md:text-[17px] font-lato  text-zinc-700 dark:text-zinc-400 mt-5 md:mt-5">
+        <p className="text-sm  max-w-lg leading-relaxed w-full md:text-[17px] font-lato  text-zinc-700 dark:text-zinc-400 mt-5 md:mt-5">
           {truncateExcerpt(blog?.blogExcerpt)}
         </p>
         <div className="relative overflow-hidden rounded-lg min-w-[250px] min-h-[200px] w-full h-full mt-6">
@@ -34,12 +34,6 @@ const BlogCard = (props) => {
           />
         </div>
       </div>
-
-      {/* <div className=" hover:-rotate-12 transition-transform scale-75 md:scale-75 w-[110px] h-[110px] group-hover:scale-105 group-hover:rotate-2 duration-200 ease-in-out rounded-full border-2 border-dashed bg-black border-[#58585889] flex items-center justify-center absolute bottom-0 right-0 z-10 translate-x-8  md:translate-x-12 translate-y-8 md:translate-y-12 ">
-          <div className="w-[80px] h-[80px] rounded-full bg-gradient-to-b from-p1 via-p2 to-p3 flex items-center justify-center">
-            <ChevronRight className="text-zinc-900 dark:text-zinc-200  w-10 h-10" />
-          </div>
-        </div> */}
     </div>
   );
 };

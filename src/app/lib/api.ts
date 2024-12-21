@@ -27,6 +27,7 @@ export const fetchAllBlogs = async () => {
       console.error("Error fetching blog data:", error);
       return null;
     }
+    console.log("ALL THE LOGS", data);
     return data;
   } catch (err) {
     console.error("Unexpected error fetching blog data:", err);
