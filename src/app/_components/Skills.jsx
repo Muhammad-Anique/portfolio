@@ -14,7 +14,7 @@ const Skills = () => {
 
         <p className="font-manrope  text-md  leading-7 text-zinc-700 dark:text-zinc-400 max-w-xl ml-2 ">
           edj ekjd d ekjd ekjd ekjd ekjd ekdje dkje dkje dkje dkejd ekjd ekjd
-          ekjd ejkd edj dekj dekjd ke
+          ekjd ejk
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
