@@ -33,6 +33,24 @@ html {
   stroke-width: 2px;
 }
 
+.stroky_dark {
+  font-weight: bold;
+  color: transparent; /* Makes the fill transparent */
+  -webkit-text-stroke: 2px rgb(21, 21, 21); /* Adds a zinc-200 stroke */
+  stroke-width: 2px;
+}
+
+.glow-effect {
+  background: radial-gradient(
+    circle,
+    rgba(240, 159, 97, 0.8) 10%,
+    rgba(236, 66, 15) 90%,
+    rgba(255, 102, 0, 0.79) 10%
+  );
+  box-shadow: 0 0 20px rgba(255, 81, 0, 0.8), 0 0 40px rgba(255, 165, 0, 0.6),
+    0 0 60px rgba(255, 165, 0, 0.4);
+}
+
 .big-winks-text {
   font-family: "BigWinks", sans-serif;
 }
@@ -66,8 +84,7 @@ html {
   }
 
   .gradient-noise-overlay {
-    background:
-      linear-gradient(to right, #2b2b2b3a, #000000),
+    background: linear-gradient(to right, #2b2b2b3a, #000000),
       /* Gradient color */ url("https://grainy-gradients.vercel.app/noise.svg"); /* Grainy overlay */
     background-blend-mode: overlay; /* Blend the grain texture with the gradient */
     background-size: cover;
@@ -78,8 +95,7 @@ html {
 
   .gradient-noise-overlay1 {
     position: relative; /* Ensure the inner shadow is applied inside the div */
-    background:
-      linear-gradient(to right, rgba(0, 0, 0, 0.065), #ff5900),
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.065), #ff5900),
       /* Gradient from transparent to orange */
         url("https://img.freepik.com/free-photo/abstract-geometric-background-shapes-texture_1194-315222.jpg?t=st=1730838933~exp=1730842533~hmac=5668bb4e1d4155c1edd43e2f7f4a5a2216daf46b26105cc2a965121cf263bb60&w=1800"); /* Grainy overlay */
     background-blend-mode: overlay; /* Blends the noise and gradient */
@@ -95,7 +111,6 @@ html {
 }
 body {
   color: var(--foreground);
-  background: rgb(5, 5, 5);
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
@@ -116,9 +131,7 @@ body {
   border-radius: 50%;
   background: conic-gradient(from 0deg, #ec420f 0%, #39c8c1 50%);
   background-size: 200% 200%;
-  animation:
-    spin 3s linear infinite,
-    progress 3s forwards;
+  animation: spin 3s linear infinite, progress 3s forwards;
   transform: rotate(90deg);
 }
 
@@ -158,4 +171,43 @@ body {
   border: solid 2px #e0e0e0;
   border-color: #e0e0e0 transparent transparent transparent;
   border-radius: 30%;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #f39c12;
+}
+
+.checkbox-label .ball {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
 }

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 
+import { useTheme } from "../_context/ThemeContext";
 import Image from "next/image";
 import {
   ArrowUpRightIcon,
@@ -37,15 +38,15 @@ const MyQuickPersonalInfo = () => {
         </div>
       </div>
       <div className="flex flex-col items-center z-20 justify-center">
-        <h1 className="font-bold font-manrope text-zinc-200 text-md">
+        <h1 className="font-bold font-manrope text-zinc-900 dark:text-zinc-200  text-md">
           Muhammad Anique
         </h1>
         <p className="font-thin text-zinc-100 text-xs xl:text-sm font-manrope">
           Full Stack Developer | AI Specialist
         </p>
         <div className="2xl:flex flex-row gap-2  mt-1 xl:mt-2 items-center hidden ">
-          <MailIcon className="w-3 h-3 text-zinc-400" />
-          <p className="font-normal text-zinc-400 font-manrope text-[12px] xl:text-xs">
+          <MailIcon className="w-3 h-3 text-zinc-700 dark:text-zinc-400" />
+          <p className="font-normal text-zinc-700 dark:text-zinc-400 font-manrope text-[12px] xl:text-xs">
             anique.cs@gmail.com
           </p>
         </div>
@@ -53,11 +54,13 @@ const MyQuickPersonalInfo = () => {
 
       <div className="flex w-full z-20 items-center justify-between px-5 absolute  bottom-0 2xl:bottom-2 py-3  ">
         <div className="flex flex-row gap-2 items-center">
-          <DownloadIcon className="w-6 h-6 text-zinc-200" />
-          <p className="text-zinc-200 text-sm font-thin">Resume</p>
+          <DownloadIcon className="w-6 h-6 text-zinc-900 dark:text-zinc-200 " />
+          <p className="text-zinc-900 dark:text-zinc-200  text-sm font-thin">
+            Resume
+          </p>
         </div>
 
-        <ArrowUpRightIcon className="w-6 h-6 text-zinc-200" />
+        <ArrowUpRightIcon className="w-6 h-6 text-zinc-900 dark:text-zinc-200 " />
       </div>
     </div>
   );
@@ -83,14 +86,14 @@ const MyHistory = () => {
         <div className="flex flex-col px-3 mt-2 2xl:mt-3">
           <div className="flex flex-row gap-2 items-center justify-center">
             <div className="flex flex-col gap-2">
-              <h1 className=" text-zinc-200 font-playfair text-md 2xl:text-2xl tracking-wide  font-extrabold">
+              <h1 className=" text-zinc-900 dark:text-zinc-200  font-playfair text-md 2xl:text-2xl tracking-wide  font-extrabold">
                 Fiver
               </h1>
               <i className="font-light text-zinc-300 text-sm 2xl:text-md">
                 2024 - <span className="text-zinc-300">Current</span>
               </i>
 
-              <i className="font-thin font-manrope text-zinc-200 text-xs 2xl:text-sm ">
+              <i className="font-thin font-manrope text-zinc-900 dark:text-zinc-200  text-xs 2xl:text-sm ">
                 Curabitur facilisis ligula ut risus tempus, id pretium eros
                 ullamcorper. Nunc efficitur magna ut justo volutpat, a tincidunt
                 lectus vulputate.
@@ -132,18 +135,18 @@ const Project = () => {
   return (
     <div className="bg-[#0f0f0f9b] w-[50%] h-full relative flex  px-5 py-7">
       <div className=" right-3 top-3 absolute z-20">
-        <ArrowUpRightIcon className="w-5 h-5 text-zinc-200" />
+        <ArrowUpRightIcon className="w-5 h-5 text-zinc-900 dark:text-zinc-200 " />
       </div>
 
       <div className="flex flex-col ">
-        <h1 className="font-bold text-2xl 2xl:text-3xl font-playfair text-zinc-200">
+        <h1 className="font-bold text-2xl 2xl:text-3xl font-playfair text-zinc-900 dark:text-zinc-200 ">
           Helloworld
         </h1>
-        <p className=" text-zinc-200 text-sm 2xl:text-md mt-4 font-manrope">
+        <p className=" text-zinc-900 dark:text-zinc-200  text-sm 2xl:text-md mt-4 font-manrope">
           Full Stack Development
         </p>
 
-        <i className="font-thin text-zinc-200 text-xs 2xl:text-sm mt-3 font-manrope">
+        <i className="font-thin text-zinc-900 dark:text-zinc-200  text-xs 2xl:text-sm mt-3 font-manrope">
           Curabitur facilisis ligula ut risus tempus, id pretium eros
           ullamcorper. Nunc efficitur magna ut justo volutpat, a tincidunt .
         </i>
@@ -166,13 +169,13 @@ const Stats = () => {
 
       <div className="grid grid-cols-2 grid-rows-5 w-full h-full  gap-2 z-20">
         <div className="col-span-1 row-span-3 flex flex-col items-center justify-end">
-          <h1 className="text-zinc-200   text-6xl">9+</h1>
+          <h1 className="text-zinc-900 dark:text-zinc-200    text-6xl">9+</h1>
           <p className="text-zinc-500 font-medum text-xs mt-2 tracking-widest">
             CLIENTS
           </p>
         </div>
         <div className="col-span-1 row-span-3 flex flex-col items-center justify-end">
-          <h1 className="text-zinc-200 text-6xl">14+</h1>
+          <h1 className="text-zinc-900 dark:text-zinc-200  text-6xl">14+</h1>
           <p className="text-zinc-500 font-medum text-xs mt-2 tracking-widest">
             PROJECTS
           </p>
@@ -264,7 +267,7 @@ const Analytics = () => {
 
       <div className="absolute  z-[40] bg-gradient-to-r from-[#00000000] to-[#000000] flex w-full h-[240px] justify-end items-center">
         <button className="absolute right-10" onClick={handleNext}>
-          <ChevronRight className="w-8 h-8 text-zinc-200" />
+          <ChevronRight className="w-8 h-8 text-zinc-900 dark:text-zinc-200 " />
         </button>
       </div>
       <div className="flex z-[30] m-1 h-full relative overflow-hidden w-full">
@@ -300,6 +303,7 @@ const Sidebar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [load, setLoad] = useState(false);
   const [screenType, setScreenType] = useState("");
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleResize = () => {
@@ -320,7 +324,7 @@ const Sidebar = () => {
   }, []);
 
   const handleExpand = () => {
-    if (isExpanded === false) {
+    if (isExpanded === false && theme === "dark") {
       setIsExpanded(true);
       setTimeout(() => {
         setLoad(true);
@@ -358,7 +362,7 @@ const Sidebar = () => {
           }}
         >
           <motion.div
-            className="bg-gradient-to-b from-[#EC420F] via-[#c79573] to-[#39C8C1] w-full h-full relative overflow-hidden"
+            className="bg-gradient-to-b from-[#EC420F] dakr:via-[#c79573] via-[#EC420F] dark:to-[#39C8C1] to-[#d8681d] w-full h-full relative overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -408,7 +412,7 @@ const Data = ({ load, setIsExpanded }) => {
           }}
           className="min-w-[200px] cursor-pointer group w-auto rotate-90 pb-4 pl-5 h-[80px] absolute left-0 z-[50] flex flex-row items-center justify-center gap-3"
         >
-          <X className="w-7 h-7 text-black group-hover:text-zinc-200" />
+          <X className="w-7 h-7 text-black group-hover:text-zinc-900 dark:text-zinc-200 " />
         </div>
       </motion.div>
     </AnimatePresence>

@@ -3,6 +3,7 @@ import { ChevronDown, HeartIcon } from "lucide-react";
 import Image from "next/image";
 import React, { useMemo, useState } from "react";
 import { useBreakpoint } from "../_components/useBreakpoint";
+import { useTheme } from "../_context/ThemeContext";
 
 const Media = (props) => {
   const post = props.post;
@@ -35,7 +36,7 @@ const Media = (props) => {
         name="Media"
         className="w-full h-auto flex items-center justify-center relative rounded-lg  overflow-hidden"
       >
-        <div className="flex flex-col gap-3 items-center justify-center py-10 bg-gradient-to-b from-gray-950 to-purple-950/50 p-5 rounded-lg">
+        <div className="flex flex-col gap-3 items-center justify-center py-10 bg-gradient-to-b from-sky-800 dark:from-gray-950 dark:to-purple-950/60 to-purple-950 p-5 rounded-lg">
           <div className="flex flex-col ml-3 items-center justify-center">
             <div className="w-[50px] h-[50px] rounded-full relative bg-[#616161] overflow-hidden">
               <Image
@@ -46,13 +47,13 @@ const Media = (props) => {
               />
             </div>
             <div className="flex flex-col items-center justify-center">
-              <h1 className="text-sm  text-zinc-200 big-winks-text font-bold">
+              <h1 className="text-sm  text-zinc-200 dark:text-zinc-200  big-winks-text font-bold">
                 Muhammad Anique
               </h1>
             </div>
           </div>
           <div className="flex flex-col gap-5 px-3 py-2 items-center justify-center">
-            <h1 className="font-manrope text-md font-bold text-center px-4">
+            <h1 className="font-manrope text-zinc-200 text-md font-bold text-center px-4">
               Fine-Tuning: Enhancing AI Models for Specific Tasks
             </h1>
             <p className=" text-sm  text-zinc-300 text-center">
@@ -87,7 +88,7 @@ const Media = (props) => {
         <div className="flex  flex-col gap-3 items-center justify-center pt-6    rounded-lg">
           <div className="flex flex-col ml-3 items-center justify-center">
             <div className="flex flex-col items-center justify-center">
-              <h1 className="text-2xl   text-zinc-200 -rotate-6 font-manrope">
+              <h1 className="text-2xl   text-zinc-900 dark:text-zinc-200  -rotate-6 font-manrope">
                 {" "}
                 <span className="big-winks-text">E</span>xplor
                 <span className="big-winks-text">e</span>{" "}
@@ -95,7 +96,7 @@ const Media = (props) => {
               </h1>
             </div>
           </div>
-          <h1 className=" -rotate-[10deg] hover:rotate-3 duration-300 cursor-pointer ease-in-out hover:translate-y-0  shadow-lg rounded-lg py-4 text-lg tracking-widest px-6  bg-gradient-to-r translate-y-5 backdrop-blur-md from-[#000000be] to-[#00000054] big-winks-text text-center z-30 max-w-[300px]">
+          <h1 className=" -rotate-[10deg] text-zinc-700 dark:text-zinc-200 hover:rotate-3 duration-300 cursor-pointer ease-in-out hover:translate-y-0  shadow-lg rounded-lg py-4 text-lg tracking-widest px-6  bg-gradient-to-r translate-y-5 backdrop-blur-md from-zinc-200/40 to-zinc-300/20 dark:from-[#000000be] dark:to-[#00000054] big-winks-text text-center z-30 max-w-[300px]">
             Fine Tuning Enhancing AI Models for Specific Tasks
           </h1>
 
@@ -119,7 +120,7 @@ const Media = (props) => {
         name="Media"
         className="w-full h-auto flex items-center justify-center relative rounded-lg  overflow-hidden"
       >
-        <div className="w-full h-full absolute z-20 bg-gradient-to-b from-[#000000f6] to-[#000000d9]"></div>
+        <div className="w-full h-full absolute z-20 bg-gradient-to-b from-p1 to-orange-400  dark:from-[#000000f6] dark:to-[#000000d9]"></div>
         <Image
           src="/l1.jpg"
           alt={`Post`}
@@ -127,7 +128,7 @@ const Media = (props) => {
           className="z-10"
           height={600}
         />
-        <h1 className="font-manrope font-bold text-center px-10 absolute z-30">
+        <h1 className="font-manrope text-zinc-100 dark:text-zinc-200  font-bold text-center px-10 absolute z-30">
           {'"'}Programming Like Fun Do it ro not it is indeed{'"'}
         </h1>
       </div>
@@ -159,7 +160,10 @@ const distributePosts = (posts, numCols) => {
 };
 
 const MediaWall = () => {
-  const [exploreCliked, setExploreCliked] = useState(false);
+  const { theme } = useTheme();
+  const [exploreCliked, setExploreCliked] = useState(
+    theme === "dark" ? true : false
+  );
 
   const posts = [
     {
@@ -271,20 +275,15 @@ const MediaWall = () => {
         <div
           className={`absolute z-[60] py-10 px-5 scale-75 md:scale-100 ${
             exploreCliked
-              ? " -translate-y-48"
-              : "backdrop-blur-lg rounded-xl -translate-y-32 w-[400px] h-auto shadow-3xl -rotate-6  mt-12"
-          } flex items-center justify-center flex-col duration-300 transition-transform ease-in-out`}
+              ? " dark:-translate-y-48"
+              : "backdrop-blur-lg rounded-xl  dark:-translate-y-32 w-[400px] h-auto shadow-3xl -rotate-6  mt-12"
+          } flex items-center justify-center -translate-y-64 flex-col duration-300 transition-transform ease-in-out`}
         >
-          <h1 className="big-winks-text -rotate-6 text-6xl text-zinc-300 top-0 shadow-lg mt-4 ">
+          <h1 className="big-winks-text -rotate-6 text-6xl text-zinc-800 dark:text-zinc-300 top-0 dark:shadow-lg mt-4 ">
             Media Wall
           </h1>
-          <p className="font-manrope text-center mt-3 text-2xl">
-            <span className="big-winks-text font-bold">&nbsp;E</span>xplore
-            &nbsp;
-            <span className="big-winks-text font-bold text-p1 tracking-widest">
-              the
-            </span>{" "}
-            <span className="big-winks-text font-bold">&nbsp;T</span>imeline 😎
+          <p className="font-manrope text-center big-winks-text text-p1 dak:text-zinc-700 dark:text-zinc-200 mt-3 text-2xl">
+            Explore the Timeline
           </p>
         </div>
         <div
@@ -303,10 +302,10 @@ const MediaWall = () => {
               }}
               className="flex flex-row px-3 py-2 backdrop-blur-sm from-black/35 to-black/90 bg-gradient-to-r rounded-lg shadow-md items-center gap-4 justify-center mb-8 absolute bottom-0"
             >
-              <h1 className="text-lg md:text-2xl big-winks-textp-2">
+              <h1 className="text-lg text-zinc-200 md:text-2xl big-winks-textp-2">
                 Explore{" "}
               </h1>
-              <ChevronDown className="w-7 h-7 text-zinc-200" />
+              <ChevronDown className="w-7 h-7 text-zinc-200 " />
             </button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-[82%] md:w-[75%] gap-3 justify-items-center align-items-center ">
@@ -334,7 +333,7 @@ const Post = (props) => {
     <div
       key={post.id}
       name="MediaSection"
-      className="w-full max-w-[500px] bg-gradient-to-b p-2 rounded-lg from-[#25252545] to-[#25252545] h-auto flex flex-col gap-4"
+      className="w-full max-w-[500px] bg-gradient-to-b p-2 rounded-lg dark:from-[#25252545] dark:to-[#25252545] from-zinc-200/40 to-zinc-200/20 h-auto flex flex-col gap-4"
     >
       {post.type !== "quote" &&
         post.type !== "mini-article" &&
@@ -352,7 +351,7 @@ const PostHeader = (props) => {
       className="w-full h-[80px] flex flex-row rounded-tl-full justify-between items-center"
     >
       <div className="flex flex-row ml-3 items-center justify-center">
-        <div className="w-[50px] h-[50px] rounded-full relative bg-[#616161] overflow-hidden">
+        <div className="w-[50px] h-[50px] rounded-full relative bg-zinc-300 dark:bg-[#616161] overflow-hidden">
           <Image
             src={post.userImage}
             alt={`${post.username} Avatar`}
@@ -361,12 +360,14 @@ const PostHeader = (props) => {
           />
         </div>
         <div className="flex flex-col ml-3">
-          <h1 className="text-sm  text-zinc-300">{post.handle}</h1>
-          <p className="text-xs text-zinc-500 ">6/05/2024</p>
+          <h1 className="text-sm  text-zinc-800 dark:text-zinc-300">
+            {post.handle}
+          </h1>
+          <p className="text-xs text-zinc-600 dark:text-zinc-500 ">6/05/2024</p>
         </div>
       </div>
       <div>
-        <HeartIcon className="w-5 h-5 text-zinc-400 mr-3" />
+        <HeartIcon className="w-5 h-5 text-zinc-700 dark:text-zinc-400 mr-3" />
       </div>
     </div>
   );

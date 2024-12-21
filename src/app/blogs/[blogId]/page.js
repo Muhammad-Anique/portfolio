@@ -86,19 +86,19 @@ const BlogPage = async ({ params }) => {
           <div className="w-full xl:max-w-[85%] pt-32 pb-0  2xl:max-w-[90%] backdrop-blur-md px-5 sm:px-10 md:px-16  flex flex-col gap-24">
             <div className="flex flex-col gap-5  h-auto ">
               <div className="flex flex-col w-full  h-full">
-                <h1 className="text-5xl md:text-6xl xl:text-7xl text-zinc-200 font-playfair">
+                <h1 className="text-5xl md:text-6xl xl:text-7xl text-zinc-900 dark:text-zinc-200  font-playfair">
                   {blogData?.blogTitle}
                 </h1>
               </div>
 
               <div className="flex flex-col self-end lg:flex-row w-full lg:w-[55%] gap-7 h-full lg:items-center items-end justify-end mt-10 ">
-                <p className="max-w-sm text-zinc-200 text-sm xl:text-md h-full text-right">
+                <p className="max-w-sm text-zinc-900 dark:text-zinc-200  text-sm xl:text-md h-full text-right">
                   {blogData?.blogExcerpt}
                 </p>
-                <div className="h-[4px] lg:h-full lg:min-h-[120px] w-[50%] lg:w-[4px] lg:skew-y-[60deg] bg-gradient-to-r lg:bg-gradient-to-b from-p1 via-p2 to-p3 "></div>
+                <div className="h-[4px] lg:h-full lg:min-h-[120px] w-[50%] lg:w-[4px] lg:skew-y-[60deg] bg-gradient-to-r lg:bg-gradient-to-b from-[#EC420F] dakr:via-[#c79573] via-[#EC420F] dark:to-[#39C8C1] to-[#d8681d]  "></div>
                 <div className="flex flex-col h-full w-full lg:w-auto text-right justify-between">
                   <div className="flex flex-row self-end items-center justify-center">
-                    <div className="w-[50px] h-[50px] rounded-full relative bg-[#616161] overflow-hidden">
+                    <div className="w-[50px] h-[50px] rounded-full relative bg-zinc-300 dark:bg-[#616161] overflow-hidden">
                       <Image
                         src="/Muhammad-Anique.avif"
                         alt={` Avatar`}
@@ -107,7 +107,7 @@ const BlogPage = async ({ params }) => {
                       />
                     </div>
                   </div>
-                  <h1 className="w-auto font-manrope  text-zinc-200 text-lg leading-3 mt-3">
+                  <h1 className="w-auto font-manrope  text-zinc-900 dark:text-zinc-200  text-lg leading-3 mt-3">
                     <span className="big-winks-text "> Muh. Anique </span>
                   </h1>
                   <p className="self-end text-zinc-500 text-sm">
@@ -120,7 +120,7 @@ const BlogPage = async ({ params }) => {
             <div className="flex flex-col w-full gap-2">
               <div className="relative">
                 <div className=" w-full h-full -z-10">
-                  <div className="w-full aspect-[16/9] bg-zinc-900 relative  rounded-xl overflow-hidden">
+                  <div className="w-full aspect-[16/9] dakr:bg-zinc-900 bg-zinc-300 relative  rounded-xl overflow-hidden">
                     {
                       <Image
                         src={blogData?.blogFeatureImage}
@@ -133,15 +133,15 @@ const BlogPage = async ({ params }) => {
                   </div>
                 </div>
 
-                <div className="w-full h-full aspect-[16/9] bg-gradient-to-b from-zinc-950/70 p-10 rounded-xl to-zinc-950/20 absolute top-0 z-10">
+                <div className="w-full h-full aspect-[16/9] dark:bg-gradient-to-b dark:from-zinc-950/70 p-10 rounded-xl dark:to-zinc-950/20 absolute top-0 z-10">
                   <div className="absolute hidden md:flex flex-row flex-wrap gap-2">
                     {blogData?.blogBody?.tags.map((tag, index) => {
                       return (
                         <div
                           key={index}
-                          className="px-3 py-2 bg-zinc-950/50 rounded-lg backdrop-blur-md "
+                          className="px-3 py-2 dark:bg-zinc-950/50 bg-zinc-100/80 rounded-lg backdrop-blur-md "
                         >
-                          <h1 className="text-zinc-200 text-md font-lato">
+                          <h1 className="text-zinc-900 dark:text-zinc-200  text-md font-lato">
                             {tag}
                           </h1>
                         </div>
@@ -151,14 +151,16 @@ const BlogPage = async ({ params }) => {
                 </div>
               </div>
 
-              <div className="mt-5 flex md:hidden flex-row flex-wrap gap-2">
+              <div className="mt-5 flex md:hidden flex-row flex-wrap gap-3">
                 {blogData?.blogBody?.tags.map((tag, index) => {
                   return (
                     <div
                       key={index}
-                      className="px-2 py-1 bg-gradient-to-r from-zinc-800/30 to-zinc-950/40 rounded-lg backdrop-blur-md "
+                      className="px-2 py-1 dark:bg-gradient-to-b dark:from-zinc-950/70 p-10 bg-zinc-200 dark:to-zinc-950/20 rounded-lg backdrop-blur-md "
                     >
-                      <h1 className="text-zinc-200 text-sm font-lato">{tag}</h1>
+                      <h1 className="text-zinc-900 dark:text-zinc-200  text-sm font-lato">
+                        {tag}
+                      </h1>
                     </div>
                   );
                 })}
@@ -175,14 +177,14 @@ const BlogPage = async ({ params }) => {
               })}
             </div>
 
-            <hr className="h-[5px] w-[60%] self-center border-none skew-x-[60deg] bg-gradient-to-r from-p1 via-p2 to-p3" />
+            <hr className="h-[5px] w-[60%] self-center border-none skew-x-[60deg] bg-gradient-to-r from-p1 dark:via-p2  to-p2 dark:to-p3" />
             <FooterNormal />
           </div>
         </div>
       ) : (
         <div className="flex items-center justify-center h-screen w-screen overflow-hidden flex-col">
           <p className="text-7xl text-zinc-300 font-thin font-lato ">{": ("}</p>
-          <h1 className="text-zinc-200 font-lato mt-3">
+          <h1 className="text-zinc-900 dark:text-zinc-200  font-lato mt-3">
             The Requested Page is Not Found
           </h1>
         </div>

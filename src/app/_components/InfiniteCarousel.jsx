@@ -71,13 +71,13 @@ const InfiniteCarousel = () => {
       {/* Navigation Buttons */}
       <button
         onClick={goToPrevSlide}
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-zinc-200 p-2 rounded-full"
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-zinc-900 dark:text-zinc-200  p-2 rounded-full"
       >
         Prev
       </button>
       <button
         onClick={goToNextSlide}
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-zinc-200 p-2 rounded-full"
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-zinc-900 dark:text-zinc-200  p-2 rounded-full"
       >
         Next
       </button>

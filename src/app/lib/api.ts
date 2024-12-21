@@ -35,8 +35,42 @@ export const fetchAllBlogs = async () => {
 };
 
 export const getProjectData = async (projectId: string) => {
-  console.log(projectId);
-  return {
-    body: "Hello project",
-  };
+  try {
+    const { data, error } = await supabase
+      .from("projects")
+      .select("*")
+      .eq("slug", projectId)
+      .single();
+
+    if (error) {
+      console.error("Error fetching blog data:", error);
+      return null;
+    }
+    return data;
+  } catch (err) {
+    console.error("Unexpected error fetching blog data:", err);
+    return null;
+  }
 };
+
+export const fetchAllProjects = async () => {
+  try {
+    const { data, error } = await supabase.from("projects").select("*");
+
+    if (error) {
+      console.error("Error fetching blog data:", error);
+      return null;
+    }
+    return data;
+  } catch (err) {
+    console.error("Unexpected error fetching blog data:", err);
+    return null;
+  }
+};
+
+// export const getProjectData = async (projectId: string) => {
+//   console.log(projectId);
+//   return {
+//     body: "Hello project",
+//   };
+// };

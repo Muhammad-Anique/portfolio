@@ -12,7 +12,7 @@ const Heading = ({ content }) => {
   return (
     <h1
       id={formattedLink}
-      className="text-2xl md:text-3xl mt-12 ml:mt-20  font-lato font-extrabold text-zinc-200"
+      className="text-2xl md:text-3xl mt-12 ml:mt-20  font-lato font-extrabold text-zinc-900 dark:text-zinc-200 "
     >
       {content}
     </h1>

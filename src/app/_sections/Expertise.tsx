@@ -247,7 +247,7 @@ const Expertise = () => {
                 alt="pattern1"
                 fill
                 sizes="300px"
-                style={{objectFit:"cover"}}
+                style={{ objectFit: "cover" }}
               />
             </div>
             <div
@@ -257,9 +257,9 @@ const Expertise = () => {
               <Image
                 src="/pat2.jpg"
                 alt="pattern2"
-               sizes="300px"
+                sizes="300px"
                 fill
-                style={{objectFit:"cover"}}
+                style={{ objectFit: "cover" }}
               />
             </div>
             <div
@@ -271,7 +271,7 @@ const Expertise = () => {
                 alt="pattern3"
                 sizes="300px"
                 fill
-                style={{objectFit:"cover"}}
+                style={{ objectFit: "cover" }}
               />
             </div>
           </div>
@@ -285,7 +285,7 @@ const Expertise = () => {
               <h1
                 data-name="Heading"
                 ref={headingRef}
-                className="text-zinc-200 font-playfair text-3xl md:text-5xl -rotate-[10deg] transition-transform duration-500"
+                className="text-zinc-900 dark:text-zinc-200  font-playfair text-3xl md:text-5xl -rotate-[10deg] transition-transform duration-500"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
@@ -295,7 +295,7 @@ const Expertise = () => {
 
               <p
                 ref={paragraphRef}
-                className="font-manrope ml-5 text-md -rotate-[10deg] mt-10 leading-7 text-zinc-400 max-w-xl hidden"
+                className="font-manrope ml-5 text-md -rotate-[10deg] mt-10 leading-7 text-zinc-700 dark:text-zinc-400 max-w-xl hidden"
               >
                 {sections[activatedSection]?.description}
               </p>
@@ -305,20 +305,24 @@ const Expertise = () => {
                 className="hidden gap-4 flex-col items-center pr-5 overflow-y-auto ml-14 mt-10 w-full h-[300px]   -rotate-[10deg]"
               >
                 <div className="w-full h-[60px] shrink-0 rounded-tl-full rounded-br-full rounded-tr-full bg-gradient-to-r from-[#2f2f2f43] to-[#2f2f2fbe] flex items-center px-7">
-                  <h1 className="font-manrope text-2xl text-zinc-200 ">
+                  <h1 className="font-manrope text-2xl text-zinc-900 dark:text-zinc-200  ">
                     React Js
                   </h1>
                 </div>
                 <div className="w-full h-[60px] shrink-0 rounded-tl-full rounded-br-full rounded-tr-full bg-gradient-to-r from-[#2f2f2f43] to-[#2f2f2fbe] flex items-center px-7">
-                  <h1 className="font-manrope text-2xl text-zinc-200 ">Next Js</h1>
+                  <h1 className="font-manrope text-2xl text-zinc-900 dark:text-zinc-200  ">
+                    Next Js
+                  </h1>
                 </div>
                 <div className="w-full h-[60px] shrink-0 rounded-tl-full rounded-br-full rounded-tr-full bg-gradient-to-r from-[#2f2f2f43] to-[#2f2f2fbe] flex items-center px-7">
-                  <h1 className="font-manrope text-2xl text-zinc-200 ">
+                  <h1 className="font-manrope text-2xl text-zinc-900 dark:text-zinc-200  ">
                     Tailwind CSS
                   </h1>
                 </div>
                 <div className="w-full h-[60px] shrink-0 rounded-tl-full rounded-br-full rounded-tr-full bg-gradient-to-r from-[#2f2f2f43] to-[#2f2f2fbe] flex items-center px-7">
-                  <h1 className="font-manrope text-2xl text-zinc-200 ">Lucide</h1>
+                  <h1 className="font-manrope text-2xl text-zinc-900 dark:text-zinc-200  ">
+                    Lucide
+                  </h1>
                 </div>
               </div>
             </div>
@@ -329,7 +333,7 @@ const Expertise = () => {
               className=" w-[60px] h-[60px]  md:w-[75px] md:h-[75px] lg:w-[100px] lg:h-[100px] cursor-pointer transition-transform duration-500 ml-12 mt-7 lg:mt-12  border-2 border-zinc-800 border-dashed rounded-full flex items-center justify-center"
             >
               <div className="w-[45px] h-[45px] md:w-[60px] md:h-[60px] lg:w-[80px] lg:h-[80px] rounded-full bg-gradient-to-b from-p1 via-p2 to-p3 flex items-center justify-center">
-                <ChevronRight className="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 text-zinc-200" />
+                <ChevronRight className="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 text-zinc-900 dark:text-zinc-200 " />
               </div>
             </div>
           </div>

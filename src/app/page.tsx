@@ -9,14 +9,16 @@ import Testimonial from "./_sections/Testimonials";
 import MediaWall from "./_sections/MediaWall";
 import Banner from "./_sections/Banner";
 import OptimizedBackground from "./_components/OptimizedBackground";
-import Quote from "./_sections/Quote";
+// import Quote from "./_sections/Quote";
 import Footer from "./_sections/Footer";
+import CursorFlowEffect from "./_components/CursorFlowEffect";
 // import OpenGraphBlock from "./_components/OpenGraphBlock";
 export default function Home() {
   return (
-    <div className="relative w-full text-zinc-200 h-auto flex items-center justify-center flex-col overflow-x-hidden">
-      <OptimizedBackground src={"/corduroy.jpg"} opacity={30} />
-      <div className="relative w-screen z-10">
+    <div className="relative w-full text-zinc-900 dark:text-zinc-200  h-auto flex items-center justify-center flex-col overflow-x-hidden">
+      <OptimizedBackground src={"/l1.jpg"} opacity={10} />
+      <CursorFlowEffect />
+      <div className="relative w-screen z-10 backdrop-blur-md ">
         <Hero />
         <About />
         <Projects />
@@ -25,9 +27,9 @@ export default function Home() {
         <Inquire />
         <Banner />
         <LetsCollaborate />
-        <div className="scale-90 md:scale-100">
+        {/* <div className="scale-90 md:scale-100">
           <Quote />
-        </div>
+        </div> */}
         {/* <OpenGraphBlock /> */}
 
         <Testimonial />

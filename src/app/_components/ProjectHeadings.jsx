@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 
-const BlogHeadings = ({ blogData }) => {
+const ProjectHeadings = ({ projectData }) => {
   const [activeLink, setActiveLink] = useState("");
 
   const formatContentForLink = (content) => {
@@ -25,7 +25,7 @@ const BlogHeadings = ({ blogData }) => {
     }
   };
 
-  const filteredHeadings = blogData?.blogBody?.blocks
+  const filteredHeadings = projectData?.projectBody?.blocks
     .filter((block) => block.blockType === "heading") // Filter for blocks with "heading"
     .map((block, index) => {
       const link = formatContentForLink(block?.body?.content); // Format the content to generate href
@@ -35,8 +35,8 @@ const BlogHeadings = ({ blogData }) => {
         <li key={index} className="flex flex-row gap-2 items-start">
           <button
             onClick={() => handleButtonClick(link)} // Handle button click
-            className={`text-zinc-400 dark:text-zinc-200  mr-2 backdrop-blur-md p-1 text-left rounded-md font-manrope leading-6 ${
-              isActive ? "text-zinc-700" : "dark:text-zinc-600 text-zinc-300"
+            className={`text-zinc-900 dark:text-zinc-200  mr-2 backdrop-blur-md p-1 text-left rounded-md font-manrope leading-6 ${
+              isActive ? "" : "text-zinc-600"
             }`}
           >
             {block?.body?.content}
@@ -52,4 +52,4 @@ const BlogHeadings = ({ blogData }) => {
   );
 };
 
-export default BlogHeadings;
+export default ProjectHeadings;

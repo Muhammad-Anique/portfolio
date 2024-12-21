@@ -5,6 +5,7 @@ import Sidebar from "./_sections/Sidebar";
 import Navbar from "./_sections/Navbar";
 import { Playfair_Display } from "next/font/google";
 import { Manrope, Delicious_Handrawn, Lato } from "next/font/google";
+import { ThemeProvider } from "./_context/ThemeContext";
 
 // Import Manrope font with specific weights
 const manrope = Manrope({
@@ -63,11 +64,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${lato.variable} ${manrope.variable} ${Hand.variable} ${playfair.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${lato.variable} ${manrope.variable} ${Hand.variable} ${playfair.variable} ${geistMono.variable} antialiased dark:bg-black bg-zinc-100`}
       >
-        <Navbar />
-        <Sidebar />
-        {children}
+        <ThemeProvider>
+          <Navbar />
+          <Sidebar />
+
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -9,7 +9,7 @@ const LetsCollaborate = () => {
         <Image
           src="/orange-bg.jpg"
           alt="Spot-water-color"
-          className="absolute hidden md:block -z-10 opacity-80"
+          className="absolute hidden md:block -z-10 dark:opacity-80"
           height={700}
           width={1980}
           style={{ width: "auto", height: "700px" }}
@@ -24,12 +24,12 @@ const LetsCollaborate = () => {
         />
 
         <div className=" cursor-pointer hover:scale-110 duration-200 ease-in-out hover:backdrop-blur-md md:hover:w-[42%] md:hover:h-[60%] hover:rounded-xl -rotate-12 items-center justify-center flex flex-col absolute z-20">
-          <h1 className="text-[40px] md:text-[95px] text-zinc-200 big-winks-text  ">
+          <h1 className="text-[40px] md:text-[95px] text-zinc-200  big-winks-text  ">
             {" "}
             Collaborate
           </h1>
           <div className="flex flex-row space-x-2 items-center justify-center">
-            <p className="text-2xl md:text-4xl text-center big-winks-text">
+            <p className="text-2xl md:text-4xl text-center text-zinc-200 big-winks-text">
               <span className="text-zinc-300">D</span>
               <span className="font-manrope text-zinc-300">rop</span> M
               <span className="font-manrope">e</span>{" "}
@@ -42,7 +42,7 @@ const LetsCollaborate = () => {
 
         {/* <div className='flex flex-col absolute z-20 -translate-y-20 -translate-x-16 '>
             
-            <h1 className='text-[70px] text-zinc-400 shadow-lg big-winks-text rotate-2 '> Lets</h1>
+            <h1 className='text-[70px] text-zinc-700 dark:text-zinc-400 shadow-lg big-winks-text rotate-2 '> Lets</h1>
           </div> */}
       </div>
     </div>

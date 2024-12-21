@@ -7,18 +7,18 @@ const Footer = () => {
     <div className="w-full h-auto flex items-center justify-center">
       <div className="w-full max-w-[1250px] h-auto flex flex-col items-center justify-center">
         <div className="w-full relative md:max-h-[700px] h-auto bg-transparent flex items-center justify-center">
-          <div className="font-manrope font-extrabold text-[#151515]  md:tracking-tighter relative flex items-center justify-center">
+          <div className="font-manrope font-extrabold text-zinc-200 dark:text-[#151515]  md:tracking-tighter relative flex items-center justify-center">
             <span className="font-cairo tracking-tighter text-[190px] sm:text-[300px] md:text-[360px] lg:text-[500px] opacity-70">
               BYE
             </span>
-            <h1 className="absolute text-zinc-200 text-[40px] md:text-[100px]  big-winks-text font-thin tracking-normal">
+            <h1 className="absolute text-p1 dark:text-zinc-200  text-[40px] md:text-[100px]  big-winks-text font-thin tracking-normal">
               Anique
             </h1>
           </div>
         </div>
 
         <div>
-          <p className="text-zinc-300 max-w-3xl text-sm md:text-md text-center font-manrope mb-32 px-7">
+          <p className="text-zinc-700 dark:text-zinc-300 max-w-3xl text-sm md:text-md text-center font-manrope mb-32 px-7">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
             risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
             nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
@@ -31,29 +31,31 @@ const Footer = () => {
         </div>
 
         <div className=" bottom-5 flex flex-col items-center h-full w-full ">
-          <ChevronUpIcon className="w-10 h-10 text-zinc-200" />
+          <ChevronUpIcon className="w-10 h-10 text-zinc-500 dark:text-zinc-200 " />
 
-          <div className="h-[32px] w-[32px] md:h-[50px] md:w-[50px] border flex items-center justify-center border-zinc-200 rounded-full">
+          <div className="h-[32px] w-[32px] md:h-[50px] md:w-[50px] border flex items-center justify-center border-zinc-500 dark:border-zinc-200 rounded-full">
             <ScaleAndScroll />
           </div>
 
-          <div className="h-[100px] md:h-[230px] w-[1px] bg-zinc-200 "></div>
-          <div className="h-[1px] w-[85%] sm:w-[90%]   2xl:w-[100%] bg-zinc-200"></div>
+          <div className="h-[100px] md:h-[230px] w-[1px] bg-zinc-500 dark:bg-zinc-200 "></div>
+          <div className="h-[1px] w-[85%] sm:w-[90%]   2xl:w-[100%] bg-zinc-500 dark:bg-zinc-200"></div>
 
           <div className="w-[85%] sm:w-[90%] 2xl:w-[100%] h-auto py-9 md:py-16 mb-5 flex flex-col md:flex-row items-center justify-between">
             <div className="flex flex-col gap-2">
-              <h1 className="text-8xl text-zinc-200 font-playfair">ma</h1>
-              <p className="font-manrope text-zinc-200 text-xl">
+              <h1 className="text-8xl text-zinc-900 dark:text-zinc-200  font-playfair">
+                ma
+              </h1>
+              <p className="font-manrope text-zinc-900 dark:text-zinc-200  text-xl">
                 Muhammad Anique
               </p>
-              <p className="max-w-xs text-zinc-400 font-manrope text-xs">
+              <p className="max-w-xs text-zinc-600 dark:text-zinc-400 font-manrope text-xs">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
                 risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
                 nec,
               </p>
             </div>
 
-            <div className="flex flex-row md:flex-col gap-5 text-zinc-200  h-full min-h-[130px] items-center justify-center px-4">
+            <div className="flex flex-row md:flex-col gap-5 text-zinc-900 dark:text-zinc-200   h-full min-h-[130px] items-center justify-center px-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -120,14 +122,14 @@ const Footer = () => {
 
             <div className="flex flex-col gap-2">
               <div className="relative self-end">
-                <h1 className="big-winks-text text-4xl text-zinc-200">
+                <h1 className="big-winks-text text-4xl text-zinc-900 dark:text-zinc-200 ">
                   Anique
                 </h1>
               </div>
-              <p className="font-manrope text-zinc-200 text-right text-md">
+              <p className="font-manrope text-zinc-900 dark:text-zinc-200  text-right text-md">
                 anique.cs@gmail.com
               </p>
-              <p className="max-w-xs text-zinc-400 font-manrope text-xs text-right">
+              <p className="max-w-xs text-zinc-600 dark:text-zinc-400 font-manrope text-xs text-right">
                 ©2024 Muhammad Anique. All rights reserved. Unauthorized
                 reproduction or distribution of any content from this site is
                 strictly prohibited.
@@ -177,7 +179,9 @@ const ScaleAndScroll = () => {
         transform: `scale(${scale})`,
       }}
     >
-      {isClicked ? <ChevronUpIcon className="w-64 h-64 text-zinc-200" /> : null}
+      {isClicked ? (
+        <ChevronUpIcon className="w-64 h-64 text-zinc-200 " />
+      ) : null}
     </div>
   );
 };

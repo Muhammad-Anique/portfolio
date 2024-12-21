@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect, useRef } from "react";
 
 const Banner = () => {
@@ -60,14 +60,13 @@ const BannerElement = ({ num, text }) => {
   };
 
   return (
-    <div
-      ref={elementRef}
-      className="flex flex-col items-center justify-center"
-    >
-      <h1 className="text-[140px] md:text-[100px] lg:text-[180px] stroky leading-[150px] md:leading-[110px] lg:leading-[190px]">
+    <div ref={elementRef} className="flex flex-col items-center justify-center">
+      <h1 className="text-[140px] dark:text-zinc-200 text-zinc-800 md:text-[100px] lg:text-[180px] stroky_dark dark:stroky leading-[150px] md:leading-[110px] lg:leading-[190px]">
         {count}+
       </h1>
-      <p className="text-4xl font-thin big-winks-text text-zinc-300">{text}</p>
+      <p className="text-4xl font-thin big-winks-text text-p1 dark:text-zinc-300">
+        {text}
+      </p>
     </div>
   );
 };
