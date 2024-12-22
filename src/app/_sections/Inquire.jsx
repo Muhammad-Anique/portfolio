@@ -13,15 +13,17 @@ const Inquire = () => {
             I cant wait to make indcredible things with you !
           </p>
 
-          <div className="bg-gradient-to-r dark:from-[#2b2b2bd3] dark:to-[#00000049] from-zinc-200/40 to-zinc-300/40 rounded-full w-[220px] h-[40px] flex items-center justify-between">
-            <h1 className="px-4 text-lg font-manrope font-medium">Inquire</h1>
+          <button className="bg-gradient-to-r cursor-pointer group dark:from-[#2b2b2bd3] dark:to-[#00000049] from-zinc-200/40 to-zinc-300/40 rounded-full w-[220px] h-[40px] flex items-center justify-between">
+            <h1 className="px-4 text-lg font-manrope font-medium group-hover:translate-x-[130px] duration-300 transition-transform ease-in-out">
+              Inquire
+            </h1>
             <div
               data-name="circle"
-              className="rounded-full w-[35px] h-[35px] bg-gradient-to-b flex items-center justify-center from-p1 to-orange-400 dark:via-p2 dark:to-p3"
+              className="rounded-full group-hover:-translate-x-[180px] duration-300 transition-transform ease-in-out w-[35px] h-[35px] bg-gradient-to-b flex items-center justify-center from-p1 to-orange-400 "
             >
               <ChevronRight className="w-5 h-5 text-zinc-200 " />
             </div>
-          </div>
+          </button>
         </div>
 
         <div className="w-full relative">
@@ -59,14 +61,17 @@ const Inquire = () => {
 
           <div className="w-full flex items-center justify-center z-[30]">
             <p className="text-zinc-700 dark:text-zinc-300 text-sm md:text-md max-w-3xl text-center font-manrope mb-32">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-              risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
-              nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
-              ligula massa, varius a, semper congue, euismod non, mi. Proin
-              porttitor, orci nec nonummy molestie, enim est eleifend mi, non
-              fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa,
-              scelerisque vitae, consequat in, pretium a, enim. Pellentesque
-              congue.
+              I specialize in using <b>AI</b> to help businesses grow and run
+              more efficiently. I create custom <b>AI software solutions</b>{" "}
+              tailored to your specific needs. With significant experience, I
+              can help you <b>improve processes</b>,{" "}
+              <b>enhance customer experiences</b>, <b>automate tasks</b>, and
+              <b>drive overall growth</b> through AI technology. Whether{" "}
+              {"you're"}
+              looking to streamline operations, make smarter decisions, or
+              improve customer engagement, I can build the right AI tools for
+              you. Let’s <b>set up a meeting</b> to discuss how we can turn your
+              ideas into real, impactful AI solutions.
             </p>
           </div>
         </div>

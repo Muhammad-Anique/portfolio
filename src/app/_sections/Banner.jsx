@@ -6,9 +6,9 @@ const Banner = () => {
     <div className="w-full h-auto py-0 flex items-center justify-center">
       <div className="max-w-[1250px] w-full h-auto">
         <div className="grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 h-auto w-full justify-items-center gap-20 md:gap-0">
-          <BannerElement num={24} text="clients" />
-          <BannerElement num={50} text="projects" />
-          <BannerElement num={100} text="awards" />
+          <BannerElement num={7} text="clients" />
+          <BannerElement num={11} text="projects" />
+          <BannerElement num={5} text="reviews" />
         </div>
       </div>
     </div>

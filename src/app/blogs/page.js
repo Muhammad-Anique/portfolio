@@ -1,4 +1,4 @@
-import OptimizedBackground from "../_components/OptimizedBackground";
+// import OptimizedBackground from "../_components/OptimizedBackground";
 import BlogCardArray from "../_components/BlogCardArray";
 export const metadata = {
   title: "Blogs",
@@ -7,10 +7,10 @@ export const metadata = {
 };
 const BlogsList = async () => {
   return (
-    <div className="w-full h-auto flex-col gap-10 relative flex items-center justify-center ">
-      <OptimizedBackground src={"/l1.jpg"} opacity={10} />
+    <div className="w-full h-auto flex-col gap-10 relative flex items-center justify-center bg-white dark:bg-black ">
+      {/* <OptimizedBackground src={"/l1.jpg"} opacity={10} /> */}
 
-      <div className="w-full backdrop-blur-md dark:backdrop-blur-sm  h-auto py-32 min-h-[1050px] px-7 flex items-center justify-center">
+      <div className="w-full backdrop-blur-md dark:backdrop-blur-sm   h-auto py-32 min-h-[1050px] px-7 flex items-center justify-center">
         <div
           name="container"
           className="h-auto max-w-[1250] w-full  flex flex-col items-center justify-center gap-7 "

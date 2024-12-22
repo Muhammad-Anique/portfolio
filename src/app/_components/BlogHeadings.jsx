@@ -36,7 +36,9 @@ const BlogHeadings = ({ blogData }) => {
           <button
             onClick={() => handleButtonClick(link)} // Handle button click
             className={`text-zinc-400 dark:text-zinc-200  mr-2 backdrop-blur-md p-1 text-left rounded-md font-manrope leading-6 ${
-              isActive ? "text-zinc-700" : "dark:text-zinc-600 text-zinc-300"
+              isActive
+                ? "text-zinc-700 font-bold"
+                : "dark:text-zinc-600 text-zinc-300"
             }`}
           >
             {block?.body?.content}
@@ -46,7 +48,7 @@ const BlogHeadings = ({ blogData }) => {
     });
 
   return (
-    <ul className="space-y-2 fixed xl:max-w-[190px] 2xl:max-w-[230px]">
+    <ul className="space-y-2  xl:max-w-[190px] 2xl:max-w-[230px]">
       {filteredHeadings}
     </ul>
   );

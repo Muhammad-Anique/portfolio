@@ -5,9 +5,9 @@ import React from "react";
 const LetsCollaborate = () => {
   return (
     <div className="w-full h-auto   flex items-center justify-center xs:py-10 sm:py-16  md:py-48">
-      <div className="relative  scale-75 md:scale-90 w-full max-w-[1250px] h-[700px] flex items-center justify-center">
+      <div className="relative t-saturate-0 scale-75 md:scale-90 w-full max-w-[1250px] h-[700px] flex items-center justify-center">
         <Image
-          src="/orange-bg.jpg"
+          src="/orange-bg.png"
           alt="Spot-water-color"
           className="absolute hidden md:block -z-10 "
           height={700}

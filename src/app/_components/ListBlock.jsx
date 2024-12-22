@@ -12,7 +12,7 @@ const ListBlock = (props) => {
           {elements.map((element, index) => (
             <li
               key={index}
-              className="text-zinc-900 dark:text-zinc-200  text-lg md:text-xl bg-gradient-to-r px-5 py-2 dark:from-zinc-800/40 from-zinc-300/50 to-zinc-200/20 dark:to-zinc-900/35 font-lato "
+              className="text-zinc-900 dark:text-zinc-200  text-md md:text-xl bg-gradient-to-r px-3 py-2 dark:from-zinc-800/40 from-zinc-300/50 to-zinc-200/20 dark:to-zinc-900/35 font-lato "
             >
               <span className="font-bold">{index + 1}.</span>{" "}
               <span className="ml-2">{element}</span>
@@ -28,7 +28,7 @@ const ListBlock = (props) => {
           {elements.map((element, index) => (
             <li
               key={index}
-              className="text-zinc-900 dark:text-zinc-200  text-lg md:text-xl bg-gradient-to-r px-5 py-2 dark:from-zinc-800/40 from-zinc-300/50 to-zinc-200/20 dark:to-zinc-900/35  font-lato "
+              className="text-zinc-900 dark:text-zinc-200  text-md md:text-xl bg-gradient-to-r px-3 py-2 dark:from-zinc-800/40 from-zinc-300/50 to-zinc-200/20 dark:to-zinc-900/35  font-lato "
             >
               {element}
             </li>

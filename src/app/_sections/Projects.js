@@ -31,7 +31,7 @@ const Projects = async () => {
             </h1>
             <div
               data-name="circle"
-              className="rounded-full w-[45px] md:w-[55px] h-[45px] md:h-[55px] bg-gradient-to-b flex items-center justify-center from-p1 to-orange-400 dark:via-p2 dark:to-p3"
+              className="rounded-full w-[45px] md:w-[55px] h-[45px] md:h-[55px] bg-gradient-to-b flex items-center justify-center from-p1 to-orange-400 "
             >
               <p className="font-medium text-2xl md:text-3xl text-zinc-100 font-manrope">
                 {remainingProjects > 0 ? remainingProjects : 0}

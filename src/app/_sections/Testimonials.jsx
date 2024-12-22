@@ -2,10 +2,8 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
-import { useTheme } from "../_context/ThemeContext";
 
 const Testimonials = () => {
-  const { theme } = useTheme();
   const testimonials = [
     {
       id: `1`,
@@ -75,23 +73,13 @@ const Testimonials = () => {
 
         <div className="absolute -translate-y-24  top-0 left-[9%] md:left-[16%] z-20 block ">
           <div className="relative w-[170px] h-[170px] scale-50 sm:scale-75 md:scale-90">
-            {theme === "dark" ? (
-              <Image
-                className="w-full"
-                src="/quote.png"
-                alt="Water-Spot"
-                width={1000}
-                height={1000}
-              />
-            ) : (
-              <Image
-                className="w-full"
-                src="/quote2.png"
-                alt="Water-Spot"
-                width={1000}
-                height={1000}
-              />
-            )}
+            <Image
+              className="w-full"
+              src="/quote2.png"
+              alt="Water-Spot"
+              width={1000}
+              height={1000}
+            />
           </div>
         </div>
 

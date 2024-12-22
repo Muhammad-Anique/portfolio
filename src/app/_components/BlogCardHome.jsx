@@ -37,7 +37,7 @@ const BlogCardHome = ({ blog }) => {
       </div>
 
       <div className=" hover:-rotate-12 transition-transform scale-75 md:scale-100 w-[110px] h-[110px] group-hover:scale-105 group-hover:rotate-2 duration-200 ease-in-out rounded-full border-2 border-dashed border-orange-400/40  dark:border-[#58585889] flex items-center justify-center absolute bottom-0 right-0 z-10 translate-x-8  md:translate-x-12 translate-y-8 md:translate-y-12 ">
-        <div className="w-[80px] h-[80px] rounded-full bg-gradient-to-b from-p1 to-orange-400 dark:via-p2 dark:to-p3 flex items-center justify-center">
+        <div className="w-[80px] h-[80px] rounded-full bg-gradient-to-b from-p1 to-orange-400  flex items-center justify-center">
           <ChevronRight className="text-zinc-100  w-10 h-10" />
         </div>
       </div>

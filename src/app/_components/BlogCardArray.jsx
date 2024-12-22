@@ -2,15 +2,24 @@ import React from "react";
 import BlogCard from "./BlogCard";
 import { fetchAllBlogs } from "../lib/api";
 import Link from "next/link";
+
 const BlogCardArray = async () => {
   const blogs = await fetchAllBlogs(); // Fetch data server-side
   console.log("THE BLOGSS FETCHED = > ", blogs);
   return (
     <>
       {blogs ? (
-        <div className="flex flex-row flex-wrap items-center justify-center  gap-10 xl:gap-12 2xl:gap-10 w-full h-auto">
-          {blogs?.map((blog) => (
-            <Link key={blog.id} href={`/blogs/${blog?.slug}`} className="">
+        <div className="grid grid-cols-1 lg:grid-cols-2  justify-items-center gap-8 xl:gap-9 2xl:gap-8 w-full h-auto">
+          {blogs?.map((blog, index) => (
+            <Link
+              key={blog.id}
+              href={`/blogs/${blog?.slug}`}
+              className={
+                index % 2 === 0
+                  ? "lg:justify-self-end"
+                  : "lg:justify-self-start"
+              }
+            >
               <BlogCard blog={blog} />
             </Link>
           ))}

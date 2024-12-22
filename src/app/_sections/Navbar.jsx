@@ -33,8 +33,11 @@ const Navbar = () => {
       <div className="w-full fixed backdrop-blur-sm 2xl:backdrop-blur-none  h-[8vh] max-h-[100px] md:h-[10vh] top-0 z-50 flex items-center justify-center">
         <div className="w-full px-7 lg:px-16 2xl:px-24 xl:px-16 flex flex-row justify-between items-center">
           <div className="relative w-auto h-auto  flex items-start">
-            <Link href={"/"}>
-              <h1 className="font-normal cursor-pointer text-zinc-900 dark:text-zinc-200  text-3xl md:text-6xl font-playfair -translate-y-1 leading-0">
+            <Link
+              href={"/"}
+              className="hover:scale-105 duration-150 ease-in-out transition-transform"
+            >
+              <h1 className="font-normal  cursor-pointer text-zinc-900 dark:text-zinc-200  text-3xl md:text-6xl font-playfair -translate-y-1 leading-0">
                 ma{" "}
               </h1>
             </Link>
