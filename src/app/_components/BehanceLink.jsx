@@ -18,7 +18,6 @@ const BehanceLink = () => {
         className="fill-zinc-900 dark:fill-zinc-200 translate-x-[2px] -translate-y-[6px] md:-translate-y-3"
       >
         <g
-          fill="#ffffff"
           fillRule="nonzero"
           stroke="none"
           strokeWidth="1"
