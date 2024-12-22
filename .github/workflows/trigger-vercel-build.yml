@@ -1,0 +1,27 @@
+name: Trigger Vercel Build
+
+on:
+  schedule:
+    # Run every 6 hours
+    - cron: '0 */6 * * *'  # Every 6 hours
+
+jobs:
+  trigger-vercel-build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+      
+      - name: Trigger Vercel Build
+        env:
+          VERCELE_API_TOKEN: ${{ secrets.VERCEL_API_TOKEN }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          curl -X POST https://api.vercel.com/v12/now/deployments \
+            -H "Authorization: Bearer $VERCELE_API_TOKEN" \
+            -d '{
+              "name": "$VERCEL_PROJECT_ID",
+              "public": true,
+              "force": true
+            }'
