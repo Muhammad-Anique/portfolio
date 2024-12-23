@@ -6,7 +6,6 @@ import Blogs from "./_sections/Blogs";
 import Inquire from "./_sections/Inquire";
 import LetsCollaborate from "./_sections/LetsCollaborate";
 import Testimonial from "./_sections/Testimonials";
-import MediaWall from "./_sections/MediaWall";
 import Banner from "./_sections/Banner";
 import OptimizedBackground from "./_components/OptimizedBackground";
 // import Quote from "./_sections/Quote";
