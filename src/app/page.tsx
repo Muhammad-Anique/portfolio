@@ -33,7 +33,7 @@ export default function Home() {
         {/* <OpenGraphBlock /> */}
 
         <Testimonial />
-        <MediaWall />
+        {/* <MediaWall /> */}
         <Footer />
       </div>
     </div>
