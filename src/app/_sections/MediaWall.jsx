@@ -308,7 +308,7 @@ const MediaWall = () => {
               <ChevronDown className="w-7 h-7 text-zinc-800 dark:text-zinc-200 " />
             </button>
           </div>
-          <div className=" sm:px-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-[82%] md:w-[100%] gap-3 justify-items-center align-items-center ">
+          <div className=" sm:px-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-[82%] md:w-[85%] gap-3 justify-items-center align-items-center ">
             {columns.map((colPosts, index) => (
               <div key={index} className="flex flex-col gap-4 ">
                 {colPosts.map((post) => (

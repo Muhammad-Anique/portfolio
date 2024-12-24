@@ -10,6 +10,7 @@ import Banner from "./_sections/Banner";
 import OptimizedBackground from "./_components/OptimizedBackground";
 // import Quote from "./_sections/Quote";
 import Footer from "./_sections/Footer";
+// import MediaWall from "./_sections/MediaWall";
 import CursorFlowEffect from "./_components/CursorFlowEffect";
 // import OpenGraphBlock from "./_components/OpenGraphBlock";
 export default function Home() {

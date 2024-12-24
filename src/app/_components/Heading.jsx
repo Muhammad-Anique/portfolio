@@ -10,12 +10,18 @@ const Heading = ({ content }) => {
   const formattedLink = formatContentForLink(content);
 
   return (
-    <h1
-      id={formattedLink}
-      className="text-2xl md:text-3xl mt-9 ml:mt-20  font-lato font-extrabold text-zinc-900 dark:text-zinc-200 "
-    >
-      {content}
-    </h1>
+    <div className="flex gap-2 mt-9  md:w-auto flex-col">
+      <div className="flex flex-row  w-auto items-center gap-2">
+        <h1
+          id={formattedLink}
+          className="text-2xl md:text-3xl  leading-0  font-lato font-extrabold text-zinc-900 dark:text-zinc-200 "
+        >
+          {content}
+        </h1>
+      </div>
+
+      <div className="rounded-full w-[30%] min-w-[100px] max-w-[140px]  h-[4px] bg-p1"></div>
+    </div>
   );
 };
 

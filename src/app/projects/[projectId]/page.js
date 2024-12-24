@@ -140,11 +140,16 @@ const ProjectPage = async ({ params }) => {
             <hr className="h-[5px] w-[60%] self-center border-none skew-x-[60deg] bg-gradient-to-r from-p1 via-p2 to-p3" />
             <FooterNormal />
           </div>
-          {projectData && (
-            <div className=" xl:w-[190px] 2xl:w-[230px] hidden absolute xl:right-[3%] 2xl:right-[5%] top-[16%] z-30 xl:flex h-full  py-2">
-              <ProjectHeadings projectData={projectData} />
-            </div>
-          )}
+
+          <div className="xl:flex flex-col hidden  fixed z-30 xl:w-[190px] 2xl:w-[230px]   xl:right-[3%] 2xl:right-[5%] top-[16%] ">
+            <p className="font-extrabold">Content</p>
+            <div className="h-[5px] rounded-full w-[40%] bg-p1 mt-2"></div>
+            {projectData && (
+              <div className="flex flex-col py-2">
+                <ProjectHeadings projectData={projectData} />
+              </div>
+            )}
+          </div>
         </div>
       ) : (
         <></>

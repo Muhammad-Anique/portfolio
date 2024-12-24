@@ -36,7 +36,7 @@ const ProjectHeadings = ({ projectData }) => {
           <button
             onClick={() => handleButtonClick(link)} // Handle button click
             className={`text-zinc-900 dark:text-zinc-200  mr-2 backdrop-blur-md p-1 text-left rounded-md font-manrope leading-6 ${
-              isActive ? "" : "text-zinc-600"
+              isActive ? "t font-bold" : "text-zinc-300"
             }`}
           >
             {block?.body?.content}
