@@ -16,7 +16,7 @@ const OptimizedBackground = ({ src, opacity }) => {
         priority={false} // Set to true if this image is critical to display immediately
         loading="lazy" // Lazy loading enabled (default for Next.js)
         style={{
-          filter: "invert(0)", // Apply your filter if needed
+          filter: "invert(0)",
         }}
       />
     </div>

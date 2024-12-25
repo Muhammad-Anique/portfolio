@@ -9,6 +9,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: "480px", // Custom extra small screen
+        sm: "640px", // Small devices (default)
+        md: "768px", // Medium devices (default)
+        lg: "1024px", // Large devices (default)
+        xl: "1280px", // Extra large devices (default)
+        "2xl": "1536px", // Double extra large (default)
+        "3xl": "1920px", // Custom triple extra large screen
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -26,7 +35,7 @@ const config: Config = {
       },
     },
   },
-
   plugins: [],
 };
+
 export default config;

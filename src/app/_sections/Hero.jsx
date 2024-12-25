@@ -7,11 +7,11 @@ import LinkedInLink from "../_components/LinkedInLink";
 
 const Hero = () => {
   return (
-    <div className="py-32 px-4 backdrop-blur-md relative max-h-[1050px] sm:px-10 md:px-16 lg:px-32 w-full  h-[100vh] flex flex-row justify-center ">
+    <div className="py-32 px-4  relative max-h-[1050px] sm:px-10 md:px-16 lg:px-32 w-full  h-[100vh] flex flex-row justify-center ">
       <div className="flex scale-90 lg:scale-110 h-full flex-col md:flex-col md:gap-0 items-center justify-center">
         <div className="flex  items-center justify-center">
           <div className="relative  flex items-center justify-center w-[250px] h-[250px] md:w-[350px] md:h-[350px]">
-            <div className="z-10 flex items-start justify-center w-[210px] h-[210px]  md:w-[300px] md:h-[300px] overflow-hidden rounded-lg dark:rounded-full backdrop-blur-sm bg-gradient-to-b  dark:from-[#090909] dark:to-[#36363648] ">
+            <div className="z-10 flex items-start justify-center w-[210px] h-[210px]  md:w-[300px] md:h-[300px] overflow-hidden rounded-lg dark:rounded-full  bg-gradient-to-b  dark:from-[#090909] dark:to-[#36363648] ">
               <Image
                 src="/logo-anique.png"
                 alt="profile-image"

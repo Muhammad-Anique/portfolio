@@ -7,7 +7,7 @@ const Blogs = async () => {
   const displayedBlogs = blogs.slice(0, 2);
 
   return (
-    <div className="w-full  h-auto pb-16 min-h-[1050px] px-7 flex items-center justify-center">
+    <div className="w-full  h-auto py-32 min-h-[1050px] px-7 flex items-center justify-center">
       <div
         name="container"
         className="h-auto max-w-[1250] w-full  flex flex-col items-center justify-center gap-7 "

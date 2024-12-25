@@ -156,6 +156,23 @@ body {
 .t-saturate-0 {
   filter: saturate(0.85);
 }
+.spinner {
+  border: 4px solid #f3f3f3; /* Light grey background color */
+  border-top: 4px solid #ec420f; /* Blue color for the spinner */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 .underlined_c {
   position: relative;

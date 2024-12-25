@@ -20,7 +20,7 @@ const Heading = ({ content }) => {
         </h1>
       </div>
 
-      <div className="rounded-full w-[30%] min-w-[100px] max-w-[140px]  h-[4px] bg-p1"></div>
+      <div className="rounded-full w-[30%] min-w-[100px] max-w-[140px]  h-[4px] bg-gradient-to-r from-p1 to-orange-400 "></div>
     </div>
   );
 };

@@ -217,8 +217,10 @@ const BlogPage = async ({ params }) => {
                   name="table-of-content"
                   className="sticky hidden xl:flex mt-16 w-[15%] top-16 self-start "
                 >
-                  <div className="flex   flex-col ">
-                    <p className="font-extrabold">Content</p>
+                  <div className="flex flex-col ">
+                    <p className="font-extrabold text-2xl mb-2  text-zinc-800 dark:text-zinc-200">
+                      Content
+                    </p>
                     <div className="h-[5px] rounded-full w-[40%] bg-p1"></div>
                     {blogData && (
                       <div className=" xl:w-[190px] 2xl:w-[230px] hidden   z-30 xl:flex   py-2">

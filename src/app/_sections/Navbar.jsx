@@ -42,7 +42,7 @@ const Navbar = () => {
               </h1>
             </Link>
 
-            <div className="w-2 h-2 md:w-4 md:h-4 rounded-full bg-p1 right-0 bottom-0 absolute -translate-y-[4px] lg:translate-x-6 translate-x-[10px] md:translate-x-2"></div>
+            <div className="w-2 h-2 md:w-4 md:h-4 rounded-full bg-p1 right-0 bottom-0 absolute -translate-y-[4px] lg:translate-x-6 translate-x-[10px] md:translate-x-5"></div>
           </div>
           <ThemeToggle />
 

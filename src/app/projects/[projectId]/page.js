@@ -7,7 +7,7 @@ import Heading from "../../_components/Heading";
 import Paragraph from "../../_components/Paragraph";
 import ImageBlock from "../../_components/ImageBlock";
 import FooterNormal from "@/app/_sections/FooterNormal";
-import ProjectHeadings from "../../_components/ProjectHeadings";
+import ProjectIndex from "../../_components/ProjectIndex";
 import LaptopSS from "../../_components/LaptopSS";
 import MobileSSArray from "../../_components/MobileSSArray";
 // import StackCards from "../../_components/StackCards";
@@ -37,7 +37,7 @@ const BlockSelector = (props) => {
     return <CodeBlock language={body?.language} code={body?.code} />;
   else if (blockType === "list") {
     return (
-      <div className="mt-5 md:mt-8">
+      <div className="mt-0">
         <ListBlock
           type={body?.type}
           elements={body?.elements}
@@ -52,7 +52,7 @@ const BlockSelector = (props) => {
   } else if (blockType === "image") {
     return <ImageBlock src={body?.src} alt={body?.alt} />;
   } else if (blockType === "laptop-ss") {
-    return <LaptopSS src={body?.src} alt={body?.alt} />;
+    return <LaptopSS body={body} />;
   }
   // else if (blockType === "stack-cards") {
   //   return <StackCards body={body} />;
@@ -70,10 +70,10 @@ const ProjectPage = async ({ params }) => {
   return (
     <div className="w-full h-full min-h-screen bg-transparent flex justify-center ">
       <OptimizedBackground src={"/l1.jpg"} opacity={10} />
-
+      <ProjectIndex projectData={projectData} />
       {projectData ? (
-        <div className="max-w-[1400px] w-full 2xl:py-32   flex flex-col gap-2 ">
-          <div className="w-full xl:max-w-[85%] pt-32 pb-0  2xl:max-w-[90%] backdrop-blur-md px-5 sm:px-10 md:px-16  flex flex-col gap-24">
+        <div className="max-w-[1400px] w-full  flex flex-col gap-2 ">
+          <div className="w-full xl:max-w-[1520px] pt-24 md:pt-32 lg:pt-44 pb-0   backdrop-blur-md bg-zinc-50/85 dark:bg-zinc-900/10 px-5 sm:px-10 md:px-16  flex flex-col gap-24">
             <ProjectPageHeader project={projectData} />
             <div className="flex flex-col w-full gap-2">
               <div className="relative">
@@ -91,7 +91,7 @@ const ProjectPage = async ({ params }) => {
                   </div>
                 </div>
 
-                <div className="w-full h-full aspect-[16/9]  p-10 rounded-xl  absolute top-0 z-10">
+                {/* <div className="w-full h-full aspect-[16/9]  p-10 rounded-xl  absolute top-0 z-10">
                   <div className="absolute hidden md:flex flex-row flex-wrap gap-2">
                     {projectData?.projectBody?.tags.map((tag, index) => {
                       return (
@@ -106,15 +106,15 @@ const ProjectPage = async ({ params }) => {
                       );
                     })}
                   </div>
-                </div>
+                </div> */}
               </div>
 
-              <div className="mt-5 flex md:hidden flex-row flex-wrap gap-3">
+              <div className="mt-5  flex flex-row flex-wrap gap-3">
                 {projectData?.projectBody?.tags.map((tag, index) => {
                   return (
                     <div
                       key={index}
-                      className="px-2 py-1 bg-gradient-to-r dark:from-zinc-800/30 dark:to-zinc-950/40 from:bg-zinc-200/90 to-zinc-200/80 rounded-lg backdrop-blur-md "
+                      className="px-2 py-1 bg-gradient-to-r dark:from-zinc-800/30 dark:to-zinc-950/40 from-zinc-50 border border-zinc-200/80 to-zinc-50 rounded-lg backdrop-blur-md "
                     >
                       <h1 className="text-zinc-900 dark:text-zinc-200  text-sm font-lato">
                         {tag}
@@ -124,31 +124,23 @@ const ProjectPage = async ({ params }) => {
                 })}
               </div>
 
-              <div className="flex flex-col gap-5">
-                {projectData?.projectBody?.blocks.map((block, index) => {
-                  return (
-                    <BlockSelector
-                      blockType={block.blockType}
-                      key={index}
-                      body={block.body}
-                    />
-                  );
-                })}
+              <div className="flex flex-row gap-10 w-full">
+                <div className="flex flex-col gap-5 w-full">
+                  {projectData?.projectBody?.blocks.map((block, index) => {
+                    return (
+                      <BlockSelector
+                        blockType={block.blockType}
+                        key={index}
+                        body={block.body}
+                      />
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
             <hr className="h-[5px] w-[60%] self-center border-none skew-x-[60deg] bg-gradient-to-r from-p1 via-p2 to-p3" />
             <FooterNormal />
-          </div>
-
-          <div className="xl:flex flex-col hidden  fixed z-30 xl:w-[190px] 2xl:w-[230px]   xl:right-[3%] 2xl:right-[5%] top-[16%] ">
-            <p className="font-extrabold">Content</p>
-            <div className="h-[5px] rounded-full w-[40%] bg-p1 mt-2"></div>
-            {projectData && (
-              <div className="flex flex-col py-2">
-                <ProjectHeadings projectData={projectData} />
-              </div>
-            )}
           </div>
         </div>
       ) : (

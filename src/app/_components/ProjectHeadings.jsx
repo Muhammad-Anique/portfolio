@@ -32,11 +32,13 @@ const ProjectHeadings = ({ projectData }) => {
       const isActive = link === activeLink; // Compare link directly with activeLink
 
       return (
-        <li key={index} className="flex flex-row gap-2 items-start">
+        <li key={index} className="flex w-full flex-row gap-2 items-start">
           <button
             onClick={() => handleButtonClick(link)} // Handle button click
-            className={`text-zinc-900 dark:text-zinc-200  mr-2 backdrop-blur-md p-1 text-left rounded-md font-manrope leading-6 ${
-              isActive ? "t font-bold" : "text-zinc-300"
+            className={`text-zinc-500 dark:text-zinc-200  mr-2  p-1 text-left rounded-md font-lato leading-6 ${
+              isActive
+                ? "text-zinc-800 dark:text-zinc-200 font-bold"
+                : "text-zinc-300"
             }`}
           >
             {block?.body?.content}
@@ -45,11 +47,7 @@ const ProjectHeadings = ({ projectData }) => {
       );
     });
 
-  return (
-    <ul className="space-y-2 fixed xl:max-w-[190px] 2xl:max-w-[230px]">
-      {filteredHeadings}
-    </ul>
-  );
+  return <ul className="space-y-2 w-full ">{filteredHeadings}</ul>;
 };
 
 export default ProjectHeadings;

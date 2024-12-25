@@ -13,16 +13,16 @@ const MobileSS = ({ src, alt, index }) => {
         width={1000}
         height={1500}
         alt="mobile-mockup-transparent"
-        className="w-full h-auto " // Make image fully responsive
+        className="w-full h-auto  " // Make image fully responsive
       />
-      <div className="absolute inset-0 flex justify-center items-center w-[40%] xl:h-[75%] 2xl:h-[55%] left-auto right-auto  xl:top-[15%] 2xl:top-[23%]">
-        <div className="bg-zinc-900  rounded-[20px] overflow-hidden  shadow-lg flex items-center justify-center">
+      <div className="absolute inset-0 flex justify-center items-center w-[40%] xl:h-[70%] 2xl:h-[57%] left-auto right-auto  xl:top-[15%] 2xl:top-[21%]">
+        <div className="bg-zinc-900   rounded-[20px] overflow-hidden  shadow-lg flex items-center justify-center">
           <Image
             src={src} // Replace with your screenshot's path
             alt={alt}
             fill
             objectFit="cover" // Ensure it scales properly
-            className="rounded-[5px] md:rounded-[10px] xl:rounded-[10px] lg:rounded-[10px]" // Match rounded corners
+            className="scale-y-105 rounded-[5px] md:rounded-[10px] xl:rounded-[10px] lg:rounded-[10px]" // Match rounded corners
           />
         </div>
       </div>

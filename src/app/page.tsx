@@ -15,10 +15,10 @@ import CursorFlowEffect from "./_components/CursorFlowEffect";
 // import OpenGraphBlock from "./_components/OpenGraphBlock";
 export default function Home() {
   return (
-    <div className="relative w-full text-zinc-900 dark:text-zinc-200  h-auto flex items-center justify-center flex-col overflow-x-hidden">
+    <div className="relative w-full text-zinc-900 dark:text-zinc-200   h-auto flex items-center justify-center flex-col overflow-x-hidden">
       <OptimizedBackground src={"/l1.jpg"} opacity={10} />
       <CursorFlowEffect />
-      <div className="relative w-screen z-10 backdrop-blur-md ">
+      <div className="relative w-screen z-10 bg-white/40 dark:bg-black/30 backdrop-blur-md ">
         <Hero />
         <About />
         <Projects />
