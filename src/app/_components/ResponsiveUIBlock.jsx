@@ -10,7 +10,7 @@ const ResponsiveUIBlock = (props) => {
   return (
     <>
       <div className="w-full z-50 mt-5 flex flex-col items-end justify-end self-end  ">
-        <div className="flex items-center justify-center gap-2 z-20">
+        <div className="hidden lg:flex items-center justify-center gap-2 z-20">
           <button
             onClick={() => {
               setScreen(1);
@@ -40,7 +40,7 @@ const ResponsiveUIBlock = (props) => {
         </div>
       </div>
 
-      <div className="w-full h-auto relative rounded-xl overflow-hidden flex items-center justify-center">
+      <div className="hidden w-full h-auto relative rounded-xl overflow-hidden md:flex items-center justify-center">
         {screen === 1 ? (
           <motion.div
             key="laptop"
@@ -94,28 +94,20 @@ const ResponsiveUIBlock = (props) => {
                 </div>
               </motion.div>
             </div>
-
-            <div className="flex lg:hidden w-full">
-              <motion.div
-                key="mobile-small"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Image
-                  src={"/HOME-MOBILE.avif"}
-                  alt="Laptop UI"
-                  layout="responsive"
-                  width={16} // Example aspect ratio, adjust accordingly
-                  height={9} // Example aspect ratio, adjust accordingly
-                  className="rounded-lg"
-                  priority
-                />
-              </motion.div>
-            </div>
           </>
         )}
+      </div>
+
+      <div className="flex md:hidden w-full relative h-auto ">
+        <Image
+          src={props?.mobile}
+          alt="Laptop UI"
+          layout="responsive"
+          width={16} // Example aspect ratio, adjust accordingly
+          height={9} // Example aspect ratio, adjust accordingly
+          className="rounded-lg"
+          priority
+        />
       </div>
     </>
   );

@@ -84,7 +84,7 @@ const BlogPage = async ({ params }) => {
 
       {blogData ? (
         <div className="max-w-[1520px] z-10 w-full  px-2   flex flex-row gap-10">
-          <div className="w-full xl:max-w-[100%] pt-32 pb-0  backdrop-blur-md px-5 sm:px-10 md:px-16  flex flex-col gap-24">
+          <div className="w-full xl:max-w-[100%] pt-32 pb-0  backdrop-blur-md bg-zinc-50/85 dark:bg-zinc-900/10  px-5 sm:px-10 md:px-16  flex flex-col gap-24">
             <div className="flex flex-col gap-5 items-center justify-center h-auto ">
               <div className="flex flex-col w-full items-center justify-center  h-full">
                 <h1 className="text-5xl max-w-3xl md:text-6xl text-center xl:text-7xl text-zinc-900 dark:text-zinc-200 font-extrabold  font-lato">
@@ -93,7 +93,7 @@ const BlogPage = async ({ params }) => {
               </div>
 
               <div className="flex flex-col w-full lg:w-[55%] gap-7 h-full  items-center justify-center  ">
-                <p className="max-w-sm text-center text-zinc-900 dark:text-zinc-200  text-sm xl:text-md h-full t">
+                <p className="max-w-2xl text-center text-zinc-900 dark:text-zinc-200  text-sm xl:text-md h-full t">
                   {blogData?.blogExcerpt}
                 </p>
                 <div className="flex flex-row items-center  gap-3   ">

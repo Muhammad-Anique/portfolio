@@ -1,18 +1,43 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { MoveUpLeftIcon } from "lucide-react";
 const ProjectCardFullScreen = ({ project }) => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [showCursor, setShowCursor] = useState(false);
+  const primary = project?.primaryColor || "#EC420F";
+  const secondary = project?.secondaryColor || "#FFA500";
+  const tertiary = project?.tertiaryColor || "#EC420F";
 
-  function truncateExcerpt(excerpt) {
-    const words = excerpt.split(" "); // Split the excerpt into an array of words
-    if (words.length > 18) {
-      return words.slice(0, 18).join(" ") + "    ..... read more"; // Get first 20 words and append 'Read more'
+  useEffect(() => {
+    const sidebar = document.getElementById("sidebar-main");
+    const more = document.getElementById("more-button-project");
+    console.log("Sidebar >>>", sidebar);
+    const navdot = document.getElementById("nav-dot");
+    if (showCursor) {
+      if (sidebar) {
+        sidebar.style.background = `linear-gradient(to bottom, ${primary}, ${secondary})`;
+      }
+      if (more) {
+        more.style.background = `linear-gradient(to bottom, ${primary}, ${secondary})`;
+      }
+      if (navdot) {
+        navdot.style.backgroundColor = `${tertiary}`;
+      }
+    } else {
+      if (sidebar) {
+        sidebar.style.background = `linear-gradient(to bottom, #EC420F, #FFA500)`; // Default gradient
+      }
+      if (navdot) {
+        navdot.style.backgroundColor = "#EC420F"; // Default solid color
+      }
+      if (more) {
+        more.style.background = `linear-gradient(to bottom, #EC420F, #FFA500)`; // Default grad
+      }
     }
-    return excerpt; // Return the full excerpt if it's less than or equal to 20 words
-  }
+  }, [showCursor]);
+
   const handleMouseMove = (e) => {
     setCursorPosition({ x: e.clientX, y: e.clientY });
   };
@@ -51,30 +76,47 @@ const ProjectCardFullScreen = ({ project }) => {
         prefetch={true}
         href={`/projects/${project?.projectBody?.slug}`}
         data-name="Project"
-        className="w-full min-h-[200px] cursor-pointer  duration-200 bg-gradient-to-b  border border-zinc-300/65 rounded-lg dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-950/20  p-2 sm:p-3 ease-in-out transition-all  h-auto  flex flex-col lg:flex-row justify-between items-center gap-6 xs:gap-8 sm:gap-10 2xl:gap-16"
+        className="w-full  cursor-pointer bg-zinc-50 dark:bg-zinc-950  p-1 rounded-[17px] md:rounded-[22px] duration-200 ease-in-out transition-all  h-auto  flex flex-col lg:flex-row justify-between items-center gap-6 xs:gap-8 sm:gap-10 2xl:gap-16"
         onMouseEnter={() => setShowCursor(true)}
         onMouseLeave={() => setShowCursor(false)}
         onMouseMove={handleMouseMove}
       >
         <div className="flex flex-col w-full h-full gap-2 items-start self-start md:self-center ">
-          <div className="relative overflow-hidden rounded-lg w-full h-full ">
+          <div className="relative overflow-hidden rounded-[15px] md:rounded-[20px] w-full h-full ">
             <div
               className="relative w-full h-0"
               style={{ paddingTop: "56.25%" }}
             >
               {/* The paddingTop is calculated as (9 / 16) * 100 for a 16:9 ratio */}
               <Image
-                src={project?.projectFeatureImage || "/placeholder.jpg"} // Fallback to a placeholder
+                src={project?.projectThumbnail || "/l1.jpg"} // Fallback to a placeholder
                 alt={project?.projectFeatureAlt || "Project Feature Image"}
                 fill
                 objectFit="cover"
                 className="rounded-lg"
               />
             </div>
+
+            <div className="bg-zinc-50  dark:bg-zinc-950  absolute bottom-0 right-0 z-10 w-[180px] xs:w-[270px] md:w-[260px] xl:w-[400px] rounded-tl-[15px] md:rounded-tl-[20px] h-[40px] md:h-[45px] xl:h-[60px]"></div>
+            <div
+              className={`  white-shd2 z-10 absolute bottom-0 right-[180px] xs:right-[270px] md:right-[260px] xl:right-[400px] w-[40px] h-[40px] rounded-full`}
+            ></div>
+            <div
+              className={` white-shd2 z-10 absolute bottom-[40px] md:bottom-[45px] xl:bottom-[60px] right-0 w-[40px] h-[40px] rounded-full`}
+            ></div>
+
+            <div className="absolute z-10 bottom-0 right-0 flex items-center w-[180px] xs:w-[270px] md:w-[260px] xl:w-[400px]  justify-between px-3 md:px-5 h-[40px] md:h-[45px] xl:h-[60px]">
+              <h1
+                className={` text-zinc-950 dark:text-zinc-200 text-xl xl:text-3xl font-lato `}
+              >
+                {project?.projectTitle}
+              </h1>
+              <MoveUpLeftIcon className="w-5 h-5 xl:w-7 xl:h-7 text-zinc-900 dark:text-zinc-200" />
+            </div>
           </div>
         </div>
 
-        <div className="flex w-full h-full  flex-row items-end gap-3 self-center  ">
+        {/* <div className="flex w-full h-full  flex-row items-end gap-3 self-center  ">
           <div className="flex w-full p-2   flex-col items-end gap-3 self-center ">
             <div className="flex flex-row gap-3 md:gap-5 items-center">
               <h1 className="text-zinc-900 dark:text-zinc-200 font-semibold text-right  text-3xl sm:text-4xl md:text-6xl lg:text-5xl xl:text-6xl">
@@ -118,7 +160,7 @@ const ProjectCardFullScreen = ({ project }) => {
             </div>
           </div>
           <div className="w-[6px] h-full hidden  mt-1 min-h-[200px] sm:min-h-[250px]  lg:min-h-[230px] h bg-gradient-to-b from-p1 to-orange-400 self-start md:self-center rounded-full"></div>
-        </div>
+        </div> */}
       </Link>
     </>
   );

@@ -156,6 +156,10 @@ body {
 .t-saturate-0 {
   filter: saturate(0.85);
 }
+
+.t-saturate-no {
+  filter: saturate(0);
+}
 .spinner {
   border: 4px solid #f3f3f3; /* Light grey background color */
   border-top: 4px solid #ec420f; /* Blue color for the spinner */
@@ -227,4 +231,24 @@ body {
 
 .checkbox:checked + .checkbox-label .ball {
   transform: translateX(24px);
+}
+
+.white-shd {
+  box-shadow: -18px -18px 0 #ffffff;
+}
+
+.white-shd2 {
+  box-shadow: 18px 18px 0 #ffffff;
+}
+
+.black-shd {
+  box-shadow: -18px -18px 0 #000000;
+}
+
+.black-shd2 {
+  box-shadow: 18px 18px 0 #000000;
+}
+
+.dark .not-white-shd2 {
+  box-shadow: none; /* Override white-shd2 styles */
 }

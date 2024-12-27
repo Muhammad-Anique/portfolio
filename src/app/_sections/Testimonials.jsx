@@ -60,7 +60,7 @@ const Testimonials = () => {
     <div className="w-full flex items-center justify-center  -translate-y-10 py-10 md:-translate-y-0  md:py-24 h-auto">
       <div className="w-full max-w-[1250px] pb-16 h-full bg-transparent flex items-center justify-center relative">
         <div className="absolute -z-10 left-0">
-          <div className="relative w-[700px] h-[700px] skew-y-12 rotate-45 opacity-[0.05] -translate-x-20 -translate-y-20">
+          <div className="relative w-[700px] h-[700px] skew-y-12 rotate-45 opacity-[0.8] -translate-x-20 -translate-y-20">
             <Image
               className="w-full"
               src="/spot1.png"
@@ -83,7 +83,7 @@ const Testimonials = () => {
           </div>
         </div>
 
-        <div className="w-[75%] duration-200 ease-in-out transition-transform  h-auto min-h-[550px] dark:bg-zinc-50/0 dark:bg-gradient-to-b dark:from-[#131313] flex flex-col gap-1 items-center justify-center dark:backdrop-blur-0 dark:rounded-none backdrop-blur-sm bg-zinc-300/30 rounded-lg dark:to-[#21212100] pt-12 md:pt-20  p-7">
+        <div className="w-[75%] duration-200 ease-in-out transition-transform  h-auto min-h-[550px] dark:bg-zinc-50/0 dark:bg-gradient-to-b dark:from-[#131313] flex flex-col gap-1 items-center justify-center dark:backdrop-blur-0 dark:rounded-none backdrop-blur-sm bg-zinc-50/70 rounded-lg dark:to-[#21212100] pt-12 md:pt-20  p-7">
           <h1 className="font-manrope duration-200 ease-in-out transition-transform text-md md:text-xl text-zinc-700 dark:text-zinc-300 text-center max-w-xl ">
             {currentTestimonial.body}
           </h1>
