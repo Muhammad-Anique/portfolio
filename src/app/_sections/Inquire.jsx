@@ -1,6 +1,8 @@
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+
 const Inquire = () => {
   return (
     <div className="w-full h-auto flex items-center justify-center">
@@ -13,7 +15,13 @@ const Inquire = () => {
             I cant wait to make indcredible things with you !
           </p>
 
-          <button className="bg-gradient-to-r cursor-pointer group dark:from-[#2b2b2bd3] dark:to-[#00000049] from-zinc-200/40 to-zinc-300/40 rounded-full w-[220px] h-[40px] flex items-center justify-between">
+          <Link
+            href={
+              "https://mail.google.com/mail/?view=cm&fs=1&to=anique.cs@gmail.com&su=Inquiry%20Regarding%20Your%20Availability%20for%20Full%20Stack%20Development%20Projects&body=Dear%20Anique%2C%0A%0AI%20hope%20this%20email%20finds%20you%20well.%20I%20am%20writing%20to%20inquire%20about%20your%20availability%20for%20upcoming%20full%20stack%20development%20projects.%20Please%20let%20me%20know%20if%20you%20are%20currently%20available%20to%20take%20on%20new%20projects%20and%20if%20so%2C%20your%20availability%20for%20the%20next%20few%20weeks.%0A%0AThank%20you%20for%20your%20time%2C%0A[Your%20Name]"
+            }
+            target="_blank"
+            className="bg-gradient-to-r cursor-pointer group dark:from-[#2b2b2bd3] dark:to-[#00000049] from-zinc-200/40 to-zinc-300/40 rounded-full w-[220px] h-[40px] flex items-center justify-between"
+          >
             <h1 className="px-4 text-lg font-manrope font-medium group-hover:translate-x-[130px] duration-300 transition-transform ease-in-out">
               Inquire
             </h1>
@@ -23,7 +31,7 @@ const Inquire = () => {
             >
               <ChevronRight className="w-5 h-5 text-zinc-200 " />
             </div>
-          </button>
+          </Link>
         </div>
 
         <div className="w-full relative">

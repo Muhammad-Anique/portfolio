@@ -3,7 +3,15 @@ import React, { useState } from "react";
 
 import ProjectHeadings from "./ProjectHeadings";
 import { StarIcon, XIcon } from "lucide-react";
-const ProjectIndex = ({ projectData }) => {
+const ProjectIndex = ({
+  projectData,
+  primaryColor,
+  secondaryColor,
+  tertiaryColor,
+}) => {
+  const primary = primaryColor || "#EC420F"; // Default to blue if not provided
+  const secondary = secondaryColor || "#FFA500"; // Default to orange if not provided
+  const tertiary = tertiaryColor || "#EC420F";
   const [isIndexOpen, setIsIndexOpen] = useState(false);
 
   return (
@@ -26,7 +34,12 @@ const ProjectIndex = ({ projectData }) => {
             />
           </div>
 
-          <div className="h-[5px] rounded-full w-[40%] bg-gradient-to-r from-p1 to-orange-400 mt-2"></div>
+          <div
+            style={{
+              background: `linear-gradient(to right, ${primary}, ${secondary})`,
+            }}
+            className="h-[5px] rounded-full w-[40%] bg-gradient-to-r from-p1 to-orange-400 mt-2"
+          ></div>
           {projectData && (
             <div className="flex flex-col w-full py-2">
               <ProjectHeadings projectData={projectData} />
@@ -38,6 +51,10 @@ const ProjectIndex = ({ projectData }) => {
           onClick={() => {
             setIsIndexOpen(true);
           }}
+          style={{
+            backgroundColor: tertiary ? tertiary : "#EC420F",
+          }}
+          id="star-index-button"
           className="fixed bottom-4 right-4 z-50 w-[50px] h-[50px] bg-p1 rounded-full  items-center justify-center flex"
         >
           <StarIcon className="w-6 h-6 text-zinc-200" />

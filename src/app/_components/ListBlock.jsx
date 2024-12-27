@@ -5,6 +5,7 @@ const ListBlock = (props) => {
   console.log("List", props);
   const type = props.type;
   const elements = props.elements;
+  const secondary = props?.secondaryColor || "#EC420F";
   // const noCol = props.noCols;
   if (type == "ol")
     return (
@@ -32,7 +33,12 @@ const ListBlock = (props) => {
               className="bg-gradient-to-r  dark:from-zinc-800/40 from-zinc-200/40 to-zinc-100/20 dark:to-zinc-900/35  px-3 py-2 flex flex-row items-center gap-3  "
             >
               <div className="w-4 h-4">
-                <SparkleIcon className="w-4 h-4 text-p1 dark:text-zinc-200" />
+                <SparkleIcon
+                  style={{
+                    color: secondary,
+                  }}
+                  className="w-4 h-4 text-p1 dark:text-zinc-200"
+                />
               </div>
 
               <p className="text-zinc-900 dark:text-zinc-200    text-md md:text-lg  font-lato ">

@@ -9,7 +9,7 @@ const Projects = async () => {
   const remainingProjects = projects.length - displayedProjects.length;
 
   return (
-    <div className="w-full  h-auto py-16 md:py-7 md:h-screen flex items-center justify-center  p-7 md:p-10">
+    <div className="w-full  h-auto py-16 md:py-7  flex items-center justify-center  p-3 sm:p-6 md:p-10">
       <div className="w-full h-full flex max-w-[1250px] flex-col gap-4">
         <h1 className="text-zinc-900 dark:text-zinc-200 text-3xl -translate-y-1 md:-translate-y-12 lg:-translate-y-24 big-winks-text -rotate-[10deg] text-md z-30">
           Recent Work

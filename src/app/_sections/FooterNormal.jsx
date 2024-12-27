@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { ChevronUpIcon } from "lucide-react";
 import FooterContent from "../_components/FooterContent";
-const FooterNormal = () => {
+const FooterNormal = (props) => {
+  const secondaryColor = props?.secondaryColor || "#EC420F";
   return (
     <div className="w-full h-auto flex items-center justify-center">
       <div className="w-full max-w-[1250px] h-auto flex flex-col items-center justify-center">
@@ -10,7 +11,7 @@ const FooterNormal = () => {
           <ChevronUpIcon className="w-10 h-10 text-zinc-900 dark:text-zinc-200 " />
 
           <div className="h-[32px] w-[32px] cursor-pointer md:h-[50px] md:w-[50px] border flex items-center justify-center border-zinc-400 dark:border-zinc-200 rounded-full">
-            <ScaleAndScroll />
+            <ScaleAndScroll secondaryColor={secondaryColor} />
           </div>
 
           <div className="h-[30px] md:h-[50px] w-[1px] bg-zinc-400 dark:bg-zinc-200 "></div>
@@ -24,7 +25,7 @@ const FooterNormal = () => {
 
 export default FooterNormal;
 
-const ScaleAndScroll = () => {
+const ScaleAndScroll = ({ secondaryColor }) => {
   const [scale, setScale] = useState(0.75); // Initial scale for beeping effect
   const [size, setSize] = useState(18); // Unified size for height and width
   const [isClicked, setIsClicked] = useState(false);
@@ -52,8 +53,9 @@ const ScaleAndScroll = () => {
   return (
     <div
       onClick={handleClick}
-      className="flex items-center justify-center cursor-pointer z-30 bg-p1 rounded-full duration-1000 ease-in-out absolute"
+      className="flex items-center justify-center cursor-pointer z-30  rounded-full duration-1000 ease-in-out absolute"
       style={{
+        backgroundColor: secondaryColor,
         height: `${size}px`,
         width: `${size}px`,
         transform: `scale(${scale})`,

@@ -362,6 +362,7 @@ const Sidebar = () => {
           }}
         >
           <motion.div
+            id="sidebar-main"
             className="bg-gradient-to-b from-[#EC420F]  via-[#EC420F]  to-[#d8681d] w-full h-full relative overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

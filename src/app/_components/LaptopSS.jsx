@@ -3,7 +3,7 @@ import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 
-const LaptopSS = ({ body }) => {
+const LaptopSS = ({ body, tertiaryColor }) => {
   const [currentIndex, setCurrentIndex] = useState(0); // Track the current image index
   const [isHovered, setIsHovered] = useState(false); // Track hover state
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 }); // Track cursor position
@@ -53,11 +53,16 @@ const LaptopSS = ({ body }) => {
                 top: cursorPosition.y,
                 position: "absolute",
               }}
-              className="z-20 h-[120px] w-[120px]  -translate-x-[60px] -translate-y-[60px] transform backdrop-blur-sm bg-gradient-to-b from-zinc-950/80 to-zinc-900/60   rounded-full flex items-center justify-center"
+              className="z-20 lg:h-[120px] lg:w-[120px] w-[60px] h-[60px]  -translate-x-[30px] -translate-y-[30px]   lg:-translate-x-[60px] lg:-translate-y-[60px] transform backdrop-blur-sm bg-gradient-to-b from-zinc-950/80 to-zinc-900/60   rounded-full flex items-center justify-center"
             >
-              <ChevronRight className="w-16 h-16 text-zinc-50" />
-              <div className="rounded-full w-[60px] h-[60px] backdrop-blur-sm bg-gradient-to-b from-p1 to-orange-400  flex items-center justify-center absolute translate-x-12  -translate-y-12">
-                <p className="text-zinc-200 font-extrabold font-lato">
+              <ChevronRight className="lg:w-8 lg:h-8 w-16 h-16 text-zinc-50" />
+              <div
+                style={{
+                  backgroundColor: tertiaryColor ? tertiaryColor : "#EC420F",
+                }}
+                className="rounded-full lg:w-[60px] lg:h-[60px] h-[30px] w-[30px] backdrop-blur-sm   flex items-center justify-center absolute translate-x-6 -translate-y-6 lg:translate-x-12  lg:-translate-y-12"
+              >
+                <p className="text-zinc-50 text-xs lg:text-xl font-extrabold font-lato">
                   {currentIndex + 1}/{body?.length + 1}
                 </p>
               </div>

@@ -10,6 +10,8 @@ import FooterNormal from "@/app/_sections/FooterNormal";
 import ProjectIndex from "../../_components/ProjectIndex";
 import LaptopSS from "../../_components/LaptopSS";
 import MobileSSArray from "../../_components/MobileSSArray";
+import ProjectThemer from "../../_components/ProjectThemer";
+import ResponsiveUIBlock from "../../_components/ResponsiveUIBlock";
 // import StackCards from "../../_components/StackCards";
 
 import { getProjectData } from "../../lib/api";
@@ -31,6 +33,7 @@ export async function generateMetadata({ params }) {
 }
 const BlockSelector = (props) => {
   const blockType = props?.blockType;
+
   console.log("BlocTupe = ", blockType);
   const body = props?.body;
   if (blockType === "codeBlock" || blockType === "codeblock")
@@ -42,17 +45,36 @@ const BlockSelector = (props) => {
           type={body?.type}
           elements={body?.elements}
           noCols={body?.noCols}
+          primaryColor={props?.primaryColor}
+          secondaryColor={props?.secondaryColor}
         />
       </div>
     );
   } else if (blockType === "heading") {
-    return <Heading content={body?.content} />;
+    return (
+      <Heading
+        content={body?.content}
+        primaryColor={props?.primaryColor}
+        secondaryColor={props?.secondaryColor}
+      />
+    );
   } else if (blockType === "paragraph") {
     return <Paragraph content={body?.content} />;
   } else if (blockType === "image") {
     return <ImageBlock src={body?.src} alt={body?.alt} />;
   } else if (blockType === "laptop-ss") {
-    return <LaptopSS body={body} />;
+    return <LaptopSS body={body} tertiaryColor={props?.tertiaryColor} />;
+  } else if (blockType === "ui") {
+    return (
+      <ResponsiveUIBlock
+        mobile={body?.mobile}
+        laptop={body?.laptop}
+        alt={body?.alt}
+        primaryColor={props?.primaryColor}
+        secondaryColor={props?.secondaryColor}
+        tertiaryColor={props?.tertiaryColor}
+      />
+    );
   }
   // else if (blockType === "stack-cards") {
   //   return <StackCards body={body} />;
@@ -70,11 +92,20 @@ const ProjectPage = async ({ params }) => {
   return (
     <div className="w-full h-full min-h-screen bg-transparent flex justify-center ">
       <OptimizedBackground src={"/l1.jpg"} opacity={10} />
-      <ProjectIndex projectData={projectData} />
+      <ProjectIndex
+        projectData={projectData}
+        primaryColor={projectData?.primaryColor}
+        secondaryColor={projectData?.secondaryColor}
+        tertiaryColor={projectData?.tertiaryColor}
+      />
       {projectData ? (
         <div className="max-w-[1400px] w-full  flex flex-col gap-2 ">
           <div className="w-full xl:max-w-[1520px] pt-24 md:pt-32 lg:pt-44 pb-0   backdrop-blur-md bg-zinc-50/85 dark:bg-zinc-900/10 px-5 sm:px-10 md:px-16  flex flex-col gap-24">
-            <ProjectPageHeader project={projectData} />
+            <ProjectPageHeader
+              primaryColor={projectData?.primaryColor}
+              secondaryColor={projectData?.secondaryColor}
+              project={projectData}
+            />
             <div className="flex flex-col w-full gap-2">
               <div className="relative">
                 <div className=" w-full h-full -z-10">
@@ -132,6 +163,9 @@ const ProjectPage = async ({ params }) => {
                         blockType={block.blockType}
                         key={index}
                         body={block.body}
+                        primaryColor={projectData?.primaryColor}
+                        secondaryColor={projectData?.secondaryColor}
+                        tertiaryColor={projectData?.tertiaryColor}
                       />
                     );
                   })}
@@ -139,8 +173,12 @@ const ProjectPage = async ({ params }) => {
               </div>
             </div>
 
-            <hr className="h-[5px] w-[60%] self-center border-none skew-x-[60deg] bg-gradient-to-r from-p1 via-p2 to-p3" />
-            <FooterNormal />
+            <ProjectThemer
+              primaryColor={projectData?.primaryColor}
+              secondaryColor={projectData?.secondaryColor}
+              tertiaryColor={projectData?.tertiaryColor}
+            />
+            <FooterNormal secondaryColor={projectData?.tertiaryColor} />
           </div>
         </div>
       ) : (

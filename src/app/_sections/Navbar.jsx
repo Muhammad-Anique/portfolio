@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="w-full fixed backdrop-blur-sm 2xl:backdrop-blur-none  h-[8vh] max-h-[100px] md:h-[10vh] top-0 z-50 flex items-center justify-center">
+      <div className="w-full fixed backdrop-blur-sm  h-[8vh] max-h-[100px] md:h-[9vh] top-0 z-50 flex items-center justify-center">
         <div className="w-full px-7 lg:px-16 2xl:px-24 xl:px-16 flex flex-row justify-between items-center">
           <div className="relative w-auto h-auto  flex items-start">
             <Link
@@ -42,7 +42,10 @@ const Navbar = () => {
               </h1>
             </Link>
 
-            <div className="w-2 h-2 md:w-4 md:h-4 rounded-full bg-p1 right-0 bottom-0 absolute -translate-y-[4px] lg:translate-x-6 translate-x-[10px] md:translate-x-5"></div>
+            <div
+              id="nav-dot"
+              className="w-2 h-2 md:w-4 md:h-4 rounded-full bg-p1 right-0 bottom-0 absolute -translate-y-[4px] lg:translate-x-6 translate-x-[10px] md:translate-x-5"
+            ></div>
           </div>
           <ThemeToggle />
 
