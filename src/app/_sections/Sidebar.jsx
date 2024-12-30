@@ -348,7 +348,7 @@ const Sidebar = () => {
           onClick={handleExpand}
           initial={{ width: "1.8vw", skewY: 60, height: "72vh", opacity: 0 }}
           animate={{
-            width: isExpanded ? "100vw" : "2.3vw",
+            width: isExpanded ? "100vw" : "1.7vw",
             skewY: isExpanded ? 3 : 60,
             height: isExpanded ? "75vh" : "70vh",
             translateY: isExpanded ? "70px" : "0px",

@@ -22,6 +22,27 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/_components/Flame.jsx", "src/app/_sections/About.jsx", "middleware.js", "src/app/projects/[projectId]/page.js", "src/app/blogs/[blogId]/page.js", "src/app/blogs/page.js", "src/app/_components/CodeBlock.jsx", "src/app/_components/CursorFlowEffect.jsx", "src/app/projects/page.jsx", "src/app/projects/page.jsx", "src/app/_components/ProjectCard.jsx", "src/app/_sections/Projects.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/_components/Flame.jsx",
+    "src/app/_sections/About.jsx",
+    "middleware.js",
+    "src/app/projects/[projectId]/page.js",
+    "src/app/blogs/[blogId]/page.js",
+    "src/app/blogs/page.js",
+    "src/app/_components/CodeBlock.jsx",
+    "src/app/_components/CursorFlowEffect.jsx",
+    "src/app/projects/page.jsx",
+    "src/app/projects/page.jsx",
+    "src/app/_components/ProjectCard.jsx",
+    "src/app/_sections/Projects.js",
+    "src/app/api/test/Route.jsute.js",
+    "src/app/_components/_bloggerComponents/SectionAdder.jsx",
+    "src/app/_components/_bloggerComponents/ImageUploader.js",
+    "src/app/lib/imageUploaderService.js"
+  ],
   "exclude": ["node_modules"]
 }

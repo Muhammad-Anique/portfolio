@@ -49,7 +49,7 @@ const CodeBlock = ({ code, language = "javascript", title }) => {
   };
 
   return (
-    <div className="w-full h-auto flex flex-col gap-2 mb-4 lg:mb-8 mt-1">
+    <div className="w-full h-auto flex flex-col gap-2  mt-3">
       {title && (
         <h1 className="text-lg text-zinc-900 dark:text-zinc-200  font-lato font-bold">
           {title}

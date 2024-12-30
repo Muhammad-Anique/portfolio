@@ -14,10 +14,15 @@ const ListBlock = (props) => {
           {elements.map((element, index) => (
             <li
               key={index}
-              className="text-zinc-900 dark:text-zinc-200  text-md md:text-xl bg-gradient-to-r px-3 py-2 dark:from-zinc-800/40 from-zinc-200/40 to-zinc-100/20 dark:to-zinc-900/35 font-lato "
+              className="text-zinc-900 dark:text-zinc-200  text-md md:text-lg bg-gradient-to-r px-3 py-2 dark:from-zinc-800/40 from-zinc-200/40 to-zinc-100/20 dark:to-zinc-900/35 font-lato "
             >
               <span className="font-bold">{index + 1}.</span>{" "}
-              <span className="ml-2">{element}</span>
+              <span
+                className=""
+                dangerouslySetInnerHTML={{
+                  __html: element,
+                }}
+              />
             </li>
           ))}
         </ol>
@@ -30,9 +35,9 @@ const ListBlock = (props) => {
           {elements.map((element, index) => (
             <li
               key={index}
-              className="bg-gradient-to-r  dark:from-zinc-800/40 from-zinc-200/40 to-zinc-100/20 dark:to-zinc-900/35  px-3 py-2 flex flex-row items-center gap-3  "
+              className="bg-gradient-to-r  dark:from-zinc-800/40 from-zinc-200/40 to-zinc-100/20 dark:to-zinc-900/35  px-3 py-2 flex flex-row items-start gap-3  "
             >
-              <div className="w-4 h-4">
+              <div className="w-4 h-4 mt-2">
                 <SparkleIcon
                   style={{
                     color: secondary,
@@ -41,9 +46,12 @@ const ListBlock = (props) => {
                 />
               </div>
 
-              <p className="text-zinc-900 dark:text-zinc-200    text-md md:text-lg  font-lato ">
-                {element}
-              </p>
+              <p
+                className="text-zinc-900 dark:text-zinc-200    text-md md:text-lg  font-lato "
+                dangerouslySetInnerHTML={{
+                  __html: element,
+                }}
+              />
             </li>
           ))}
         </ul>

@@ -3,7 +3,7 @@ const About = () => {
   return (
     <div
       id="about-me"
-      className="w-full max-h-[1050px] h-auto py-16 md:py-64  bg-transparent flex items-center justify-center"
+      className="w-full max-h-[1050px] h-auto py-16 md:py-32 lg:py-64  bg-transparent flex items-center justify-center"
     >
       <div className="max-w-[1500px]  w-auto h-full flex xl:flex-row flex-col items-center justify-center gap-16 ">
         {/* <div className="grid grid-cols-4 gap-4 bg-transparent w-[280px] sm:w-[400px] xl:w-[400px] h-[300px] xl:h-[500px] ">

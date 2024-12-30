@@ -18,9 +18,9 @@ const Projects = async () => {
           Recent Work
         </h1>
 
-        <div className="flex flex-col gap-3 sm:gap-6">
+        <div className="flex flex-col gap-2 ">
           <ProjectCardFullScreen project={displayedProjects[0]} />
-          <div className="flex flex-col md:flex-row gap-3  sm:gap-6 items-center justify-center">
+          <div className="flex flex-col md:flex-row gap-2  items-center justify-center">
             <ProjectCardFullScreen project={displayedProjects[1]} />
             <ProjectCardFullScreen project={displayedProjects[2]} />
           </div>
