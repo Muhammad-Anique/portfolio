@@ -3,12 +3,14 @@
 "use client";
 import {
   ArrowRight,
+  ChevronRight,
   Clock10Icon,
   ClockIcon,
   GridIcon,
   PanelsTopLeft,
   TargetIcon,
 } from "lucide-react";
+import Link from "next/link";
 import React, { useState } from "react";
 
 // Accept skills as props
@@ -55,7 +57,7 @@ const Skills = ({ skills, isOnHome, direction }) => {
           <div
             key={currentSkillIndex}
             className={`w-full min-h-[400px]  gap-16 sm:gap-24 xl:gap-10 flex flex-col xl:flex-row ${
-              direction === 1 ? "xl:flex-row-reverse" : ""
+              direction === 1 && !isOnHome ? "xl:flex-row-reverse" : ""
             } items-center justify-center`}
           >
             {/* Skill Details Section */}
@@ -157,12 +159,12 @@ const Skills = ({ skills, isOnHome, direction }) => {
 
         {/* Pagination Section */}
         {skills && selectedSkill && isOnHome && (
-          <button className="flex flex-row self-end justify-end items-end gap-2 mr-3 mt-6">
-            {[...Array(skills?.length)].map((_, index) => (
-              <div
+          <div className="flex flex-row self-end justify-end items-end gap-2 mr-3 mt-6">
+            {[...Array(skills?.length)].slice(0, 4).map((_, index) => (
+              <button
                 key={index}
                 onClick={() => handleSkill(index)}
-                className={`rounded-full w-[40px] h-[40px]  border-2 dark:border-zinc-200 hover:dark:bg-zinc-200 border-zinc-800 hover:bg-zinc-800 group flex items-center justify-center ${
+                className={`rounded-full w-[40px] h-[40px]  border dark:border-zinc-200 hover:dark:bg-zinc-200 border-zinc-300 hover:bg-zinc-800 group flex items-center justify-center ${
                   currentSkillIndex === index ? "bg-zinc-800 text-zinc-50" : ""
                 }`}
               >
@@ -173,9 +175,18 @@ const Skills = ({ skills, isOnHome, direction }) => {
                 >
                   {index + 1}
                 </p>
-              </div>
+              </button>
             ))}
-          </button>
+
+            <Link
+              href={"/skills"}
+              className={`rounded-full w-[40px] h-[40px]  hover:bg-orange-600 group flex items-center justify-center 
+                bg-p1 text-zinc-50
+              `}
+            >
+              <ChevronRight className="w-4 h-4 " />
+            </Link>
+          </div>
         )}
       </div>
     </div>
