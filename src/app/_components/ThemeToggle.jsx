@@ -11,7 +11,7 @@ const ThemeToggle = () => {
   };
 
   return (
-    <div className="bg-zinc-300/80 backdrop-blur-sm  dark:bg-zinc-700 rounded-full">
+    <div className="bg-zinc-300/70 backdrop-blur-sm  dark:bg-zinc-700 rounded-full">
       <input
         type="checkbox"
         id="checkbox"

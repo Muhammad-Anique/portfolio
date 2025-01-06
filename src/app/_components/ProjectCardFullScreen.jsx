@@ -3,7 +3,10 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MoveUpLeftIcon } from "lucide-react";
+import { useTheme } from "../_context/ThemeContext";
 const ProjectCardFullScreen = ({ project }) => {
+  const { theme } = useTheme();
+  console.log("th", theme);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [showCursor, setShowCursor] = useState(false);
   const primary = project?.primaryColor || "#EC420F";
@@ -98,11 +101,17 @@ const ProjectCardFullScreen = ({ project }) => {
             </div>
 
             <div className="bg-zinc-50  dark:bg-zinc-950  absolute bottom-0 right-0 z-10 w-[180px] xs:w-[270px] md:w-[260px] xl:w-[400px] rounded-tl-[15px] md:rounded-tl-[20px] h-[40px] md:h-[45px] xl:h-[60px]"></div>
+
             <div
-              className={`  white-shd2 z-10 absolute bottom-0 right-[180px] xs:right-[270px] md:right-[260px] xl:right-[400px] w-[40px] h-[40px] rounded-full`}
+              className={` ${
+                theme === "dark" ? "black-shd2" : "white-shd2"
+              }  z-10 absolute bottom-0 right-[180px] xs:right-[270px] md:right-[260px] xl:right-[400px] w-[40px] h-[40px] rounded-full`}
             ></div>
+
             <div
-              className={` white-shd2 z-10 absolute bottom-[40px] md:bottom-[45px] xl:bottom-[60px] right-0 w-[40px] h-[40px] rounded-full`}
+              className={` ${
+                theme === "dark" ? "black-shd2" : "white-shd2"
+              } z-10 absolute bottom-[40px] md:bottom-[45px] xl:bottom-[60px] right-0 w-[40px] h-[40px] rounded-full`}
             ></div>
 
             <div className="absolute z-10 bottom-0 right-0 flex items-center w-[180px] xs:w-[270px] md:w-[260px] xl:w-[400px]  justify-between px-3 md:px-5 h-[40px] md:h-[45px] xl:h-[60px]">

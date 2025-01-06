@@ -73,21 +73,12 @@ const Expertise = () => {
       buttonRef.current &&
       skillRef.current
     ) {
-      if (
-        breakpoint !== "xs" &&
-        breakpoint !== "sm" &&
-        breakpoint !== "md" &&
-        breakpoint !== "lg"
-      ) {
-        divisionRef.current.style.transform =
-          "translateX(600px) translateY(-80px) ";
+      if (breakpoint === "xl") {
+        divisionRef.current.style.transform = `translateX(640px) translateY(-70px) `;
+        divisionRef.current.style.scale = `1.0`;
       } else {
-        if (breakpoint === "xs" || breakpoint === "sm" || breakpoint === "md")
-          divisionRef.current.style.transform = `translateX(120px) translateY(450px) `;
-        else {
-          divisionRef.current.style.transform = `translateX(320px) translateY(-70px) `;
-          divisionRef.current.style.scale = `0.8`;
-        }
+        divisionRef.current.style.transform = `translateX(670px) translateY(-90px) `;
+        divisionRef.current.style.scale = `1.0`;
       }
 
       if (breakpoint === "md") {
@@ -101,16 +92,12 @@ const Expertise = () => {
         buttonRef.current.style.transform = `translate(${translateX}px, -180px) rotate(170deg)`;
       }
 
-      if (breakpoint === "xs" || breakpoint === "sm") {
-        headingRef.current.style.fontSize = "30px";
-      } else {
-        headingRef.current.style.fontSize = "70px";
-      }
+      headingRef.current.style.fontSize = "70px";
 
       paragraphRef.current.style.display = "block";
       if (breakpoint !== "xs" && breakpoint !== "sm") {
         imageContainerRef.current.style.transform =
-          "rotate(-10deg) translateX(-350px) ";
+          "rotate(-10deg) translateX(-290px) ";
       } else {
         imageContainerRef.current.style.transform =
           "rotate(-10deg) translateX(0px) ";
@@ -131,7 +118,7 @@ const Expertise = () => {
       if (breakpoint === "xs" || breakpoint === "sm") {
         headingRef.current.style.fontSize = "30px";
       } else {
-        headingRef.current.style.fontSize = "50px";
+        headingRef.current.style.fontSize = "70px";
       }
       buttonRef.current.style.transform =
         "translateX(0px) translateY(0px) rotate(0deg) ";
@@ -173,26 +160,6 @@ const Expertise = () => {
         const imgBounds2 = image2.current.getBoundingClientRect();
         const imgBounds3 = image3.current.getBoundingClientRect();
 
-        console.log(imgBounds1, imgBounds2, imgBounds3, containerBounds);
-        console.log(
-          "Imagebounds1 top : ",
-          imgBounds1.top,
-          "Container H : ",
-          containerBounds.height
-        );
-        console.log(
-          "Imagebounds2 top : ",
-          imgBounds2.top,
-          "Container H : ",
-          containerBounds.height
-        );
-        console.log(
-          "Imagebounds3 top : ",
-          imgBounds3.top,
-          "Container H : ",
-          containerBounds.height
-        );
-
         if (
           imgBounds1.top > 0 &&
           imgBounds1.top <= containerBounds.height / 2
@@ -228,10 +195,16 @@ const Expertise = () => {
   return (
     <div
       data-name="section-expertise"
-      className="w-full max-h-[1050px] h-auto flex flex-col items-center justify-center xl:translate-x-7"
+      className="w-full max-h-[1050px]  h-auto flex flex-col items-center justify-center min-h-[100vh] "
     >
-      <div className="w-full h-full flex items-center justify-center pl-10">
-        <div className="w-[300px] h-[300px] md:w-[450px] md:h-[450px] xl:w-[600px] xl:h-[600px] flex items-center justify-center rotate-[10deg] relative transition-transform duration-500">
+      <div
+        className={`w-full hidden xl:flex ${
+          isClicked
+            ? "xl:-translate-x-4 2xl:-translate-x-9"
+            : " xl:translate-x-4 2xl:translate-x-10"
+        }  h-full  items-center justify-center pl-10`}
+      >
+        <div className="w-[300px] h-[300px] md:w-[450px] md:h-[450px]  xl:w-[600px] xl:h-[600px] flex items-center justify-center rotate-[10deg] relative transition-transform duration-500">
           <div
             ref={imageContainerRef}
             data-name="Image-Container"

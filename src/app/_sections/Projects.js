@@ -8,8 +8,8 @@ const Projects = async () => {
     .from("projects")
     .select("*")
     .order("priority", { ascending: true });
-  const displayedProjects = projects.slice(0, 3);
-  const remainingProjects = projects.length - displayedProjects.length;
+  const displayedProjects = projects?.slice(0, 3);
+  const remainingProjects = projects?.length - displayedProjects.length;
 
   return (
     <div className="w-full  h-auto py-16 md:py-32  flex items-center justify-center  p-3 sm:p-6 md:p-10">

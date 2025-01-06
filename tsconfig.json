@@ -43,6 +43,6 @@
     "src/app/_components/_bloggerComponents/SectionAdder.jsx",
     "src/app/_components/_bloggerComponents/ImageUploader.js",
     "src/app/lib/imageUploaderService.js"
-  ],
+, "src/app/page.js"  ],
   "exclude": ["node_modules"]
 }

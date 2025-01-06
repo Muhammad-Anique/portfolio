@@ -17,7 +17,7 @@ const NavLink = (props) => {
         <div className="w-5 h-5 md:w-8 md:h-8 dark:border border-2 dark:border-zinc-200 border-zinc-600 rounded-full flex items-center justify-center bg-transparent">
           <div className="w-3 h-3 md:w-5 md:h-5 rounded-full bg-p1 hidden duration-300 ease-in-out group-hover:block"></div>
         </div>
-        <h1 className="text-3xl md:text-5xl text-zinc-700 dark:text-zinc-200  font-playfair leading-0">
+        <h1 className="text-4xl md:text-5xl text-zinc-700 dark:text-zinc-200  font-playfair leading-0">
           {props.f} <i className="text-p1 font-manrope">{props.l}</i>
         </h1>
       </div>
@@ -74,7 +74,7 @@ const Navbar = () => {
         />
         <NavLink
           setIsMenuClicked={setIsMenuClicked}
-          f="Project"
+          f="Projects"
           l=""
           link="/projects"
         />

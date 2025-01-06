@@ -74,21 +74,6 @@ const DynamicTable = ({ tableData }) => {
   );
 };
 
-// Example usage
-const tableData = {
-  blockType: "table",
-  textAlign: "center",
-  noCols: 3,
-  body: {
-    columns: ["Column 1", "Column 2", "Column 3"],
-    data: [
-      { col1: "Row 1, Col 1", col2: "Row 1, Col 2", col3: "Row 1, Col 3" },
-      { col1: "Row 2, Col 1", col2: "Row 2, Col 2", col3: "Row 2, Col 3" },
-      { col1: "Row 3, Col 1", col2: "Row 3, Col 2", col3: "Row 3, Col 3" },
-    ],
-  },
-};
-
 export default function TableBlock({ body }) {
   return <DynamicTable tableData={body} />;
 }
