@@ -6,7 +6,7 @@ import { MoveUpLeftIcon } from "lucide-react";
 import { useTheme } from "../_context/ThemeContext";
 const ProjectCardFullScreen = ({ project }) => {
   const { theme } = useTheme();
-  console.log("th", theme);
+
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [showCursor, setShowCursor] = useState(false);
   const primary = project?.primaryColor || "#EC420F";
@@ -16,7 +16,7 @@ const ProjectCardFullScreen = ({ project }) => {
   useEffect(() => {
     const sidebar = document.getElementById("sidebar-main");
     const more = document.getElementById("more-button-project");
-    console.log("Sidebar >>>", sidebar);
+
     const navdot = document.getElementById("nav-dot");
     if (showCursor) {
       if (sidebar) {

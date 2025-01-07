@@ -138,7 +138,6 @@ const Media = (props) => {
 const useBalancedColumns = (posts, numCols) => {
   // Use useMemo to calculate balanced columns only when dependencies change
   return useMemo(() => {
-    console.log("Recalculating balanced columns...");
     return distributePosts(posts, numCols);
   }, [posts, numCols]);
 };
@@ -267,7 +266,7 @@ const MediaWall = () => {
   const breakpoint = useBreakpoint();
   const columns = useBalancedColumns(posts, returnCols(breakpoint));
 
-  console.log(breakpoint, returnCols());
+  // console.log(breakpoint, returnCols());
 
   return (
     <div className="w-full h-auto flex items-center justify-center">

@@ -1,12 +1,6 @@
 import React from "react";
 
 const Paragraph = ({ content, index }) => {
-  // Function to parse and replace patterns with HTML elements
-  // Split the content into words, take the first letter of the first word
-  console.log("index", index);
-  // const firstWord = content.split(" ")[0]; // The first word
-  // const restOfContent = content.slice(firstWord.length); // The rest of the content
-
   return (
     <p
       className={` ${

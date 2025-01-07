@@ -6,7 +6,6 @@ export const uploadImageToSupabase = async (imageBuffer, filename, title) => {
   try {
     // Convert the image to AVIF format using Sharp
     const avifBuffer = await sharp(imageBuffer).toFormat("avif").toBuffer();
-    console.log(filename);
 
     // Construct the file path with .avif extension only
     const filePath = `${title}/${filename}.avif`;
@@ -22,7 +21,6 @@ export const uploadImageToSupabase = async (imageBuffer, filename, title) => {
 
     return data; // Return the response data from Supabase
   } catch (err) {
-    console.log("Error:", err.message);
     throw new Error("Error converting or uploading image: " + err.message);
   }
 };

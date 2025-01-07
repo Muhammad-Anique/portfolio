@@ -52,7 +52,7 @@ const BlogHeadings = ({ blogData }) => {
         )[0]?.body?.content
       )
     );
-  }, []);
+  }, [blogData]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,7 +60,6 @@ const BlogHeadings = ({ blogData }) => {
         if (element) {
           const rect = element.getBoundingClientRect();
           if (rect.top >= 0 && rect.top <= 200 && !isClicked) {
-            console.log("Currently visible div:", id);
             setActiveLink(id);
           }
         } else {
@@ -78,7 +77,7 @@ const BlogHeadings = ({ blogData }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [filteredHeadings2, blogData]);
+  }, []);
 
   const filteredHeadings = blogData?.blogBody?.blocks
     .filter((block) => block.blockType === "heading") // Filter for blocks with "heading"

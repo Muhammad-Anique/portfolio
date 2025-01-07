@@ -8,7 +8,7 @@ export async function POST(req) {
   try {
     const { content } = await req.json();
 
-    console.log(content);
+    // console.log(content);
 
     if (!content || content.trim() === "") {
       return new Response(
@@ -31,7 +31,7 @@ export async function POST(req) {
 
     const formattedHtml = response.choices[0]?.message?.content?.trim();
 
-    console.log(formattedHtml);
+    // console.log(formattedHtml);
 
     if (!formattedHtml) {
       return new Response(

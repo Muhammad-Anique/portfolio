@@ -36,7 +36,7 @@ function formatTimestamp(timestamp) {
 
 const BlogCard = (props) => {
   const blog = props.blog;
-  console.log("PRP : ", props);
+
   return (
     <div
       name="blog-card"

@@ -33,8 +33,6 @@ export async function generateMetadata({ params }) {
 }
 const BlockSelector = (props) => {
   const blockType = props?.blockType;
-
-  console.log("BlocTupe = ", blockType);
   const body = props?.body;
   if (blockType === "codeBlock" || blockType === "codeblock")
     return <CodeBlock language={body?.language} code={body?.code} />;
@@ -85,9 +83,7 @@ const BlockSelector = (props) => {
 
 const ProjectPage = async ({ params }) => {
   const projectId = params.projectId;
-  console.log("ProjId : ", projectId);
   const projectData = await getProjectData(projectId);
-  console.log("project Data", projectData);
 
   return (
     <div className="w-full h-full min-h-screen bg-transparent flex justify-center ">

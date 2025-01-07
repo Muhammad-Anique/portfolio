@@ -64,7 +64,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ title }) => {
 
           const result = await response.json();
           if (result.error) {
-            console.log("Error:", result.error);
+            // console.log("Error:", result.error);
             alert("Error uploading the image.");
           } else {
             alert("Image uploaded successfully!");

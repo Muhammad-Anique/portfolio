@@ -6,7 +6,7 @@ import Heading from "./Heading";
 import Paragraph from "./Paragraph";
 import ImageBlock from "./ImageBlock";
 import FooterNormal from "@/app/_sections/FooterNormal";
-import BlogHeadings from "./BlogHeadings";
+// import BlogHeadings from "./BlogHeadings";
 import { ClockIcon } from "lucide-react";
 import TableBlock from "./TableBlock";
 const BlockSelector = (props) => {
@@ -203,7 +203,7 @@ const BlogContent = ({ blogData }) => {
                 <div className="h-[4px] rounded-full w-[40%] bg-p1"></div>
                 {blogData && (
                   <div className=" xl:w-[190px] 2xl:w-[230px] hidden   z-30 xl:flex   py-2">
-                    <BlogHeadings blogData={blogData} />
+                    {/* <BlogHeadings blogData={blogData} /> */}
                   </div>
                 )}
               </div>

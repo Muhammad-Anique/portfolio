@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const BlogCardArray = async () => {
   const blogs = await fetchAllBlogs(); // Fetch data server-side
-  console.log("THE BLOGSS FETCHED = > ", blogs);
+
   return (
     <>
       {blogs ? (

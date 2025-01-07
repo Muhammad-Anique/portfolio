@@ -8,12 +8,10 @@ const ProjectThemer = (props) => {
 
   useEffect(() => {
     const sidebar = document.getElementById("sidebar-main");
-    console.log("Sidebar >>>", sidebar);
+
     const navdot = document.getElementById("nav-dot");
     if (sidebar) {
       sidebar.style.background = `linear-gradient(to bottom, ${primary}, ${secondary})`;
-    } else {
-      console.log("ot found");
     }
 
     if (navdot) {

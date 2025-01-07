@@ -2,7 +2,6 @@ import { SparkleIcon } from "lucide-react";
 import React from "react";
 
 const ListBlock = (props) => {
-  console.log("List", props);
   const type = props.type;
   const elements = props.elements;
   const secondary = props?.secondaryColor || "#EC420F";

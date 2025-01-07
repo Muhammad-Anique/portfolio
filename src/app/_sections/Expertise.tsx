@@ -7,7 +7,7 @@ import { useBreakpoint } from "../_components/useBreakpoint";
 
 const Expertise = () => {
   const breakpoint = useBreakpoint();
-  console.log("breakpoint = ", breakpoint);
+
   const [isClicked, setIsClicked] = useState(false);
   const [activatedSection, setActivatedSection] = useState(0);
 
