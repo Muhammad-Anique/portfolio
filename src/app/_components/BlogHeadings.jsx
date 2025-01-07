@@ -39,14 +39,32 @@ const BlogHeadings = ({ blogData }) => {
     });
 
   useEffect(() => {
+    setActiveLink(
+      formatContentForLink(
+        blogData?.blogBody?.blocks.filter(
+          (block) => block.blockType === "heading"
+        )[0]?.body?.content
+      )
+    );
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
       filteredHeadings2.forEach(({ id, element }) => {
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top >= 0 && rect.top <= 300) {
+          if (rect.top >= 0 && rect.top <= 550) {
             console.log("Currently visible div:", id);
             setActiveLink(id);
           }
+        } else {
+          setActiveLink(
+            formatContentForLink(
+              blogData?.blogBody?.blocks.filter(
+                (block) => block.blockType === "heading"
+              )[0]?.body?.content
+            )
+          );
         }
       });
     };
@@ -54,7 +72,7 @@ const BlogHeadings = ({ blogData }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [filteredHeadings2]);
+  }, [filteredHeadings2, blogData]);
 
   const filteredHeadings = blogData?.blogBody?.blocks
     .filter((block) => block.blockType === "heading") // Filter for blocks with "heading"
