@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 const BlogHeadings = ({ blogData }) => {
   const [activeLink, setActiveLink] = useState("");
+  const [isClicked, setIsClicked] = useState(false);
 
   const formatContentForLink = (content) => {
     if (!content || content.length < 5) {
@@ -16,6 +17,7 @@ const BlogHeadings = ({ blogData }) => {
   };
 
   const handleButtonClick = (link) => {
+    setIsClicked(true);
     setActiveLink(link); // Update active link immediately
     // Find the heading element by id
     const targetElement = document.getElementById(link);
@@ -25,6 +27,10 @@ const BlogHeadings = ({ blogData }) => {
         top: targetElement.offsetTop - 200, // Adjust 200px from top
         behavior: "smooth",
       });
+
+      setTimeout(() => {
+        setIsClicked(false);
+      }, 1000);
     }
   };
 
@@ -53,7 +59,7 @@ const BlogHeadings = ({ blogData }) => {
       filteredHeadings2.forEach(({ id, element }) => {
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top >= 0 && rect.top <= 550) {
+          if (rect.top >= 0 && rect.top <= 200 && !isClicked) {
             console.log("Currently visible div:", id);
             setActiveLink(id);
           }
