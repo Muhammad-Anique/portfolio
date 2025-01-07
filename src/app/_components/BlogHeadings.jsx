@@ -12,37 +12,34 @@ const BlogHeadings = ({ blogData }) => {
     }
     return content
       .toLowerCase()
-      .replace(/[^a-z0-9\s]/g, "") // Remove special characters
-      .replace(/\s+/g, "-"); // Replace spaces with dashes
+      .replace(/[^a-z0-9\s]/g, "")
+      .replace(/\s+/g, "-");
   };
 
   const handleButtonClick = (link) => {
     setIsClicked(true);
-    setActiveLink(link); // Update active link immediately
-    // Find the heading element by id
+    setActiveLink(link);
     const targetElement = document.getElementById(link);
     if (targetElement) {
-      // Scroll the target element to 200px from the top of the viewport
       window.scrollTo({
-        top: targetElement.offsetTop - 200, // Adjust 200px from top
+        top: targetElement.offsetTop - 200,
         behavior: "smooth",
       });
-
       setTimeout(() => {
         setIsClicked(false);
       }, 1000);
     }
   };
 
-  const filteredHeadings2 = blogData?.blogBody?.blocks
-    .filter((block) => block.blockType === "heading")
-    .map((block) => {
-      const link = formatContentForLink(block?.body?.content);
-      return {
-        id: link,
-        element: document.getElementById(link), // Get the corresponding div by its id
-      };
-    });
+  // const filteredHeadings2 = blogData?.blogBody?.blocks
+  //   .filter((block) => block.blockType === "heading")
+  //   ?.map((block) => {
+  //     const link = formatContentForLink(block?.body?.content);
+  //     return {
+  //       id: link,
+  //       element: document.getElementById(link), // Get the corresponding div by its id
+  //     };
+  //   });
 
   useEffect(() => {
     setActiveLink(
@@ -56,9 +53,18 @@ const BlogHeadings = ({ blogData }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      filteredHeadings2.forEach(({ id, element }) => {
+      const filteredHeadings2 = blogData?.blogBody?.blocks
+        .filter((block) => block.blockType === "heading")
+        ?.map((block) => {
+          const link = formatContentForLink(block?.body?.content);
+          return {
+            id: link,
+            element: document.getElementById(link), // Get the corresponding div by its id
+          };
+        });
+      filteredHeadings2?.forEach(({ id, element }) => {
         if (element) {
-          const rect = element.getBoundingClientRect();
+          const rect = element?.getBoundingClientRect();
           if (rect.top >= 0 && rect.top <= 200 && !isClicked) {
             setActiveLink(id);
           }
@@ -77,7 +83,7 @@ const BlogHeadings = ({ blogData }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [blogData, isClicked]);
 
   const filteredHeadings = blogData?.blogBody?.blocks
     .filter((block) => block.blockType === "heading") // Filter for blocks with "heading"
