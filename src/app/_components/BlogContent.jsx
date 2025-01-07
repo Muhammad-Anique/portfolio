@@ -154,7 +154,7 @@ const BlogContent = ({ blogData }) => {
             })}
           </div>
 
-          <div name="blog-cont" className="flex flex-row gap-10">
+          <div name="blog-cont" className="flex flex-row gap-8">
             {/* <div className="sticky flex flex-col gap-4 w-[15%] mt-16 top-16 self-start">
                   <div className="flex  flex-col gap-3">
                     <div className="flex flex-col h-full w-full  justify-between">
@@ -179,7 +179,7 @@ const BlogContent = ({ blogData }) => {
                 </div> */}
             <div
               name="blog"
-              className=" w-full xl:w-[78%]  flex flex-col gap-2"
+              className=" w-full xl:w-[82%]  flex flex-col gap-2"
             >
               {blogData?.blogBody?.blocks.map((block, index) => {
                 return (
@@ -194,7 +194,7 @@ const BlogContent = ({ blogData }) => {
             </div>
             <div
               name="table-of-content"
-              className="sticky hidden xl:flex mt-16 ml-2 w-[21%] top-24 overflow-y-auto no-scrollbar max-h-[800px] self-start  "
+              className="sticky hidden xl:flex mt-16 ml-2 w-[17%] top-24 overflow-y-auto no-scrollbar max-h-[800px] self-start  "
             >
               <div className="flex flex-col ">
                 <p className="font-extrabold text-xl mb-1 text-zinc-800 dark:text-zinc-200">

@@ -61,7 +61,7 @@ const BlogCard = (props) => {
           <p className="text-zinc-700 dark:text-zinc-300 text-md">|</p>
           <ClockIcon className="w-4 h-4 text-p1" />
           <p className="text-zinc-700 dark:text-zinc-300 text-md">
-            6 minute read
+            {blog.readTime} minute read
           </p>
         </div>
 

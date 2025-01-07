@@ -7,7 +7,7 @@ const Footer = () => {
     <div className="w-full h-auto flex items-center justify-center">
       <div className="w-full max-w-[1250px] h-auto flex flex-col items-center justify-center">
         <div className="w-full relative md:max-h-[700px] h-auto bg-transparent flex items-center justify-center">
-          <div className="font-manrope font-extrabold text-zinc-50 dark:text-[#151515]  md:tracking-tighter relative flex items-center justify-center">
+          <div className="font-manrope font-extrabold text-zinc-200 dark:text-[#151515]  md:tracking-tighter relative flex items-center justify-center">
             <span className="font-cairo tracking-tighter text-[190px] sm:text-[300px] md:text-[360px] lg:text-[500px] opacity-70">
               BYE
             </span>

@@ -10,7 +10,7 @@ const Hero2 = () => {
     <div className="w-full flex items-center justify-center h-screen overflow-hidden">
       <div className=" w-full flex items-center flex-col gap-6 justify-center relative">
         {/* <div className="bg-p1 rounded-full w-[700px] h-[700px] absolute z-10"></div> */}
-        <h1 className=" text-[130px] md:text-[200px] text-center -z-10 text-zinc-950 dark:text-zinc-100 font-playfair leading-[130px] md:leading-[180px] tracking-tighter">
+        <h1 className="text-[105px] leading-[110px] sm:text-[130px] md:text-[200px] text-center -z-10 text-zinc-950 dark:text-zinc-100 font-playfair sm:leading-[130px] md:leading-[180px] tracking-tighter">
           Hello<span className="text-p1">,</span> <br />I{" "}
           <span className="text-p1"></span>am Anique
         </h1>
