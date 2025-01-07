@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { supabase } from "../lib/supabase";
 import ImageUploader from "../_components/_bloggerComponents/ImageUploader";
 import SectionAdder from "../_components/_bloggerComponents/SectionAdder";
@@ -9,11 +9,6 @@ import usePersistentState from "../_hooks/usePersitentState";
 import { Trash2 } from "lucide-react";
 
 const Page = () => {
-  useEffect(() => {
-    const currentSession = supabase.auth.getSession();
-    if (currentSession) setLogin(true);
-  }, []); // This will run once when the component mounts
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);

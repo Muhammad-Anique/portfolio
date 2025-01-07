@@ -324,7 +324,7 @@ const Sidebar = () => {
   }, []);
 
   const handleExpand = () => {
-    if (isExpanded === false && theme === "dark") {
+    if (isExpanded === false && false && theme === "dark") {
       setIsExpanded(true);
       setTimeout(() => {
         setLoad(true);
