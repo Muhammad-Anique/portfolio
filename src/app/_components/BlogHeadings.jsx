@@ -1,6 +1,6 @@
 "use client";
 import { SparkleIcon } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const BlogHeadings = ({ blogData }) => {
   const [activeLink, setActiveLink] = useState("");
@@ -28,6 +28,34 @@ const BlogHeadings = ({ blogData }) => {
     }
   };
 
+  const filteredHeadings2 = blogData?.blogBody?.blocks
+    .filter((block) => block.blockType === "heading")
+    .map((block) => {
+      const link = formatContentForLink(block?.body?.content);
+      return {
+        id: link,
+        element: document.getElementById(link), // Get the corresponding div by its id
+      };
+    });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      filteredHeadings2.forEach(({ id, element }) => {
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top >= 0 && rect.top <= 300) {
+            console.log("Currently visible div:", id);
+            setActiveLink(id);
+          }
+        }
+      });
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [filteredHeadings2]);
+
   const filteredHeadings = blogData?.blogBody?.blocks
     .filter((block) => block.blockType === "heading") // Filter for blocks with "heading"
     .map((block, index) => {
@@ -35,7 +63,11 @@ const BlogHeadings = ({ blogData }) => {
       const isActive = link === activeLink; // Compare link directly with activeLink
 
       return (
-        <li key={index} className="flex flex-row items-start">
+        <li
+          key={index}
+          id={formatContentForLink(block?.body?.content)}
+          className="flex flex-row items-start"
+        >
           <button
             onClick={() => handleButtonClick(link)} // Handle button click
             style={{
