@@ -58,6 +58,34 @@ const BlockSelector = (props) => {
     );
   } else if (blockType === "paragraph") {
     return <Paragraph content={body?.content} />;
+  } else if (blockType === "loom") {
+    return (
+      <div
+        id={body?.alt}
+        className="rounded-lg overflow-hidden mt-3"
+        style={{
+          position: "relative",
+
+          paddingBottom: "62.5%",
+          height: 0,
+        }}
+      >
+        <iframe
+          src={body?.src}
+          frameborder="0"
+          webkitallowfullscreen
+          mozallowfullscreen
+          allowfullscreen
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+          }}
+        ></iframe>
+      </div>
+    );
   } else if (blockType === "image") {
     return <ImageBlock src={body?.src} alt={body?.alt} />;
   } else if (blockType === "laptop-ss") {

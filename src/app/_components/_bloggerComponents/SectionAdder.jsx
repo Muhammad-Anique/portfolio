@@ -590,6 +590,19 @@ const SectionAdder = ({
     }
   };
 
+  const [copySuccess, setCopySuccess] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(JSON.stringify(blocks, null, 2)).then(
+      () => {
+        setCopySuccess(true);
+        setTimeout(() => setCopySuccess(false), 2000); // Reset after 2 seconds
+      },
+      () => {
+        setCopySuccess(false);
+      }
+    );
+  };
   return (
     <div className="flex flex-col items-center h-full w-full">
       <div className="flex flex-row gap-5 h-full w-full ">
@@ -715,6 +728,12 @@ const SectionAdder = ({
               {JSON.stringify(blocks, null, 2)}
             </SyntaxHighlighter>
           </pre>
+          <button
+            onClick={handleCopy}
+            className="mt-2 p-2 bg-blue-500 text-white rounded"
+          >
+            {copySuccess ? "Copied!" : "Copy to Clipboard"}
+          </button>
         </div>
       )}
     </div>

@@ -60,7 +60,7 @@ const DynamicTable = ({ tableData }) => {
                   key={colIndex}
                   className={`px-4 py-2 border-t ${
                     colIndex !== columns.length - 1 ? "border-r" : ""
-                  } border-zinc-300 dark:border-zinc-700 text-${textAlign} table-cell`}
+                  } border-zinc-300 dark:border-zinc-700  text-zinc-700 dark:text-zinc-300 text-${textAlign} table-cell`}
                   dangerouslySetInnerHTML={{
                     __html: row[`col${colIndex + 1}`],
                   }}

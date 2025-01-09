@@ -36,7 +36,7 @@ const ProjectCardFullScreen = ({ project }) => {
         navdot.style.backgroundColor = "#EC420F"; // Default solid color
       }
       if (more) {
-        more.style.background = `linear-gradient(to bottom, #EC420F, #FFA500)`; // Default grad
+        more.style.background = `linear-gradient(to bottom, #EC420F,#EC420F, #FFA500)`; // Default grad
       }
     }
   }, [showCursor]);

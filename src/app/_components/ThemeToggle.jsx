@@ -11,7 +11,7 @@ const ThemeToggle = () => {
   };
 
   return (
-    <div className="bg-zinc-300/70 backdrop-blur-sm  dark:bg-zinc-700 rounded-full">
+    <div className="bg-zinc-300/70 backdrop-blur-sm scale-75 md:scale-90 lg:scale-110  dark:bg-zinc-700 rounded-full">
       <input
         type="checkbox"
         id="checkbox"
@@ -23,8 +23,8 @@ const ThemeToggle = () => {
         htmlFor="checkbox"
         className="checkbox-label flex items-center gap-2 cursor-pointer"
       >
-        <SunIcon className={`text-zinc-500  dark:text-zinc-200  `} />
-        <MoonIcon className={`text-zinc-500   dark:text-zinc-200 `} />
+        <SunIcon className={`text-zinc-900  dark:text-zinc-200  `} />
+        <MoonIcon className={`text-zinc-900   dark:text-zinc-200 `} />
 
         <span className="ball w-4 h-4 bg-zinc-100 rounded-full dark:bg-zinc-200 transition-transform transform dark:translate-x-6"></span>
       </label>

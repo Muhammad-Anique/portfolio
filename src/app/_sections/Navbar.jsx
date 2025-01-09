@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="w-full fixed backdrop-blur-sm  h-[8vh] max-h-[100px] md:h-[9vh] top-0 z-50 flex items-center justify-center">
+      <div className="w-full fixed backdrop-blur-sm  h-[6vh] max-h-[100px] md:h-[9vh] top-0 z-50 flex items-center justify-center">
         <div className="w-full px-7 lg:px-16 2xl:px-24 xl:px-16 flex flex-row justify-between items-center">
           <div className="relative w-auto h-auto  flex items-start">
             <Link
@@ -47,14 +47,15 @@ const Navbar = () => {
               className="w-2 h-2 md:w-4 md:h-4 rounded-full bg-p1 right-0 bottom-0 absolute -translate-y-[4px] lg:translate-x-6 translate-x-[10px] md:translate-x-5"
             ></div>
           </div>
-          <ThemeToggle />
-
-          <MenuIcon
-            onClick={() => {
-              setIsMenuClicked(!isMenuClicked);
-            }}
-            className="text-zinc-900 dark:text-zinc-200  w-6 h-6 md:w-10 md:h-10 hover:text-p1 duration-150 cursor-pointer"
-          />
+          <div className="flex flex-row items-center justify-center gap-1 md:gap-3">
+            <ThemeToggle />
+            <MenuIcon
+              onClick={() => {
+                setIsMenuClicked(!isMenuClicked);
+              }}
+              className="text-zinc-900 dark:text-zinc-200  w-6 h-6 md:w-10 md:h-10 hover:text-p1 duration-150 cursor-pointer"
+            />
+          </div>
         </div>
       </div>
 
@@ -96,6 +97,7 @@ const Navbar = () => {
           l="Meeting"
           link="/"
         />
+
         <X
           onClick={() => {
             setIsMenuClicked(!isMenuClicked);

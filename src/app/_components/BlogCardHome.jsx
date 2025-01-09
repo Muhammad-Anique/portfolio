@@ -39,7 +39,7 @@ const BlogCardHome = ({ blog, height }) => {
     <Link
       href={`/blogs/${blog?.slug}`}
       name="blog-card"
-      className="  w-full max-w-[600px] h-auto group cursor-pointer  relative"
+      className="  w-full max-w-[600px] min-h-[220px] h-auto group cursor-pointer  relative"
     >
       <div className="h-full w-full  z-[50]  flex  flex-col  ">
         <div
@@ -55,6 +55,20 @@ const BlogCardHome = ({ blog, height }) => {
             fill
             objectFit="cover"
           />
+
+          <div
+            id="button-blog"
+            className=" hover:-rotate-45 backdrop-blur-md transition-transform scale-[0.65] lg:scale-100  bg-white  w-[90px] h-[90px] rounded-full hidden md:flex items-center justify-center absolute z-10 bottom-0 lg:bottom-4 right-0 lg:right-4 "
+          >
+            <div
+              style={{
+                backgroundColor: `${blog?.secondaryColor}`,
+              }}
+              className="w-[70px] h-[70px] rounded-full   flex items-center justify-center"
+            >
+              <ChevronRight className="text-zinc-100  w-8 h-8" />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -77,17 +91,6 @@ const BlogCardHome = ({ blog, height }) => {
         <p className="text-sm block md:hidden  lg:text-lg font-lato  text-zinc-700 dark:text-zinc-400 mt-1 md:mt-3 lg:mt-4">
           {truncateExcerpt(blog?.blogExcerpt)}
         </p>
-      </div>
-
-      <div className=" hover:-rotate-45 backdrop-blur-md transition-transform scale-[0.65] lg:scale-100  bg-white  w-[90px] h-[90px] rounded-full hidden md:flex items-center justify-center absolute z-10 bottom-0 lg:bottom-4 right-0 lg:right-4 ">
-        <div
-          style={{
-            backgroundColor: `${blog?.secondaryColor}`,
-          }}
-          className="w-[70px] h-[70px] rounded-full   flex items-center justify-center"
-        >
-          <ChevronRight className="text-zinc-100  w-8 h-8" />
-        </div>
       </div>
     </Link>
   );

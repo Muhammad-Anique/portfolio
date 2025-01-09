@@ -19,7 +19,6 @@
         display: flex;
         align-items: center;
         justify-items: center;
-        width: 100%;
         color: white;
       }
 
@@ -28,7 +27,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100px; /* Height for logo row */
+        height: 100px;
       }
 
       /* Main content styling */
@@ -38,12 +37,12 @@
       }
 
       .section-full {
-        min-height: 100vh; /* Ensure full height */
-        width: 100%; /* Full width */
+        min-height: 100vh;
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #f4f4f4; /* Light background for main section */
+        background-color: #f4f4f4;
       }
 
       .bg-red {
@@ -82,13 +81,14 @@
 
       .navbar .tools1 {
         display: flex;
-        align-items: center; /* Align items to the bottom (end) of the container */
-        justify-content: flex-end; /* Align items to the right (end) of the container */
+        align-items: center;
+        justify-content: flex-end;
       }
+
       .navbar .tools2 {
         display: flex;
-        align-items: center; /* Align items to the bottom (end) of the container */
-        justify-content: flex-start; /* Align items to the right (end) of the container */
+        align-items: center;
+        justify-content: flex-start;
       }
 
       .navbar .links {
@@ -100,8 +100,6 @@
         gap: 4px;
         background-color: #fff;
       }
-
-      /* Second row (Navigation Links) */
 
       .navbar .links a {
         color: black;
@@ -117,26 +115,55 @@
         cursor: pointer;
       }
 
-      .hover-cont {
+      .menu-link-cont {
         background-color: pink;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         width: 100%;
         height: 300px;
         display: flex;
         align-items: center;
-        justify-content:flex-start;
-        padding: 0px 100px 0px 100px;
+        justify-content: center;
+        padding: 0px 100px;
+        position: absolute;
+        top: 180px; /* Adjusted position */
+        opacity: 0;
+        transform: translateY(40px);
+        pointer-events: none;
+        transition: all 0.4s ease-in-out;
       }
 
-      .content-cont{
-        background-color: yellow;
+      .menu-link-cont.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .menu-link-sub-cont {
+        background-color: blue;
+        width: 70%;
         display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items: start;
+      }
+
+      .sub-links-cont {
+        display: flex;
+        gap: 20px;
+        padding: 10px 20px 10px 20px;
+        background-color: yellow;
+        flex-direction: row;
+        align-items: baseline;
+        width: 100%;
+        height: 100%;
+      }
+
+      .link-column {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
       }
     </style>
   </head>
   <body>
-    <!-- Navbar -->
     <div class="navbar w-full">
       <div class="logo-cont bg-green w-full">
         <div class="tools2 w-full">
@@ -154,36 +181,108 @@
         </div>
       </div>
       <div class="links">
-        <a href="/" class="nav-link">DUMMY</a>
-        <a href="/" class="nav-link">DUMMY</a>
-        <a href="/" class="nav-link">DUMMY</a>
-        <a href="/" class="nav-link">DUMMY</a>
+        <a href="/" id="link1" class="nav-link">DUMMY</a>
+        <a href="/" id="link2" class="nav-link">DUMMY</a>
+        <a href="/" id="link3" class="nav-link">DUMMY</a>
+        <a href="/" id="link4" class="nav-link">DUMMY</a>
       </div>
-      <div class="hover-cont">
-         <div class="w-full bg-red content-cont">
-            <div class="bg-green">
-                <img
-            src="https://nishatlinen.com/cdn/shop/files/final_logo_1_nishat-golden.png?v=1691747968&width=120"
-            alt="Logo"
-            class="logo"
-          />
-        
-            </div>
-              <div class="bg-red">
- <a href="/" class="nav-link">DUMMY</a>
-
-              </div>
-              
-            
+      <div class="menu-link-cont" id="menu1">
+        <div class="w-full bg-red menu-link-sub-cont">
+          <div class="bg-green">
+            <img
+              src="https://nishatlinen.com/cdn/shop/files/400x270-unstitch-drop-3_4a7bf950-7311-4a74-bac7-5a36071f58f7.jpg?v=1735551292&width=800"
+              alt="Logo"
+            />
           </div>
-         </div>
-          
+          <div class="sub-links-cont">
+            <div class="bg-red link-column">
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+            </div>
 
+            <div class="bg-red link-column">
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+            </div>
+            <div class="bg-red link-column">
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-link-cont" id="menu2">
+        <div class="w-full bg-red menu-link-sub-cont">
+          <div class="bg-green">
+            <img
+              src="https://nishatlinen.com/cdn/shop/files/400x270-luxury_6d34c932-efb6-44c2-8c7d-28e9096224b5.jpg?v=1733981161&width=600"
+              alt="Logo"
+            />
+          </div>
+          <div class="sub-links-cont">
+            <div class="bg-red link-column">
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+            </div>
+
+            <div class="bg-red link-column">
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+            </div>
+            <div class="bg-red link-column">
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-link-cont" id="menu3">
+        <div class="w-full bg-red menu-link-sub-cont">
+          <div class="bg-green">
+            <img
+              src="https://nishatlinen.com/cdn/shop/files/400x270-naqsh.jpg?v=1731563947&width=600"
+              alt="Logo"
+            />
+          </div>
+          <div class="sub-links-cont">
+            <div class="bg-red link-column">
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+            </div>
+
+            <div class="bg-red link-column">
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+            </div>
+            <div class="bg-red link-column">
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+              <a href="/" class="nav-link">DUMMY</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Main content -->
     <div class="main-content">
       <section class="section-full">
         <div>
@@ -193,12 +292,48 @@
       </section>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
       <p>&copy; 2025 Your Company. All rights reserved.</p>
     </div>
 
-    <!-- Bootstrap JS (via CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const link1 = document.getElementById("link1");
+      const menu1 = document.getElementById("menu1");
+      const link2 = document.getElementById("link2");
+      const menu2 = document.getElementById("menu2");
+      const link3 = document.getElementById("link3");
+      const menu3 = document.getElementById("menu3");
+
+      link1.addEventListener("mouseenter", () => {
+        menu1.classList.add("active");
+      });
+
+      link2.addEventListener("mouseenter", () => {
+        menu2.classList.add("active");
+      });
+
+      link3.addEventListener("mouseenter", () => {
+        menu3.classList.add("active");
+      });
+
+      link1.addEventListener("mouseleave", () => {
+        setTimeout(() => {
+          menu1.classList.remove("active");
+        }, 50); // Ensure the fade-out is visible
+      });
+
+      link2.addEventListener("mouseleave", () => {
+        setTimeout(() => {
+          menu2.classList.remove("active");
+        }, 50); // Ensure the fade-out is visible
+      });
+
+      link3.addEventListener("mouseleave", () => {
+        setTimeout(() => {
+          menu3.classList.remove("active");
+        }, 50); // Ensure the fade-out is visible
+      });
+    </script>
   </body>
 </html>
