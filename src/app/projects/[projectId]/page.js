@@ -65,7 +65,6 @@ const BlockSelector = (props) => {
         className="rounded-lg overflow-hidden mt-3"
         style={{
           position: "relative",
-
           paddingBottom: "62.5%",
           height: 0,
         }}
