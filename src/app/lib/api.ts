@@ -68,10 +68,3 @@ export const fetchAllProjects = async () => {
     return null;
   }
 };
-
-// export const getProjectData = async (projectId: string) => {
-//   console.log(projectId);
-//   return {
-//     body: "Hello project",
-//   };
-// };
