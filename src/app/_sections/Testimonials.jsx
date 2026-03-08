@@ -29,6 +29,14 @@ const Testimonials = () => {
       icon: `🇯🇵`,
       date: `6/18/2024`,
     },
+    {
+      id: `4`,
+      body: `Excellent work with fast delivery, quick response, and professional execution.`,
+      author: `SuperStack`,
+      country: `Bangkok, Thailand`,
+      icon: `🇹🇭`,
+      date: `3/08/2025`,
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

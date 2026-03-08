@@ -105,6 +105,18 @@ const BlockSelector = (props) => {
   //   return <StackCards body={body} />;
   else if (blockType === "mobile-ss") {
     return <MobileSSArray body={body} />;
+  } else if (blockType === "video") {
+    return (
+      <div id={body?.alt} className="rounded-lg overflow-hidden mt-3">
+        <video
+          src={body?.src}
+          controls
+          playsInline
+          className="w-full rounded-lg"
+          poster={body?.poster}
+        />
+      </div>
+    );
   }
 };
 

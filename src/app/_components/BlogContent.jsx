@@ -122,7 +122,7 @@ const BlogContent = ({ blogData }) => {
             </div>
 
             <div className="w-full h-full aspect-[16/9]  p-10 rounded-xl  absolute top-0 z-10">
-              <div className="absolute hidden md:flex flex-row flex-wrap gap-2">
+              <div className="absolute bottom-4 right-4 hidden md:flex flex-row flex-wrap justify-end gap-2">
                 {blogData?.blogBody?.tags.map((tag, index) => {
                   return (
                     <div

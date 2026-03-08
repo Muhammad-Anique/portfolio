@@ -9,7 +9,7 @@ const BlogCardArray = async () => {
   return (
     <>
       {blogs ? (
-        <div className="grid grid-cols-1 lg:grid-cols-2  justify-items-center gap-8 xl:gap-9 2xl:gap-8 w-full h-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2  justify-items-center gap-8 xl:gap-9 2xl:gap-8 w-full max-w-[1200px] mx-auto h-auto">
           {blogs?.map((blog, index) => (
             <Link
               key={blog.id}

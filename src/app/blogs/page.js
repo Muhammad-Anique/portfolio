@@ -7,7 +7,7 @@ export const metadata = {
 };
 const BlogsList = async () => {
   return (
-    <div className="w-full h-auto flex-col gap-10 relative flex items-center justify-center bg-white/60 dark:bg-black ">
+    <div className="w-full h-auto flex-col gap-10 relative flex items-center justify-center bg-white/90 dark:bg-black ">
       <OptimizedBackground src={"/l1.jpg"} opacity={10} />
 
       <div className="w-full backdrop-blur-md   h-auto py-32  px-7 flex items-center justify-center">

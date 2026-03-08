@@ -40,10 +40,10 @@ const BlogCard = (props) => {
   return (
     <div
       name="blog-card"
-      className="max-w-[350px] group   md:min-w-[450px]  md:min-h-[430px] w-full dark:backdrop-blur-sm  rounded-lg  h-auto group cursor-pointer relative"
+      className="max-w-[550px] group   md:min-w-[500px]  md:min-h-[430px] w-full dark:backdrop-blur-sm  rounded-lg  h-auto group cursor-pointer relative"
     >
       <div className="h-full w-full  z-[50]  flex md:mt-3 flex-col  ">
-        <div className="relative group-hover:scale-105 duration-300 ease-in-out transition-all overflow-hidden rounded-lg min-w-[250px] min-h-[270px] w-full h-full ">
+        <div className="relative group-hover:scale-105 duration-300 ease-in-out transition-all overflow-hidden rounded-lg w-full aspect-[16/9] ">
           <Image
             src={blog?.blogFeatureImage}
             alt={blog?.blogFeatureAlt}
@@ -51,7 +51,7 @@ const BlogCard = (props) => {
             objectFit="cover"
           />
         </div>
-        <h1 className="text-zinc-900 dark:text-zinc-200  font-extrabold font-lato  text-4xl md:text-[32px] mt-5 ">
+        <h1 className="text-zinc-900 dark:text-zinc-200  font-extrabold font-lato  text-xl md:text-2xl mt-5 ">
           {blog?.blogTitle}
         </h1>
         <div className="flex flex-row items-center  gap-3  mt-2 ">
