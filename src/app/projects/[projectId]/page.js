@@ -105,6 +105,19 @@ const BlockSelector = (props) => {
   //   return <StackCards body={body} />;
   else if (blockType === "mobile-ss") {
     return <MobileSSArray body={body} />;
+  } else if (blockType === "iframe") {
+    return (
+      <div id={body?.alt} className="rounded-xl overflow-hidden mt-3 border border-zinc-200 dark:border-zinc-700">
+        <iframe
+          src={body?.src}
+          title={body?.alt}
+          className="w-full rounded-xl"
+          style={{ height: body?.height || "600px", border: "none" }}
+          loading="lazy"
+          allowFullScreen
+        />
+      </div>
+    );
   } else if (blockType === "video") {
     return (
       <div id={body?.alt} className="rounded-lg overflow-hidden mt-3">

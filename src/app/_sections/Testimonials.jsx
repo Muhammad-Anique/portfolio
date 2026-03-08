@@ -37,6 +37,22 @@ const Testimonials = () => {
       icon: `🇹🇭`,
       date: `3/08/2025`,
     },
+    {
+      id: `5`,
+      body: `Anique built an automation system that saved us tons of manual work. He understood our needs quickly and delivered exactly what we wanted. Great communication and highly recommended.`,
+      author: `alexa_lily3`,
+      country: `United States`,
+      icon: `🇺🇸`,
+      date: `2/08/2026`,
+    },
+    {
+      id: `6`,
+      body: `Anique delivered our internal ai agent as promised, connected with google drive and completed the project on time, overall excellent experience.`,
+      author: `james_nolan09`,
+      country: `United States`,
+      icon: `🇺🇸`,
+      date: `3/01/2026`,
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
