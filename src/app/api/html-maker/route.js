@@ -1,7 +1,7 @@
 import { OpenAI } from "openai";
 
 const openai = new OpenAI({
-  apiKey: process.env.NEXT_PUBLIC_OPENAI_KEY, // Ensure to set this in your .env file
+  apiKey: process.env.NEXT_PUBLIC_OPENAI_KEY || process.env.OPEN_AI_KEY || "missing",
 });
 
 export async function POST(req) {
