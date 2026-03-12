@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Proposal — Muhammad Anique | Djalma Diagnósticos</title>
+<style>
+/* ─── RESET ─────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f1f5f9;color:#1e293b;line-height:1.65;}
+
+/* ─── LOGIN SCREEN ───────────────────────── */
+#login-screen{
+  position:fixed;inset:0;z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#0a0f1e 0%,#0d1b3e 50%,#0a1628 100%);
+  overflow:hidden;
+}
+#login-screen::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 20% 50%,rgba(59,130,246,.15) 0%,transparent 60%),
+             radial-gradient(ellipse at 80% 20%,rgba(16,185,129,.1) 0%,transparent 50%);
+  animation:bgPulse 8s ease-in-out infinite alternate;
+}
+@keyframes bgPulse{
+  0%{opacity:.6;}100%{opacity:1;}
+}
+.login-card{
+  position:relative;z-index:1;
+  width:100%;max-width:420px;margin:20px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;
+  padding:48px 40px 40px;
+  backdrop-filter:blur(24px);
+  box-shadow:0 32px 80px rgba(0,0,0,.5);
+}
+.login-logo{
+  width:52px;height:52px;border-radius:14px;
+  background:linear-gradient(135deg,#1d4ed8,#0ea5e9);
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;margin:0 auto 24px;
+  box-shadow:0 8px 24px rgba(14,165,233,.4);
+}
+.login-card h1{
+  text-align:center;color:#f8fafc;font-size:22px;font-weight:700;margin-bottom:6px;
+}
+.login-card .subtitle{
+  text-align:center;color:rgba(255,255,255,.45);font-size:13px;margin-bottom:32px;
+}
+.field{margin-bottom:18px;}
+.field label{display:block;font-size:12px;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.5);margin-bottom:8px;text-transform:uppercase;}
+.field input{
+  width:100%;padding:13px 16px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:10px;color:#f1f5f9;font-size:14.5px;outline:none;
+  transition:border-color .2s,background .2s;
+}
+.field input:focus{border-color:rgba(59,130,246,.6);background:rgba(255,255,255,.1);}
+.field input::placeholder{color:rgba(255,255,255,.25);}
+.login-btn{
+  width:100%;padding:14px;margin-top:6px;
+  background:linear-gradient(135deg,#1d4ed8,#0ea5e9);
+  border:none;border-radius:10px;color:#fff;
+  font-size:15px;font-weight:700;cursor:pointer;
+  letter-spacing:.03em;
+  transition:opacity .2s,transform .1s;
+  box-shadow:0 6px 20px rgba(14,165,233,.35);
+}
+.login-btn:hover{opacity:.92;transform:translateY(-1px);}
+.login-btn:active{transform:translateY(0);}
+.login-error{
+  display:none;text-align:center;color:#f87171;font-size:13px;
+  margin-top:14px;padding:10px;background:rgba(248,113,113,.1);
+  border-radius:8px;border:1px solid rgba(248,113,113,.2);
+}
+.login-footer{text-align:center;margin-top:28px;color:rgba(255,255,255,.25);font-size:12px;}
+
+/* ─── PROPOSAL ───────────────────────────── */
+#proposal{display:none;opacity:0;transition:opacity .6s ease;}
+#proposal.visible{opacity:1;}
+
+/* ── NAV ── */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(10,15,30,.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  padding:0 40px;display:flex;align-items:center;
+  justify-content:space-between;height:58px;
+}
+.nav-brand{color:#f8fafc;font-weight:700;font-size:15px;display:flex;align-items:center;gap:10px;}
+.nav-dot{width:8px;height:8px;border-radius:50%;background:#10b981;}
+.nav-links{display:flex;gap:6px;}
+.nav-links a{
+  color:rgba(255,255,255,.55);font-size:13px;padding:6px 12px;border-radius:6px;
+  text-decoration:none;transition:color .2s,background .2s;
+}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.08);}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(135deg,#0a0f1e 0%,#0d1b3e 60%,#0f2452 100%);
+  padding:72px 48px 60px;color:#fff;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-40%;right:-10%;width:600px;height:600px;
+  background:radial-gradient(circle,rgba(59,130,246,.12) 0%,transparent 70%);
+}
+.hero::after{
+  content:'';position:absolute;bottom:-30%;left:5%;width:400px;height:400px;
+  background:radial-gradient(circle,rgba(16,185,129,.08) 0%,transparent 70%);
+}
+.hero-inner{position:relative;z-index:1;max-width:900px;margin:0 auto;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);
+  color:#6ee7b7;padding:6px 14px;border-radius:99px;font-size:12px;font-weight:600;
+  letter-spacing:.05em;margin-bottom:24px;
+}
+.hero h1{font-size:34px;font-weight:800;line-height:1.25;margin-bottom:16px;}
+.hero h1 span{
+  background:linear-gradient(90deg,#60a5fa,#34d399);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:20px;margin-top:28px;
+  padding-top:24px;border-top:1px solid rgba(255,255,255,.1);
+}
+.meta-item{font-size:13px;color:rgba(255,255,255,.55);}
+.meta-item strong{color:rgba(255,255,255,.9);display:block;font-size:14px;margin-bottom:2px;}
+
+/* ── CONTENT WRAPPER ── */
+.content{max-width:960px;margin:0 auto;padding:48px 28px 80px;}
+
+/* ── SECTION ── */
+.section{margin-bottom:60px;}
+.section-label{
+  font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:#0ea5e9;margin-bottom:6px;
+}
+h2{
+  font-size:22px;font-weight:800;color:#0a0f1e;
+  margin-bottom:20px;padding-bottom:12px;
+  border-bottom:2px solid #e2e8f0;
+}
+
+/* ── ALERT ── */
+.alert{
+  border-left:4px solid #3b82f6;background:#eff6ff;
+  padding:14px 18px;border-radius:0 8px 8px 0;margin-bottom:20px;font-size:14px;color:#1e3a8a;
+}
+.alert.green{border-color:#10b981;background:#f0fdf4;color:#14532d;}
+.alert.orange{border-color:#f59e0b;background:#fffbeb;color:#78350f;}
+.alert.red{border-color:#ef4444;background:#fef2f2;color:#7f1d1d;}
+.alert strong{display:block;margin-bottom:3px;font-size:14.5px;}
+
+/* ── Q&A ── */
+.qa{margin-bottom:12px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;}
+.qa-q{
+  background:#f8fafc;padding:12px 18px;
+  font-weight:700;font-size:14px;color:#0a0f1e;
+  border-bottom:1px solid #e2e8f0;display:flex;align-items:center;gap:10px;
+}
+.qa-num{
+  width:24px;height:24px;border-radius:50%;background:#1d4ed8;
+  color:#fff;font-size:11px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.qa-a{padding:12px 18px;font-size:14px;color:#475569;}
+
+/* ── GAP ITEM ── */
+.gap-grid{display:grid;gap:12px;margin-bottom:24px;}
+.gap-item{
+  display:grid;grid-template-columns:28px 1fr auto;
+  align-items:start;gap:12px;
+  background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;
+}
+.gap-num{
+  width:28px;height:28px;border-radius:50%;
+  background:#0a0f1e;color:#fff;font-size:12px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;
+}
+.gap-text h4{font-size:14px;font-weight:700;color:#0a0f1e;margin-bottom:3px;}
+.gap-text p{font-size:13px;color:#64748b;margin:0;}
+.gap-badge{
+  white-space:nowrap;padding:3px 10px;border-radius:99px;
+  font-size:11px;font-weight:700;
+}
+.gb-green{background:#dcfce7;color:#15803d;}
+.gb-blue{background:#dbeafe;color:#1d4ed8;}
+.gb-orange{background:#fef3c7;color:#b45309;}
+.gb-purple{background:#f3e8ff;color:#7e22ce;}
+
+/* ── MILESTONE TABLE ── */
+.phase-header{
+  background:linear-gradient(135deg,#0a0f1e,#1e3a8a);
+  color:#fff;padding:16px 22px;border-radius:12px 12px 0 0;
+  display:flex;justify-content:space-between;align-items:center;margin-top:28px;
+}
+.phase-header h3{font-size:15px;font-weight:700;}
+.phase-header span{font-size:13px;opacity:.7;}
+.ms-table{width:100%;border-collapse:collapse;background:#fff;border-radius:0 0 12px 12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.07);}
+.ms-table thead tr{background:#1e293b;color:#fff;}
+.ms-table thead th{padding:11px 14px;text-align:left;font-size:12px;font-weight:600;letter-spacing:.04em;}
+.ms-table tbody tr{border-bottom:1px solid #f1f5f9;transition:background .15s;}
+.ms-table tbody tr:hover{background:#f8fafc;}
+.ms-table td{padding:13px 14px;vertical-align:top;font-size:13.5px;}
+.ms-num{font-weight:800;color:#1d4ed8;white-space:nowrap;font-size:14px;}
+.ms-name{font-weight:700;color:#0a0f1e;}
+.ms-name small{display:block;font-weight:400;color:#94a3b8;font-size:12px;margin-top:2px;}
+.ms-price{font-weight:800;color:#059669;text-align:right;white-space:nowrap;font-size:14px;}
+.ms-cond{color:#d97706!important;}
+.ms-table .deliverables{color:#475569;font-size:13px;line-height:1.55;}
+.ms-table .deliverables li{margin-bottom:3px;list-style:none;padding-left:14px;position:relative;}
+.ms-table .deliverables li::before{content:'·';position:absolute;left:2px;color:#94a3b8;}
+.total-row td{background:#f0fdf4;font-weight:700;border-top:3px solid #0a0f1e!important;}
+.total-row .ms-price{font-size:16px;color:#059669;}
+.grand-row td{background:#0a0f1e;color:#fff!important;font-weight:800;}
+.grand-row .ms-price{color:#34d399!important;font-size:18px;}
+.phase2-row td{background:#f5f3ff;}
+
+/* ── BADGE ── */
+.badge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:700;}
+.bd-blue{background:#dbeafe;color:#1d4ed8;}
+.bd-green{background:#dcfce7;color:#15803d;}
+.bd-orange{background:#fef3c7;color:#b45309;}
+.bd-purple{background:#f3e8ff;color:#7e22ce;}
+
+/* ── QUESTIONS ── */
+.q-list{list-style:none;padding:0;}
+.q-list li{
+  padding:11px 14px 11px 42px;position:relative;
+  background:#fff;border:1px solid #e2e8f0;border-radius:8px;
+  margin-bottom:8px;font-size:14px;color:#334155;
+}
+.q-list li::before{
+  content:attr(data-n);position:absolute;left:12px;top:11px;
+  background:#1d4ed8;color:#fff;width:22px;height:22px;border-radius:50%;
+  font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;
+}
+
+/* ── SAVINGS BOX ── */
+.savings-box{
+  background:linear-gradient(135deg,#f0fdf4,#ecfdf5);
+  border:2px solid #10b981;border-radius:12px;padding:20px 24px;margin:20px 0;
+}
+.savings-box h4{color:#065f46;font-size:16px;margin-bottom:10px;}
+.savings-box ul{list-style:none;padding:0;}
+.savings-box li{padding:6px 0;font-size:14px;color:#047857;padding-left:20px;position:relative;}
+.savings-box li::before{content:'>';position:absolute;left:4px;color:#10b981;font-weight:700;}
+
+/* ── FOOTER ── */
+.footer{
+  background:linear-gradient(135deg,#0a0f1e,#0d1b3e);
+  color:rgba(255,255,255,.55);text-align:center;
+  padding:36px 20px;font-size:13px;
+}
+.footer strong{color:#fff;}
+.footer-grid{
+  display:flex;justify-content:center;flex-wrap:wrap;gap:32px;
+  margin-bottom:24px;
+}
+.footer-item strong{color:#93c5fd;display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;}
+.footer-item span{color:#e2e8f0;font-size:15px;font-weight:600;}
+
+@media(max-width:640px){
+  .hero{padding:48px 20px 40px;}
+  .hero h1{font-size:24px;}
+  .content{padding:32px 16px 60px;}
+  .nav{padding:0 16px;}
+  .ms-table{font-size:12px;}
+  .ms-table td,.ms-table th{padding:9px 10px;}
+  .phase-header{flex-direction:column;gap:6px;}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">N</div>
+    <h1>Proposal Portal</h1>
+    <p class="subtitle">NOVVA Medical &middot; Djalma Diagn&oacute;sticos &middot; Restricted Access</p>
+    <div class="field">
+      <label>Username</label>
+      <input type="text" id="username" placeholder="Enter username" autocomplete="off"/>
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Enter password" autocomplete="off"/>
+    </div>
+    <button class="login-btn" onclick="doLogin()">Access Proposal</button>
+    <div class="login-error" id="login-error">Incorrect credentials. Please try again.</div>
+    <p class="login-footer">Confidential &mdash; For authorized recipients only</p>
+  </div>
+</div>
+
+<!-- PROPOSAL -->
+<div id="proposal">
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-brand"><span class="nav-dot"></span> Muhammad Anique &mdash; Updated Proposal v3</div>
+    <div class="nav-links">
+      <a href="#answers">Answers</a>
+      <a href="#scope">Scope</a>
+      <a href="#milestones">Milestones</a>
+      <a href="#next">Next Steps</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Updated Proposal v3 &mdash; Budget-Optimized Full Scope &middot; 13 Mar 2026</div>
+      <h1>NOVVA Medical<br><span>Complete Clinic Automation &mdash; $15,000</span></h1>
+      <p style="color:rgba(255,255,255,.65);font-size:15px;max-width:640px;">
+        Restructured to fit your budget while covering 100% of the briefing scope. Consolidated milestones, factored in simplified Sisclinic integration, your pre-built Books architecture, and new scope additions (Clinical Inventory, Context Memory, Longitudinal Engine). All answers to your questions included below.
+      </p>
+      <div class="hero-meta">
+        <div class="meta-item"><strong>Client</strong>Dr. Antonio Djalma &middot; NOVVA Medical</div>
+        <div class="meta-item"><strong>Briefing</strong>v5.5-F2 + Financial v2</div>
+        <div class="meta-item"><strong>Total Price</strong>$15,000 Fixed</div>
+        <div class="meta-item"><strong>Timeline</strong>~6 months (Phase 1 + 2)</div>
+        <div class="meta-item"><strong>Contract</strong>Fixed-price milestones only</div>
+        <div class="meta-item"><strong>Start</strong>Within 3 business days</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ── ANSWERS TO DR. ANTONIO'S QUESTIONS ── -->
+    <div class="section" id="answers">
+      <div class="section-label">Your Questions Answered</div>
+      <h2>Messaging Architecture + Scope Additions</h2>
+
+      <div class="alert green">
+        <strong>Dr. Antonio &mdash; thank you for the detailed vendor responses and the additional scope items.</strong>
+        Below are my answers to your messaging architecture question and confirmation of all new additions. I have also restructured the entire proposal to $15,000 fixed, factoring in every simplification and your pre-built architecture work.
+      </div>
+
+      <!-- Messaging Architecture Answer -->
+      <div class="qa">
+        <div class="qa-q"><div class="qa-num">A</div> Messaging Architecture &mdash; My Recommendation</div>
+        <div class="qa-a">
+          <p style="margin-bottom:10px;"><strong>Short answer: Option B &mdash; Evolution API only. No hybrid needed at your scale.</strong></p>
+          <p style="margin-bottom:10px;">Here is my reasoning:</p>
+          <p style="margin-bottom:8px;"><strong>1. At 300 patients/month, the official Cloud API adds cost and complexity without clear benefit.</strong> The official API charges per conversation, requires template pre-approval (24-72h turnaround), and limits free-form messaging to a 24-hour window after the patient last messaged you. That window restriction directly conflicts with Sofia's need to send proactive follow-ups, D-15/D-7 reminders, and voucher messages at any time.</p>
+          <p style="margin-bottom:8px;"><strong>2. Evolution API (Baileys) already gives you everything you need.</strong> Free-form messages, buttons, lists, interactive flows, no template approval delays, no 24h window restriction. Sofia can send any message at any time. This is exactly what your conversational AI needs.</p>
+          <p style="margin-bottom:8px;"><strong>3. The dual-layer approach (Option C) is overengineering for your volume.</strong> Running two messaging channels means maintaining two webhook receivers, two payload formats, two delivery tracking systems, and routing logic to decide which channel handles which message. This doubles the WF_INGEST and WF_RESPOND complexity for no practical gain at 300 patients/month.</p>
+          <p style="margin-bottom:8px;"><strong>4. Latency consideration:</strong> Evolution API adds ~200-400ms over the official API. At your volume, this is imperceptible to patients. The latency concern only matters at 5,000+ concurrent sessions.</p>
+          <p><strong>5. Future-proofing:</strong> If you ever need to migrate to the official Cloud API (for compliance or scaling beyond 2,000 patients/month), the architecture I am building uses an abstraction layer in WF_RESPOND. Switching the transport layer underneath is a 2-day effort, not a rewrite. So there is zero risk in starting with Evolution API only.</p>
+        </div>
+      </div>
+
+      <!-- Scope Additions Confirmed -->
+      <div class="qa">
+        <div class="qa-q"><div class="qa-num">B</div> New Scope Additions &mdash; All Included</div>
+        <div class="qa-a">
+          <p style="margin-bottom:10px;">The three items you requested are included in the updated milestones at no additional cost:</p>
+          <p style="margin-bottom:6px;"><strong>Clinical Inventory</strong> &mdash; Streamlined module for internal office items. Included in M2 (CRM Data Model) as a lightweight custom module with basic CRUD, low/reorder alerts via scheduled function, and WhatsApp notification to coordinator.</p>
+          <p style="margin-bottom:6px;"><strong>Context Memory (Sofia)</strong> &mdash; 7 fields on Contact object (sofia_context_short, Sofia_Context_Long, correlation_trace_5, session state, deal state, etc.) + lookup during orchestration before LLM call. Included in M7 (Sofia AI Core). The fields are created in M2, the orchestration logic lives in M7.</p>
+          <p><strong>Longitudinal Engine (D-15/D-7)</strong> &mdash; Automatic follow-up for periodic check-ups via cron job + messaging template. Included in M5 (Complementary Modules). Standard scheduled function checking Achados module for due follow-ups, triggering WhatsApp templates via Evolution API.</p>
+        </div>
+      </div>
+
+      <!-- Sisclinic Simplification -->
+      <div class="qa">
+        <div class="qa-q"><div class="qa-num">C</div> Sisclinic &mdash; Factored In as Simpler</div>
+        <div class="qa-a">
+          <p style="margin-bottom:10px;">Thank you for sharing the vendor responses. This significantly reduces M4 scope:</p>
+          <p style="margin-bottom:6px;"><strong>Zero rate limiting</strong> &mdash; Polling every 5 minutes is safe. No need for backoff/throttling logic.</p>
+          <p style="margin-bottom:6px;"><strong>Simple rescheduling</strong> &mdash; Cancel + create new. Two API calls instead of the 4-step lock sequence I originally scoped.</p>
+          <p style="margin-bottom:6px;"><strong>Patient presence detectable before report</strong> &mdash; Can trigger E3 earlier. Better patient experience.</p>
+          <p style="margin-bottom:6px;"><strong>Production token in 0-1 day</strong> &mdash; No bureaucracy risk in the timeline.</p>
+          <p>These simplifications allowed me to reduce the Sisclinic milestone from $1,500 to $1,000 and consolidate it into the n8n architecture milestone.</p>
+        </div>
+      </div>
+
+      <!-- Books Architecture -->
+      <div class="qa">
+        <div class="qa-q"><div class="qa-num">D</div> Zoho Books &mdash; Your Pre-Built Architecture Factored In</div>
+        <div class="qa-a">
+          <p style="margin-bottom:10px;">You mentioned your finance architecture document is 2,300+ lines with the full operating model already specified. This means:</p>
+          <p style="margin-bottom:6px;"><strong>Design/architecture effort is already done on your side.</strong> I only need to execute: configure the chart of accounts, set up the service catalog, build the CRM-Books sync, and wire the PIX-Books bridge.</p>
+          <p style="margin-bottom:6px;"><strong>Implementation effort is reduced by ~40%</strong> compared to a project where I would also need to design the financial model from scratch.</p>
+          <p>This allowed me to price M8 (Zoho Books) at $1,500 instead of the original $2,800.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── HOW I REDUCED THE PRICE ── -->
+    <div class="section">
+      <div class="section-label">Budget Optimization</div>
+      <h2>How $28,400 Became $15,000</h2>
+
+      <div class="savings-box">
+        <h4>Five Factors That Made This Possible</h4>
+        <ul>
+          <li><strong>Sisclinic is simpler than estimated.</strong> Vendor confirmed: zero rate limits, 2-call rescheduling, presence detection before report, instant production tokens. Saved ~$500 in complexity.</li>
+          <li><strong>Your Books architecture is pre-built.</strong> 2,300+ lines of financial specification means I execute, not design. Saved ~$1,300 in architecture/design effort.</li>
+          <li><strong>Consolidated 14 milestones into 10.</strong> Less overhead per milestone (documentation, handoff, review cycles) = more time building. Saved ~$1,500 in process overhead.</li>
+          <li><strong>Single messaging layer (Evolution API only).</strong> No dual-channel complexity. One webhook receiver, one payload format, one delivery tracker. Saved ~$400 in integration work.</li>
+          <li><strong>Dedicated commitment.</strong> I am committing 40 hours/week exclusively to this project. Fewer context switches = faster delivery = lower cost to you.</li>
+        </ul>
+      </div>
+
+      <div class="alert orange">
+        <strong>What stays exactly the same:</strong>
+        Fixed-price milestones. Triple evidence on every delivery (screenshot + config export + real log with correlation_id). Rollback procedure tested before every production deployment. 5-business-day review SLA. No hourly billing. No hidden costs.
+      </div>
+    </div>
+
+    <!-- ── 7 ANSWERS CONFIRMED ── -->
+    <div class="section">
+      <div class="section-label">Application Requirements</div>
+      <h2>7 Required Points &mdash; Reconfirmed</h2>
+
+      <div class="qa">
+        <div class="qa-q"><div class="qa-num">1</div> Zoho CRM Experience</div>
+        <div class="qa-a">Built implementations with 140+ custom fields, multi-stage Blueprints, Deluge validation rules, 8+ scheduled functions, and 4 custom modules &mdash; directly matching your pipeline, data model, and automation requirements.</div>
+      </div>
+      <div class="qa">
+        <div class="qa-q"><div class="qa-num">2</div> n8n Self-Hosted</div>
+        <div class="qa-a">20+ workflows on self-hosted n8n. Built multi-channel webhook routers with OAuth2 CRM write-back, retry/DLQ logic, mTLS banking auth, and structured correlation_id logging &mdash; matching your 5-workflow modular architecture.</div>
+      </div>
+      <div class="qa">
+        <div class="qa-q"><div class="qa-num">3</div> WhatsApp / Messaging</div>
+        <div class="qa-a">Delivered integrations on Evolution API (Baileys engine &mdash; your exact gateway). Handled templates, 3-tone conversational profiles, anti-loop escalation, quiet hours, LGPD consent, and human handoff flows.</div>
+      </div>
+      <div class="qa">
+        <div class="qa-q"><div class="qa-num">4</div> Financial / Payment API</div>
+        <div class="qa-a">Integrated banking REST APIs with webhook confirmation, TXID matching, anti-duplication, and CRM auto-update. Configured mTLS certificates for banking APIs &mdash; directly applicable to Banco Inter.</div>
+      </div>
+      <div class="qa">
+        <div class="qa-q"><div class="qa-num">5</div> Milestone Structure</div>
+        <div class="qa-a">8 milestones for Phase 1 + 2 milestones for Phase 2 = 10 total. Consolidated for efficiency. See the full table below.</div>
+      </div>
+      <div class="qa">
+        <div class="qa-q"><div class="qa-num">6</div> Fixed Price</div>
+        <div class="qa-a">Confirmed. Fixed-price only. No hourly, no retainer. Payment on triple evidence: screenshot + config export + real log with correlation_id. No exceptions.</div>
+      </div>
+      <div class="qa">
+        <div class="qa-q"><div class="qa-num">7</div> Availability</div>
+        <div class="qa-a">Start within 3 business days. 40 hours/week dedicated exclusively to this project. Portuguese (BR) literate &mdash; for your 80+ canonical documents and clinic team communication.</div>
+      </div>
+    </div>
+
+    <!-- ── MILESTONES ── -->
+    <div class="section" id="milestones">
+      <div class="section-label">Pricing</div>
+      <h2>Full Scope &mdash; $15,000 Fixed-Price Milestones</h2>
+
+      <div class="alert">
+        <strong>100% of briefing scope is covered.</strong>
+        All original items + Clinical Inventory + Context Memory + Longitudinal Engine + Sisclinic (active) + Financial Module + Sofia AI Core + Dashboards. Nothing removed &mdash; only consolidated and optimized.
+      </div>
+
+      <!-- PHASE 1 -->
+      <div class="phase-header">
+        <h3>Phase 1 &mdash; CRM Operational MVP</h3>
+        <span>Milestones M1 &ndash; M8</span>
+      </div>
+      <table class="ms-table">
+        <thead>
+          <tr>
+            <th style="width:46px">#</th>
+            <th style="width:160px">Milestone</th>
+            <th>Key Deliverables</th>
+            <th style="width:60px">Days</th>
+            <th style="width:90px">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="ms-num">M1</td>
+            <td><span class="ms-name">CRM Foundation<small><span class="badge bd-blue">Pipeline + Fields + Modules</span></small></span></td>
+            <td><ul class="deliverables">
+              <li>Pipeline E1-E6 with exact stage names and transitions</li>
+              <li>~80 core Deal + 35 Contact fields (from ENT-01)</li>
+              <li>Blueprints &mdash; all 5 stage transition guards</li>
+              <li>Validation Rules VR-01 to VR-04 (Deluge, Portuguese errors)</li>
+              <li>3 patient profiles: NOVO / CLIENTE / INDESEJADO</li>
+              <li>Stage to sofia_state bijection via Deluge workflow rule</li>
+              <li>Sofia_Config module (kill switches, singleton)</li>
+            </ul></td>
+            <td>10</td>
+            <td class="ms-price">$2,000</td>
+          </tr>
+          <tr>
+            <td class="ms-num">M2</td>
+            <td><span class="ms-name">CRM Data Model<small><span class="badge bd-blue">Modules + DNA + Inventory</span></small></span></td>
+            <td><ul class="deliverables">
+              <li>Remaining 100+ fields (Hook Pack, clinical, financial fields)</li>
+              <li>5 Custom Modules: Achados (21 fields), Transa&ccedil;&otilde;es Banc&aacute;rias, LOG_DECISOES (23 fields), EXCEPTIONS, Sofia_Config</li>
+              <li>DNA Score formula in Deluge (6 aggravating + 4 mitigating factors)</li>
+              <li>7 operational flags with activation rules</li>
+              <li>Blacklist policy: TEMPORARIO auto-expire + PERMANENTE (L1 only)</li>
+              <li>Voucher fields (7 anti-fraud patterns)</li>
+              <li>Products module: exam catalog with prices</li>
+              <li><strong>Clinical Inventory module</strong> &mdash; lightweight CRUD for office items, low-stock alerts, reorder notifications to coordinator via WhatsApp</li>
+              <li><strong>Context Memory fields</strong> &mdash; 7 fields on Contact (sofia_context_short, Sofia_Context_Long, correlation_trace_5, session state, deal state)</li>
+            </ul></td>
+            <td>10</td>
+            <td class="ms-price">$2,000</td>
+          </tr>
+          <tr>
+            <td class="ms-num">M3</td>
+            <td><span class="ms-name">CRM Automation<small><span class="badge bd-blue">11 Functions</span></small></span></td>
+            <td><ul class="deliverables">
+              <li>11 Deluge Scheduled Functions (daily/hourly/weekly)</li>
+              <li>Timeout enforcement: E2 to E1 (24h standard / 2h urgent)</li>
+              <li>E4 medical timeout &rarr; Task + regression to E1</li>
+              <li>No-show detection, slot expiry, DNA recalculation</li>
+              <li>Voucher expiry, SEM_RESPOSTA auto-flag at 48h</li>
+              <li>System watchdog + health alerts to Zoho Cliq</li>
+              <li>LOG_DECISOES auto-populated (SHA-256 hash per event)</li>
+              <li>Inventory low-stock check cron</li>
+            </ul></td>
+            <td>7</td>
+            <td class="ms-price">$1,200</td>
+          </tr>
+          <tr>
+            <td class="ms-num">M4</td>
+            <td><span class="ms-name">n8n + Sisclinic<small><span class="badge bd-blue">5 Workflows + Booking</span></small></span></td>
+            <td><ul class="deliverables">
+              <li><strong>WF_INGEST:</strong> webhook receiver, payload validation, message_id dedup + 2s debounce</li>
+              <li><strong>WF_CLASSIFY:</strong> intent detection, CRM context load, conversation state</li>
+              <li><strong>WF_DECIDE:</strong> deterministic business-rules engine (n8n decides, never LLM)</li>
+              <li><strong>WF_RESPOND:</strong> response composition + WhatsApp dispatch (Evolution API only)</li>
+              <li><strong>WF_ERROR:</strong> DLQ, Zoho Cliq alerts, fallback responses</li>
+              <li>All credentials configured (Zoho OAuth2, Evolution API, Banco Inter mTLS, LLM APIs)</li>
+              <li>Correlation_id propagation &middot; Health cron 15min &middot; Retry 3x + DLQ</li>
+              <li><strong>Sisclinic integration:</strong> JWT auth, patient lookup by CPF, slot search + booking, cancel + rebook (2 calls), 5-min polling cron for presence/report, sisclinic_handle write-back</li>
+            </ul></td>
+            <td>14</td>
+            <td class="ms-price">$2,500</td>
+          </tr>
+          <tr>
+            <td class="ms-num">M5</td>
+            <td><span class="ms-name">WhatsApp + Modules<small><span class="badge bd-blue">Templates + 13.4-13.11</span></small></span></td>
+            <td><ul class="deliverables">
+              <li>Evolution API (Baileys) integration, [SOFIA_AI] tag on all automated messages</li>
+              <li>13+ templates: greeting, exam prep, QR delivery, confirmation, D-1 reminder, NPS, no-show, voucher, retention, handoff, quiet hours, callback</li>
+              <li>3 conversational tones (NOVO / CLIENTE / INDESEJADO)</li>
+              <li>Anti-loop (3 unrecognized &rarr; escalate), handoff (4h &rarr; coordinator Task)</li>
+              <li>Quiet hours 20:00-07:00 Recife (UTC-3), LGPD consent + purge flow</li>
+              <li>sofia_mode management: ATIVO / HUMANO / CRITICO / SILENCIO / OPT_OUT</li>
+              <li><strong>Longitudinal Engine (D-15/D-7):</strong> Achados follow-up cron, Regras_Followup table, periodic check-up templates</li>
+              <li><strong>Clinical Playbooks:</strong> 13 canonical playbooks, periodicity tables</li>
+              <li><strong>Cross-sell Engine:</strong> suggestion logic from findings, single-suggest rule</li>
+              <li><strong>Operational Presence:</strong> secretary status, autonomous vs assisted mode per L1-L4</li>
+              <li><strong>Voucher Engine:</strong> VOUCHER-[DEAL_ID]-[TS] generation, 7 anti-fraud patterns, 1:1 consumption, 180-day validity</li>
+              <li><strong>Anatomopathology Subflow:</strong> biopsy tracking, AP result workflow, critical finding relay</li>
+            </ul></td>
+            <td>14</td>
+            <td class="ms-price">$2,200</td>
+          </tr>
+          <tr>
+            <td class="ms-num">M6</td>
+            <td><span class="ms-name">Banco Inter PIX<small><span class="badge bd-blue">P1-P8 + Patches</span></small></span></td>
+            <td><ul class="deliverables">
+              <li>mTLS certificate setup on VPS (OAuth2 + .CRT + .KEY)</li>
+              <li>PIX QR code generation (TXID = Deal_ID, CNPJ chave)</li>
+              <li>Webhook receiver for pix.recebido events</li>
+              <li>3-level matching: L1 exact TXID &rarr; L2 fuzzy &rarr; L3 manual queue</li>
+              <li>Signal hierarchy P1-P8 fully implemented</li>
+              <li>Anti-duplication (idempotency key in Transa&ccedil;&otilde;es Banc&aacute;rias)</li>
+              <li>Daily reconciliation cron 03:00 Recife + WhatsApp confirmation</li>
+              <li><strong>17 Patches included:</strong> Callback (43K), On-call (66K), Messaging infra (46K), Refund/PIX reversal, Off-hours, 12 additional patches per specification</li>
+            </ul></td>
+            <td>14</td>
+            <td class="ms-price">$2,100</td>
+          </tr>
+          <tr>
+            <td class="ms-num">M7</td>
+            <td><span class="ms-name">Hardening + UAT<small><span class="badge bd-green">Final Phase 1</span></small></span></td>
+            <td><ul class="deliverables">
+              <li>58+ E2E test scenarios (full pipeline lead to closure)</li>
+              <li>Edge cases: timeout, no-show, double-booking, payment failure, handoff timeout, D+0</li>
+              <li>Permission hardening &mdash; 4 roles (L1 Physician / L2 Coordinator / L3 Secretary / L4 Sofia)</li>
+              <li>Kill switch verification &mdash; each component disabled independently</li>
+              <li>Rollback validation &lt;2 min per deployment</li>
+              <li><strong>Role walkthrough videos: L1, L2, L3, L4</strong> &mdash; each narrated, full lifecycle</li>
+              <li>Architecture documentation package delivered</li>
+            </ul></td>
+            <td>7</td>
+            <td class="ms-price">$1,000</td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="3" style="text-align:right;padding-right:16px;color:#065f46;">Phase 1 Total</td>
+            <td><strong>~76 days</strong></td>
+            <td class="ms-price">$13,000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- PHASE 2 -->
+      <div class="phase-header" style="margin-top:32px;background:linear-gradient(135deg,#1e1b4b,#4338ca);">
+        <h3>Phase 2 &mdash; Intelligence + Financial Layer</h3>
+        <span>Milestones M8 &ndash; M10</span>
+      </div>
+      <table class="ms-table">
+        <thead>
+          <tr>
+            <th style="width:46px">#</th>
+            <th style="width:160px">Milestone</th>
+            <th>Key Deliverables</th>
+            <th style="width:60px">Days</th>
+            <th style="width:90px">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="phase2-row">
+            <td class="ms-num" style="color:#7c3aed;">M8</td>
+            <td><span class="ms-name">Zoho Books<small><span class="badge bd-purple">Financial Engine</span></small></span></td>
+            <td><ul class="deliverables">
+              <li><strong>F1 Foundation:</strong> 33-account chart of accounts, 60-item service catalog, 5 payer sources, 3 bank accounts, 48 expense categories, 5 cost centers (per your architecture doc)</li>
+              <li><strong>F2 PIX to Books Bridge:</strong> extend PIX webhook to register payments in Books; anti-duplication across 3 layers (CRM + Books + bank); &lt;30s target</li>
+              <li><strong>F3 CRM to Books Sync:</strong> Deal reaches E3 &rarr; Invoice draft auto-created; daily reconciliation; Credit Notes for reversals</li>
+              <li>8 anti-double-billing rules between CRM scope and Books scope</li>
+            </ul></td>
+            <td>10</td>
+            <td class="ms-price" style="color:#7c3aed;">$1,500</td>
+          </tr>
+          <tr class="phase2-row">
+            <td class="ms-num" style="color:#7c3aed;">M9</td>
+            <td><span class="ms-name">Sofia AI Core<small><span class="badge bd-purple">LLM + Context Memory</span></small></span></td>
+            <td><ul class="deliverables">
+              <li><strong>1,560-line production prompt</strong> deployed as AI Agent node in n8n</li>
+              <li><strong>LLM Router 3-tier with circuit breaker:</strong> DeepSeek (5s) &rarr; OpenAI (8s) &rarr; Claude (advanced) &rarr; template fallback</li>
+              <li><strong>5 governance gates pre-LLM:</strong> intent blocker, clinical guard, profanity filter, CPF/phone masking, prompt injection blocker</li>
+              <li><strong>Post-LLM guardrails:</strong> tone compliance + hallucinated medical advice detection</li>
+              <li><strong>4 confidence zones:</strong> HIGH (auto) / MEDIUM (flag) / LOW (template) / CRITICAL (human)</li>
+              <li><strong>15 intents</strong> fully classified and routed</li>
+              <li><strong>Context Memory orchestration:</strong> patient profile + stage + DNA Score + last 5 turns + pending actions + active flags loaded before every LLM call</li>
+              <li>LLM NEVER writes to CRM, NEVER advances pipeline, NEVER makes autonomous decisions</li>
+            </ul></td>
+            <td>14</td>
+            <td class="ms-price" style="color:#7c3aed;">$2,500</td>
+          </tr>
+          <tr class="phase2-row">
+            <td class="ms-num" style="color:#7c3aed;">M10</td>
+            <td><span class="ms-name">Dashboards + Final<small><span class="badge bd-green">Consolidation</span></small></span></td>
+            <td><ul class="deliverables">
+              <li><strong>6 SQL views</strong> in Zoho Analytics</li>
+              <li><strong>Executive Dashboard D9:</strong> revenue, pipeline, conversion, retention KPIs</li>
+              <li><strong>Operational Dashboard D10:</strong> scheduling, no-show, DNA distribution, Sofia performance</li>
+              <li><strong>Financial Dashboards F1-F5:</strong> revenue by source/period/exam, expenses, cash flow, DRE</li>
+              <li>22 KPIs + 5 automated alerts</li>
+              <li>Full regression across Phases 1 + 2</li>
+              <li>Phase 2 role walkthrough videos (Sofia LLM flows, Books reconciliation)</li>
+              <li>Complete documentation package</li>
+            </ul></td>
+            <td>10</td>
+            <td class="ms-price" style="color:#7c3aed;">$2,000</td>
+          </tr>
+          <tr class="total-row" style="background:#f5f3ff!important;">
+            <td colspan="3" style="text-align:right;padding-right:16px;color:#5b21b6;">Phase 2 Total (starts after 30+ days of Phase 1 production data)</td>
+            <td><strong>~34 days</strong></td>
+            <td class="ms-price" style="color:#7c3aed;">$6,000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- GRAND TOTAL -->
+      <table class="ms-table" style="margin-top:2px;border-radius:0 0 12px 12px;">
+        <tbody>
+          <tr class="grand-row">
+            <td colspan="3" style="text-align:right;padding-right:16px;">Grand Total &mdash; Phase 1 + Phase 2 (Complete Scope)</td>
+            <td style="width:60px;"><strong style="color:#fff;">~110 days</strong></td>
+            <td style="width:90px;" class="ms-price">$15,000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="alert green" style="margin-top:20px;">
+        <strong>Payment Terms</strong>
+        Milestone-based release via Upwork. No payment before acceptance criteria are met. Triple evidence required on every milestone: screenshot + config export + real log with correlation_id. Rollback procedure documented and tested (&lt;2 min) before every production deployment. 5-business-day review SLA confirmed per your request.
+      </div>
+
+      <div class="alert" style="margin-top:12px;">
+        <strong>12-Month Milestone Progression</strong>
+        As you mentioned structuring a 12-month progression: Phase 1 (M1-M7) spans ~76 working days (~4 months at 40h/week). Phase 2 begins after 30+ days of production data from Phase 1, adding ~34 working days (~2 months). Total active development: ~6 months. The remaining months in your 12-month plan can accommodate review cycles, production stabilization, and any refinements discovered during live operation.
+      </div>
+    </div>
+
+    <!-- ── YOUR QUESTION ANSWERS ── -->
+    <div class="section" id="scope">
+      <div class="section-label">Due Diligence</div>
+      <h2>Previous Questions &mdash; Status Updated</h2>
+
+      <div class="gap-grid">
+        <div class="gap-item">
+          <div class="gap-num">1</div>
+          <div class="gap-text">
+            <h4>Sisclinic scope status</h4>
+            <p><strong>Resolved.</strong> M7 is active, not conditional. Vendor confirmed simplified API. Integrated into M4.</p>
+          </div>
+          <div><span class="gap-badge gb-green">Resolved</span></div>
+        </div>
+        <div class="gap-item">
+          <div class="gap-num">2</div>
+          <div class="gap-text">
+            <h4>Staging environment</h4>
+            <p><strong>Pending your confirmation.</strong> You mentioned you will confirm before execution starts. I can work with either a sandbox org or a test pipeline in production &mdash; just need to know which before M1 begins.</p>
+          </div>
+          <div><span class="gap-badge gb-orange">Pending</span></div>
+        </div>
+        <div class="gap-item">
+          <div class="gap-num">3</div>
+          <div class="gap-text">
+            <h4>Banco Inter certificates</h4>
+            <p><strong>Resolved.</strong> You confirmed the mTLS certificates are already available on your side. No timeline risk.</p>
+          </div>
+          <div><span class="gap-badge gb-green">Resolved</span></div>
+        </div>
+        <div class="gap-item">
+          <div class="gap-num">4</div>
+          <div class="gap-text">
+            <h4>Evolution API version</h4>
+            <p><strong>Pending your confirmation.</strong> V1 vs V2 affects webhook payload format in WF_INGEST. Need this before M4 starts. Not blocking M1-M3.</p>
+          </div>
+          <div><span class="gap-badge gb-orange">Pending</span></div>
+        </div>
+        <div class="gap-item">
+          <div class="gap-num">5</div>
+          <div class="gap-text">
+            <h4>17 patches document</h4>
+            <p><strong>Agreed.</strong> You confirmed you will share patch specifications before M6 starts. This keeps scope transparent.</p>
+          </div>
+          <div><span class="gap-badge gb-green">Agreed</span></div>
+        </div>
+        <div class="gap-item">
+          <div class="gap-num">6</div>
+          <div class="gap-text">
+            <h4>Milestone review SLA</h4>
+            <p><strong>Confirmed.</strong> 5 business days standard. You will communicate in advance if a specific milestone needs more time.</p>
+          </div>
+          <div><span class="gap-badge gb-green">Confirmed</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── NEXT STEPS ── -->
+    <div class="section" id="next">
+      <div class="section-label">Next Steps</div>
+      <h2>Ready to Start</h2>
+
+      <div class="alert green">
+        <strong>Two items needed before contract:</strong>
+        <br/>1. <strong>Staging environment decision</strong> &mdash; sandbox org or test pipeline in production?
+        <br/>2. <strong>Evolution API version</strong> &mdash; V1 or V2? (Can be provided before M4, not blocking M1-M3.)
+        <br/><br/>Everything else is resolved. I can begin M1 within 3 business days of contract signing.
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div style="max-width:760px;margin:0 auto;">
+      <div class="footer-grid">
+        <div class="footer-item"><strong>Developer</strong><span>Muhammad Anique</span></div>
+        <div class="footer-item"><strong>Phase 1</strong><span>$13,000</span></div>
+        <div class="footer-item"><strong>Phase 2</strong><span>$6,000</span></div>
+        <div class="footer-item"><strong>Grand Total</strong><span>$15,000</span></div>
+        <div class="footer-item"><strong>Timeline</strong><span>~6 months</span></div>
+      </div>
+      <p style="opacity:.45;font-size:12px;">Confidential &middot; Briefing ref: BRIEFING_CRM_v5_5_F2_PT + BRIEFING_FINANCEIRO_v2 &middot; 13 March 2026</p>
+    </div>
+  </div>
+
+</div><!-- /proposal -->
+
+<script>
+function doLogin(){
+  const u = document.getElementById('username').value.trim();
+  const p = document.getElementById('password').value.trim();
+  const err = document.getElementById('login-error');
+
+  if(u === 'antolio' && p === 'djalma123456'){
+    const ls = document.getElementById('login-screen');
+    const pr = document.getElementById('proposal');
+    ls.style.transition = 'opacity .5s ease';
+    ls.style.opacity = '0';
+    setTimeout(()=>{
+      ls.style.display = 'none';
+      pr.style.display = 'block';
+      setTimeout(()=> pr.classList.add('visible'), 20);
+    }, 500);
+  } else {
+    err.style.display = 'block';
+    const card = document.querySelector('.login-card');
+    card.style.transform = 'translateX(-8px)';
+    setTimeout(()=> card.style.transform = 'translateX(8px)', 80);
+    setTimeout(()=> card.style.transform = 'translateX(-5px)', 160);
+    setTimeout(()=> card.style.transform = 'translateX(0)', 240);
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if(e.key === 'Enter') doLogin();
+});
+</script>
+</body>
+</html>
