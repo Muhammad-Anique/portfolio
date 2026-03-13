@@ -704,24 +704,34 @@ RESULT: Chaos, lost messages                 RESULT: 90-95% automated`}</div>
               </table>
 
               <h3 className="sub">Deal Fields — 100+ Fields by Group</h3>
-              <div className="g2">
-                {[
-                  { group: "Pipeline / State", fields: [["stage", "Picklist", "E1-E6"], ["sofia_state", "Picklist", "Mirror (bijective)"], ["sofia_mode", "Picklist", "ATIVO|HUMANO|CRITICO|SILENCIO|OPT_OUT"], ["sub_status_e1/e2", "Picklist", "Sub-status within E1/E2"]], color: "blue" },
-                  { group: "Financial", fields: [["valor_exame", "Currency", "Exam price"], ["percentual_sinal", "Number", "Deposit % (P1-P8)"], ["status_sinal", "Picklist", "PENDENTE|PAGO|PARCIAL|CANCELADO|DISPENSADO|ESTORNADO"], ["ID_Transacao_Bancaria", "Text", "TXID or endToEndId"]], color: "green" },
-                  { group: "Scheduling", fields: [["Data_Agendamento", "DateTime", "Scheduled exam date/time"], ["tipo_exame", "Picklist", "Exam type"], ["sisclinic_handle", "Text", "Sisclinic appointment handle"], ["sync_sisclinic_status", "Picklist", "Sync status"]], color: "amber" },
-                  { group: "Governance", fields: [["Medical_Override", "Boolean", "Doctor's nuclear bypass"], ["PAUSE_ALL", "Boolean", "Master kill switch"], ["Owner_Humano", "Lookup", "Current human responsible"], ["Log_Excecao", "Long Text", "Exception log"]], color: "red" },
-                  { group: "Sofia / Hook Pack (18 fields)", fields: [["sofia_loop_count", "Number", "Anti-loop counter"], ["sofia_context_short", "Text(2000)", "Compressed context"], ["correlation_id_last", "Text", "Last correlation ID"], ["last_intent_confidence", "Number", "0.0-1.0"]], color: "purple" },
-                  { group: "Voucher (7 fields)", fields: [["voucher_codigo", "Text", "VOUCHER-[DEAL_ID]-[TS]"], ["voucher_valor", "Currency", "10% (min R$20, max R$200)"], ["voucher_validade", "Date", "180 days post-issue"], ["voucher_usado", "Boolean", "Already redeemed (1:1)"]], color: "cyan" },
-                ].map((g) => (
-                  <div className={`card card-accent-${g.color}`} key={g.group}>
-                    <div className={`card-title ${g.color}`}>{g.group}</div>
-                    <table className="tbl">
-                      <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-                      <tbody>{g.fields.map(([f, t, d]) => <tr key={f}><td style={{ fontFamily: "monospace", fontSize: 11 }}>{f}</td><td><span className="badge badge-slate">{t}</span></td><td>{d}</td></tr>)}</tbody>
-                    </table>
-                  </div>
-                ))}
-              </div>
+              <table className="tbl" style={{ marginBottom: 0 }}>
+                <thead>
+                  <tr><th style={{ width: "28%" }}>Field</th><th style={{ width: "16%" }}>Type</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                  {[
+                    { group: "Pipeline / State", color: "#EC420F", bg: "rgba(236,66,15,.07)", fields: [["stage","Picklist","E1–E6 pipeline stage"],["sofia_state","Picklist","Mirror of stage (bijective)"],["sofia_mode","Picklist","ATIVO | HUMANO | CRITICO | SILENCIO | OPT_OUT"],["sub_status_e1","Picklist","Sub-status within E1/E2"]] },
+                    { group: "Financial", color: "#c79573", bg: "rgba(199,149,115,.09)", fields: [["valor_exame","Currency","Exam price"],["percentual_sinal","Number","Deposit % (P1–P8 hierarchy)"],["status_sinal","Picklist","PENDENTE | PAGO | PARCIAL | CANCELADO | DISPENSADO | ESTORNADO"],["ID_Transacao_Bancaria","Text","TXID or endToEndId"]] },
+                    { group: "Scheduling", color: "#d8681d", bg: "rgba(216,104,29,.07)", fields: [["Data_Agendamento","DateTime","Scheduled exam date/time"],["tipo_exame","Picklist","Exam type"],["sisclinic_handle","Text","Sisclinic appointment handle"],["sync_sisclinic_status","Picklist","Sync status with Sisclinic"]] },
+                    { group: "Governance", color: "#dc2626", bg: "rgba(239,68,68,.06)", fields: [["Medical_Override","Boolean","Doctor's nuclear bypass — overrides everything"],["PAUSE_ALL","Boolean","Master kill switch for all automations"],["Owner_Humano","Lookup","Current human responsible"],["Log_Excecao","Long Text","Exception log entry"]] },
+                    { group: "Sofia / Hook Pack (18 fields)", color: "#a16207", bg: "rgba(161,98,7,.07)", fields: [["sofia_loop_count","Number","Anti-loop counter (escalates at 3)"],["sofia_context_short","Text(2000)","Compressed conversation context"],["correlation_id_last","Text","Last correlation ID for tracing"],["last_intent_confidence","Number","Intent confidence 0.0–1.0"]] },
+                    { group: "Voucher (7 fields)", color: "#78716c", bg: "rgba(120,113,108,.07)", fields: [["voucher_codigo","Text","VOUCHER-[DEAL_ID]-[TS]"],["voucher_valor","Currency","10% of exam (min R$20, max R$200)"],["voucher_validade","Date","180 days post-issue"],["voucher_usado","Boolean","Already redeemed — 1:1 only"]] },
+                  ].flatMap((g) => [
+                    <tr key={`hdr-${g.group}`} style={{ background: g.bg }}>
+                      <td colSpan={3} style={{ fontWeight: 800, fontSize: 11, letterSpacing: ".08em", textTransform: "uppercase", color: g.color, paddingTop: 10, paddingBottom: 10, fontFamily: "'Lato',sans-serif" }}>
+                        {g.group}
+                      </td>
+                    </tr>,
+                    ...g.fields.map(([f, t, d]) => (
+                      <tr key={f}>
+                        <td style={{ fontFamily: "monospace", fontSize: 11.5, color: "#292524", fontWeight: 600 }}>{f}</td>
+                        <td><span className="badge badge-slate">{t}</span></td>
+                        <td style={{ color: "#57534e", fontSize: 12.5 }}>{d}</td>
+                      </tr>
+                    )),
+                  ])}
+                </tbody>
+              </table>
 
               <h3 className="sub">DNA Score Formula</h3>
               <div className="card card-accent-amber">
