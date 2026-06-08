@@ -6,8 +6,7 @@ import {
 } from "lucide-react";
 
 /* ═══════════════════════════════════════════════════════════════════
-   NOVVA Medical — Complete Project Bible (Light Theme)
-   All content from NOVVA_MEDICAL_COMPLETE_PROJECT_BIBLE.md
+   Sofia AI — Complete Clinic Automation Project Bible (Light Theme)
    Login-protected proposal portal · Muhammad Anique
    ═══════════════════════════════════════════════════════════════════ */
 
@@ -337,7 +336,7 @@ export default function SofiaProposal() {
           <div className={`login-card${shake ? " shake" : ""}`}>
             <div className="login-logo">📋</div>
             <h1>Proposal Portal</h1>
-            <p className="subtitle">NOVVA Medical · Restricted Access</p>
+            <p className="subtitle">Clinic Automation Portal · Restricted Access</p>
             <div className="field">
               <label>Username</label>
               <input type="text" placeholder="Enter username" value={username} onChange={(e) => setUsername(e.target.value)} onKeyDown={(e) => e.key === "Enter" && doLogin()} autoComplete="off" />
@@ -367,7 +366,7 @@ export default function SofiaProposal() {
         <div className="pw">
           {/* ═══ TOP NAV ═══ */}
           <nav className="topnav">
-            <div className="topnav-brand"><span className="topnav-dot" />NOVVA Medical — Project Bible</div>
+            <div className="topnav-brand"><span className="topnav-dot" />Sofia AI — Project Bible</div>
             <div className="topnav-links">
               {NAV.map((n) => (<a key={n.id} href={`#${n.id}`}>{n.label}</a>))}
             </div>
@@ -377,9 +376,9 @@ export default function SofiaProposal() {
           <div className="hero">
             <div className="hero-inner">
               <div className="hero-badge">Complete Project Bible · March 2026</div>
-              <h1>NOVVA <span>Medical</span></h1>
+              <h1>Sofia <span>AI</span></h1>
               <p style={{ color: "rgba(255,255,255,.6)", fontSize: 15, maxWidth: 600, fontFamily: "'Manrope', sans-serif", lineHeight: 1.7 }}>
-                Complete Clinic Automation Ecosystem — DJALMA DIAGNOSTICOS. A fully automated clinic management brain built by Muhammad Anique, replacing manual chaos with a deterministic 6-stage pipeline.
+                Complete Clinic Automation Ecosystem built by Muhammad Anique. A fully automated clinic management brain replacing manual chaos with a deterministic 6-stage pipeline.
               </p>
               <div className="hero-stats">
                 <div className="hstat"><div className="hstat-val green">$20,000</div><div className="hstat-lbl">Budget</div></div>
@@ -454,7 +453,7 @@ export default function SofiaProposal() {
                   <tbody>
                     {[
                       ["Developer", "Muhammad Anique"],
-                      ["Company", "DJALMA DIAGNOSTICOS (trading as NOVVA Medical)"],
+                      ["Company", "Private Diagnostic Clinic, Pernambuco, Brazil"],
                       ["CNPJ", "57.277.863/0001-24"],
                       ["Location", "Serra Talhada, Pernambuco, Brazil"],
                       ["Specialty", "Diagnostic ultrasound — general, obstetric, gynecological, vascular, fertility"],
@@ -1584,7 +1583,7 @@ GET /financeiro/pagamento/paciente/{handle}?dataInicio=...&dataFim=...`}</div>
                 ))}
               </div>
               <p style={{ opacity: 0.45, fontSize: 12 }}>
-                Confidential · NOVVA Medical Complete Project Bible · Version 2.0 · June 2026
+                Confidential · Sofia AI — Complete Project Bible · Version 2.0 · June 2026
               </p>
             </div>
           </div>
