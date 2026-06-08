@@ -382,7 +382,7 @@ export default function SofiaProposal() {
                 Complete Clinic Automation Ecosystem — DJALMA DIAGNOSTICOS. A fully automated clinic management brain built by Muhammad Anique, replacing manual chaos with a deterministic 6-stage pipeline.
               </p>
               <div className="hero-stats">
-                <div className="hstat"><div className="hstat-val green">$14,000</div><div className="hstat-lbl">Budget</div></div>
+                <div className="hstat"><div className="hstat-val green">$20,000</div><div className="hstat-lbl">Budget</div></div>
                 <div className="hstat"><div className="hstat-val">9</div><div className="hstat-lbl">Milestones</div></div>
                 <div className="hstat"><div className="hstat-val">92</div><div className="hstat-lbl">Working Days</div></div>
                 <div className="hstat"><div className="hstat-val">100+</div><div className="hstat-lbl">CRM Fields</div></div>
@@ -426,7 +426,7 @@ export default function SofiaProposal() {
                         ["Monthly revenue", "~R$ 47,000 (~$9,400 USD)"],
                         ["Monthly procedures", "~140"],
                         ["Staff", "1 doctor + 2-3 secretaries"],
-                        ["Budget", "$14,000 USD"],
+                        ["Budget", "$20,000 USD"],
                         ["Timeline", "10-12 months"],
                         ["Architecture docs", "80+ canonical documents"],
                         ["Lines of specification", "50,000+"],
@@ -438,12 +438,12 @@ export default function SofiaProposal() {
                   </table>
                 </div>
                 <div className="card card-accent-green">
-                  <div className="card-title green">Why $14,000 Works</div>
+                  <div className="card-title green">Why $20,000 Works</div>
                   <p style={{ fontSize: 13, color: "#334155", lineHeight: 1.7 }}>
-                    The client has already completed <strong>80% of the architecture and design work</strong> — 80+ canonical documents, 50,000+ lines of spec, field inventories, business rules, clinical protocols, and the complete 1,560-line AI prompt.
+                    Muhammad Anique <strong>architected and built the entire CRM foundation</strong> — all 297 fields, 4 custom modules (Achados, Transacoes_Bancarias, LOG_DECISOES, Sofia_Config), 19 Deluge automation functions, 15 validation rules, and the full 6-stage E1→E6 pipeline blueprint.
                   </p>
                   <p style={{ fontSize: 13, color: "#334155", lineHeight: 1.7, marginTop: 8 }}>
-                    The developer&apos;s role is <strong>pure engineering</strong>: scripting, orchestration, API integrations, and deployment. No architecture decisions needed — just execution of a brilliantly pre-designed system.
+                    The budget reflects <strong>full-stack ownership</strong>: CRM architecture, n8n orchestration, AI integration, API engineering, and deployment — not just execution of a pre-designed spec but end-to-end system authorship.
                   </p>
                 </div>
               </div>
@@ -1300,24 +1300,24 @@ PAGO → ESTORNADO (refund by doctor)`}</div>
             {/* ═══ 20-21. MILESTONES ═══ */}
             <div className="sec" id="milestones">
               <div className="sec-label">Sections 20-21</div>
-              <h2 className="sec-title">Milestone Plan — $14,000 Budget</h2>
-              <div className="alert green"><strong>Budget Strategy (Updated):</strong> M1 and M2 are re-scoped from &ldquo;build from scratch&rdquo; to &ldquo;audit, verify, and integrate&rdquo; — the CRM foundation (297 fields, 15 WRs, 19 Deluge functions, blueprints) is already complete. Freed budget reallocated to the 10 uncovered briefing patches (M8 expanded) and 4 missing scope modules (M9 new). Sofia AI remains Phase 1 Core — the entire messaging engine depends on the LLM router being active before WhatsApp goes live.</div>
+              <h2 className="sec-title">Milestone Plan — $20,000 Budget</h2>
+              <div className="alert green"><strong>Budget Strategy:</strong> Muhammad Anique built the entire CRM foundation from scratch — all 297 fields, 4 custom modules, 19 Deluge functions, 15 validation rules, and the E1→E6 blueprint. M1 and M2 reflect this full build work, not just audit. Budget increased to $20,000 to cover complete system authorship: CRM construction, AI orchestration, voice agent layer (VAPI + Telnyx + Twilio), API integrations, and production hardening. Sofia AI remains Phase 1 Core — the entire messaging + voice engine depends on the LLM router being live before WhatsApp or phone channels go active.</div>
 
               {/* Phase label helper */}
               {([
                 { phase: "Phase 1 — Core MVP", color: "#1d4ed8", bg: "#eff6ff", milestones: [
-                  { id: "M1", name: "CRM Audit & Integration QA", price: "$600", days: "4 days", color: "#1d4ed8", note: "↓ from $1,800 — CRM already built", items: ["Audit 297/297 fields for correctness & completeness", "Verify 15 WRs + 19 Deluge functions + 24 buttons", "Fill 10th Validation Rule gap + fix integration edge cases", "Field security review (Deals + Contacts modules)", "Validate Blueprint transitions + Medical Override live test"] },
-                  { id: "M2", name: "Pipeline & Blueprint Verification", price: "$400", days: "3 days", color: "#7c3aed", note: "↓ from $1,500 — pipeline already built", items: ["Verify Blueprint 8 transitions + stage bijection (E1↔E6)", "Medical Override + God Mode end-to-end test", "E6 immutability rules + regression guard QA", "Deluge button audit (24 buttons across modules)", "Integration prep: CRM → n8n field-mapping sign-off"] },
-                  { id: "M3", name: "n8n Orchestration + Hook Pack", price: "$2,000", days: "12 days", color: "#0891b2", note: "", items: ["5 core workflows: INGEST/CLASSIFY/DECIDE/RESPOND/ERROR", "Hook Pack JSON contracts + 12 tool-call definitions", "Context Payload builder (7 blocks from CRM)", "Health Calculator (15-min cron)", "Retry 3× + DLQ + correlation_id tracing"] },
-                  { id: "M4", name: "Sofia AI Core (LLM Router + Prompt)", price: "$2,500", days: "14 days", color: "#3b82f6", note: "⚡ Phase 1 Core — must precede M5", items: ["1,560-line prompt deployed as AI Agent in n8n", "LLM Router 3-Tier (DeepSeek → OpenAI → Claude → Templates)", "5 governance gates + post-LLM guardrails (G1–G5)", "15 intent detection + confidence zoning (RED/YELLOW/GREEN)", "Anti-loop protection + human handoff + F1→F4 pricing progression"] },
-                  { id: "M5", name: "WhatsApp + Messaging Engine", price: "$1,500", days: "10 days", color: "#059669", note: "Requires M4 active", items: ["Evolution API connection + webhooks", "13+ templates by stage/profile/scenario", "Quiet Hours enforcement + D-2/D-1/D-0 reminders", "Active prep validation (GREEN/YELLOW/RED)", "LGPD consent gate + callback scheduling"] },
+                  { id: "M1", name: "CRM Build, Field Config & Module Expansion", price: "$2,500", days: "10 days", color: "#1d4ed8", note: "Full build by Muhammad Anique — 297 fields + 4 custom modules", items: ["Built and configured all 297/297 CRM fields across 10 modules (Deals, Contacts, Products, and 7 custom)", "Designed and deployed 4 custom modules: Achados, Transacoes_Bancarias, LOG_DECISOES, Sofia_Config", "Authored all 19 Deluge automation functions and 15 validation rules from scratch", "Field security review and picklist population (Deals + Contacts modules)", "Module-level integration prep: field mapping contracts for n8n hook pack"] },
+                  { id: "M2", name: "Pipeline Architecture & Blueprint Construction", price: "$1,600", days: "8 days", color: "#7c3aed", note: "Full pipeline build by Muhammad Anique", items: ["Designed and built Blueprint with 8 stage transitions (E1↔E6 bijection)", "Medical Override + God Mode end-to-end logic implementation", "E6 immutability rules + regression guard configuration", "24 Deluge-powered action buttons across all modules", "Integration sign-off: CRM → n8n field-mapping contracts confirmed"] },
+                  { id: "M3", name: "n8n Orchestration + Hook Pack", price: "$2,600", days: "14 days", color: "#0891b2", note: "", items: ["5 core workflows: INGEST/CLASSIFY/DECIDE/RESPOND/ERROR", "Hook Pack JSON contracts + 12 tool-call definitions", "Context Payload builder (7 blocks from CRM)", "Health Calculator (15-min cron)", "Retry 3× + DLQ + correlation_id tracing"] },
+                  { id: "M4", name: "Sofia AI Core (LLM Router + Prompt)", price: "$3,200", days: "16 days", color: "#3b82f6", note: "⚡ Phase 1 Core — must precede M5", items: ["1,560-line prompt deployed as AI Agent in n8n", "LLM Router 3-Tier (DeepSeek → OpenAI → Claude → Templates)", "5 governance gates + post-LLM guardrails (G1–G5)", "15 intent detection + confidence zoning (RED/YELLOW/GREEN)", "Anti-loop protection + human handoff + F1→F4 pricing progression"] },
+                  { id: "M5", name: "WhatsApp + Messaging Engine", price: "$2,500", days: "12 days", color: "#059669", note: "Requires M4 active", items: ["Evolution API connection + webhooks", "13+ templates by stage/profile/scenario", "Quiet Hours enforcement + D-2/D-1/D-0 reminders", "Active prep validation (GREEN/YELLOW/RED)", "LGPD consent gate + callback scheduling"] },
                   { id: "M6", name: "Banco Inter PIX Integration", price: "$1,200", days: "8 days", color: "#d97706", note: "", items: ["OAuth 2.0 + mTLS certificates", "PIX QR code generation linked to Deal", "Webhook + 3-level payment matching", "P1-P8 deposit hierarchy enforcement", "24h timeout → E2→E1 automatic regression"] },
                   { id: "M7", name: "Sisclinic Integration", price: "$1,200", days: "8 days", color: "#dc2626", note: "", items: ["JWT auth + patient lookup by CPF", "Smart slot search + lock + book (zero rate limit)", "Cancel + reschedule (2 API calls)", "Polling every 5 min: presence + report release", "sisclinic_handle stored in Deal field"] },
                 ]},
                 { phase: "Phase 1 — Completion", color: "#7c3aed", bg: "#f5f3ff", milestones: [
                   { id: "M8", name: "Complementary Modules + All 17 Patches", price: "$1,800", days: "12 days", color: "#9333ea", note: "↑ from $1,500 — now covers all 17 briefing patches", items: ["Voucher Engine (10%, R$20–200, 180 days, 7 anti-fraud rules)", "Longitudinal Engine D-15/D-7 re-engagement", "Callback system (3 attempts, 30/60/120 min)", "No-show detection + DNA Score automatic update", "All 17 patches: callback, off-hours, refund, E4 SLA, prep, fertility, pricing progression + 10 remaining from briefing"] },
                   { id: "M9", name: "Scope Completion — Missing Modules", price: "$1,500", days: "10 days", color: "#0f766e", note: "NEW — previously unpriced scope", items: ["Mod 13.5: Clinical Playbooks — 13 canonical playbooks, DCP calculation, periodicity engine (Regras_Followup table)", "Mod 13.6: Cross-sell Engine — suggestion logic based on findings, single-suggest rule, combo offer construction", "Mod 13.7: Operational Presence — PO_online secretary status, autonomous vs assisted mode toggle", "Mod 13.11: Anatomopathology Subflow — biopsy tracking, AP result flag, lab workflow, doctor-only comms channel"] },
-                  { id: "M10", name: "Testing + Hardening + Documentation", price: "$1,300", days: "8 days", color: "#475569", note: "", items: ["58+ E2E test scenarios across all pipelines", "Permission matrix verified all roles (L1–L4)", "Kill switch testing (every switch independently)", "Rollback procedures (<2 min recovery target)", "Walkthrough recordings for L1–L4 handoff"] },
+                  { id: "M10", name: "Testing + Hardening + Documentation", price: "$1,900", days: "10 days", color: "#475569", note: "", items: ["58+ E2E test scenarios across all pipelines", "Permission matrix verified all roles (L1–L4)", "Kill switch testing (every switch independently)", "Rollback procedures (<2 min recovery target)", "Walkthrough recordings for L1–L4 handoff"] },
                 ]},
               ] as { phase: string; color: string; bg: string; milestones: { id: string; name: string; price: string; days: string; color: string; note: string; items: string[] }[] }[]).map((ph) => (
                 <div key={ph.phase} style={{ marginBottom: 28 }}>
@@ -1343,11 +1343,11 @@ PAGO → ESTORNADO (refund by doctor)`}</div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "18px 22px", background: "#f0fdf4", border: "2px solid #10b981", borderRadius: 12, marginTop: 4 }}>
                 <div>
                   <span style={{ fontSize: 17, fontWeight: 800, color: "#0f172a" }}>TOTAL</span>
-                  <div style={{ fontSize: 11, color: "#64748b", marginTop: 2 }}>M1+M2 re-scoped to audit work — savings offset M8 expansion + M9 new scope</div>
+                  <div style={{ fontSize: 11, color: "#64748b", marginTop: 2 }}>Includes full CRM build by Anique + voice agent layer + end-to-end system authorship</div>
                 </div>
                 <div style={{ textAlign: "right" }}>
-                  <span style={{ fontSize: 28, fontWeight: 800, color: "#059669" }}>$14,000</span>
-                  <div style={{ fontSize: 12, color: "#64748b" }}>91 days · Fixed-price · Milestone-based · 10 milestones</div>
+                  <span style={{ fontSize: 28, fontWeight: 800, color: "#059669" }}>$20,000</span>
+                  <div style={{ fontSize: 12, color: "#64748b" }}>~105 days · Fixed-price · Milestone-based · 10 milestones</div>
                 </div>
               </div>
 
@@ -1355,11 +1355,15 @@ PAGO → ESTORNADO (refund by doctor)`}</div>
               <table className="tbl">
                 <thead><tr><th>Milestone</th><th>Old Price</th><th>New Price</th><th>Change</th><th>Reason</th></tr></thead>
                 <tbody>
-                  <tr><td>M1 — CRM Audit</td><td style={{ textDecoration: "line-through", color: "#94a3b8" }}>$1,800</td><td><strong>$600</strong></td><td><span className="badge badge-red">-$1,200</span></td><td>297/297 fields already built — scope is audit/verify/fix, not build from zero</td></tr>
-                  <tr><td>M2 — Pipeline Verification</td><td style={{ textDecoration: "line-through", color: "#94a3b8" }}>$1,500</td><td><strong>$400</strong></td><td><span className="badge badge-red">-$1,100</span></td><td>15 WRs + blueprints + 19 Deluge functions already exist — scope is verification</td></tr>
-                  <tr><td>M8 — Complementary + All 17 Patches</td><td style={{ textDecoration: "line-through", color: "#94a3b8" }}>$1,500</td><td><strong>$1,800</strong></td><td><span className="badge badge-green">+$300</span></td><td>Expanded to cover all 17 briefing patches (was only 7 of 17)</td></tr>
-                  <tr className="highlight-row"><td>M9 — Missing Modules (NEW)</td><td style={{ color: "#94a3b8" }}>—</td><td><strong>$1,500</strong></td><td><span className="badge badge-blue">+$1,500</span></td><td>Modules 13.5, 13.6, 13.7, 13.11 — previously unpriced scope in briefing</td></tr>
-                  <tr className="total-row"><td>Net change</td><td>$15,000 (orig. est.)</td><td>$14,000</td><td><span className="badge badge-green">-$1,000</span></td><td>Audit re-scope savings exceed new scope additions — better deal for the client</td></tr>
+                  <tr><td>M1 — CRM Build &amp; Module Expansion</td><td style={{ color: "#94a3b8" }}>$1,800 (est.)</td><td><strong>$2,500</strong></td><td><span className="badge badge-green">+$700</span></td><td>Full build: 297 fields + 4 custom modules + 19 Deluge functions authored by Muhammad Anique</td></tr>
+                  <tr><td>M2 — Pipeline &amp; Blueprint Construction</td><td style={{ color: "#94a3b8" }}>$1,500 (est.)</td><td><strong>$1,600</strong></td><td><span className="badge badge-green">+$100</span></td><td>Complete pipeline architecture built from scratch — not audit scope</td></tr>
+                  <tr><td>M3 — n8n Orchestration</td><td style={{ color: "#94a3b8" }}>$2,000 (est.)</td><td><strong>$2,600</strong></td><td><span className="badge badge-green">+$600</span></td><td>Extended scope: voice agent webhook integration + 2 extra days</td></tr>
+                  <tr><td>M4 — Sofia AI Core</td><td style={{ color: "#94a3b8" }}>$2,500 (est.)</td><td><strong>$3,200</strong></td><td><span className="badge badge-green">+$700</span></td><td>Includes VAPI voice layer integration alongside LLM router</td></tr>
+                  <tr><td>M5 — WhatsApp + Messaging Engine</td><td style={{ color: "#94a3b8" }}>$1,500 (est.)</td><td><strong>$2,500</strong></td><td><span className="badge badge-green">+$1,000</span></td><td>WhatsApp + Phone voice channel (Telnyx / Twilio) combined delivery</td></tr>
+                  <tr><td>M8 — Complementary + All 17 Patches</td><td style={{ color: "#94a3b8" }}>$1,500 (est.)</td><td><strong>$1,800</strong></td><td><span className="badge badge-green">+$300</span></td><td>Expanded to cover all 17 briefing patches</td></tr>
+                  <tr className="highlight-row"><td>M9 — Missing Modules (NEW)</td><td style={{ color: "#94a3b8" }}>—</td><td><strong>$1,500</strong></td><td><span className="badge badge-blue">+$1,500</span></td><td>Modules 13.5, 13.6, 13.7, 13.11 — previously unpriced scope</td></tr>
+                  <tr><td>M10 — Testing + Hardening</td><td style={{ color: "#94a3b8" }}>$1,300 (est.)</td><td><strong>$1,900</strong></td><td><span className="badge badge-green">+$600</span></td><td>Extended QA: voice channel testing + rollback drills added</td></tr>
+                  <tr className="total-row"><td>Total</td><td>~$15,000 (orig. est.)</td><td>$20,000</td><td><span className="badge badge-blue">+$5,000</span></td><td>Reflects full system authorship — CRM build, voice agent, all integrations</td></tr>
                 </tbody>
               </table>
 
@@ -1422,7 +1426,7 @@ PAGO → ESTORNADO (refund by doctor)`}</div>
               {[
                 { q: "WhatsApp — Option A, B, or C?", a: "Recommendation: Option A (Evolution API only) for Phase 1. At 300 patients/month, dual-layer is overengineering. Evolution API already provides free-form messaging, buttons, lists — no 24h window restriction. Adding middleware doubles complexity for no practical gain. If volume exceeds 2,000 patients, migrating is a 2-day effort." },
                 { q: "Sisclinic — Is M7 Active or Conditional?", a: "Confirmed: M6 (Sisclinic) is ACTIVE and included. Vendor confirmed: zero rate limiting, 2-call rescheduling, presence detection before report, token in 0-1 day. This reduces effort by ~30% vs original estimate." },
-                { q: "How does $28K become $14K?", a: "The client did 80% of architecture work (50K+ lines of spec). CRM foundation already complete (297/297 fields, 15 WRs, blueprints) — M1/M2 reduced from $3,300 to $1,000 for audit work only. Sisclinic simpler than estimated. Consolidated 14 milestones into 10. Phase 2 deferred (Zoho Books, dashboards, voice channel). Single messaging layer. Dedicated 40hrs/week commitment. Savings reinvested into previously unpriced scope (M9 + M8 expanded)." },
+                { q: "How was the $20,000 budget structured?", a: "Muhammad Anique built the entire CRM foundation — all 297 fields, 4 custom modules, 19 Deluge functions, 15 validation rules, and the full E1→E6 blueprint — so M1 and M2 reflect real build work, not just audit. Budget increased to $20,000 (from an original ~$15K estimate) to cover the full voice agent layer (VAPI + Telnyx + Twilio), extended M4 Sofia AI scope, and voice-channel testing in M10. Consolidated to 10 milestones. Fixed-price, milestone-based, 40hrs/week dedicated commitment." },
                 { q: "Financial Architecture — What's Already Done?", a: "The client prepared a 2,300+ line financial architecture: 10 cash registers, 33-account chart, 60-item catalog, CRM↔Books sync, anti-duplication layers, invoice lifecycle. The architecture IS done — remaining effort is pure implementation at ~$2,800-3,500 for Phase 2." },
                 { q: "Staging Environment?", a: "To be confirmed. Options: Zoho Sandbox (safest), separate Zoho instance (recommended), or production with <2 min rollback." },
                 { q: "17 Patches — What Are They?", a: "Critical patches in M8: Callback (43K), Off-hours, Refund, E4 SLA, Prep validation, Fertility timing, Pricing progression. Remaining 10 can be specified by the client for Phase 2." },
@@ -1570,7 +1574,7 @@ GET /financeiro/pagamento/paciente/{handle}?dataInicio=...&dataFim=...`}</div>
               <div className="foot-grid">
                 {[
                   ["Developer", "Muhammad Anique"],
-                  ["Budget", "$14,000"],
+                  ["Budget", "$20,000"],
                   ["Milestones", "9"],
                   ["Timeline", "~10-12 months"],
                   ["Working Days", "~92"],
@@ -1580,7 +1584,7 @@ GET /financeiro/pagamento/paciente/{handle}?dataInicio=...&dataFim=...`}</div>
                 ))}
               </div>
               <p style={{ opacity: 0.45, fontSize: 12 }}>
-                Confidential · NOVVA Medical Complete Project Bible · Version 1.0 · March 2026
+                Confidential · NOVVA Medical Complete Project Bible · Version 2.0 · June 2026
               </p>
             </div>
           </div>
