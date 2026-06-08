@@ -276,7 +276,7 @@ export default function JeanProposal() {
               <h2>Confirmation &amp; Overview</h2>
 
               <div className="alert green">
-                <strong>"I have built AI voice receptionists before."</strong>
+                <strong>&ldquo;I have built AI voice receptionists before.&rdquo;</strong>
                 I have personally designed and deployed AI voice receptionist systems for service-based businesses, including healthcare-adjacent workflows involving appointment handling, caller triage, message capture, and CRM integration via GoHighLevel and Make.com. The system I will build for you is grounded in real production experience — not theory.
               </div>
 
@@ -293,9 +293,9 @@ export default function JeanProposal() {
                 <div className="qa-a">
                   <p style={{ marginBottom: 10 }}><strong>Short answer: VAPI is the right platform for your business model.</strong></p>
                   <p style={{ marginBottom: 8 }}><strong>1. Most mature API ecosystem.</strong> VAPI offers the deepest integration surface: custom LLM functions, webhook events for every call stage, real-time tool calls mid-conversation, and full conversation transcripts. Retell and Bland both trail VAPI in API maturity for complex healthcare workflows.</p>
-                  <p style={{ marginBottom: 8 }}><strong>2. Built for multi-client deployment.</strong> VAPI's assistant API is designed around reusable assistant templates. One base configuration, duplicated and parameterized per client — exactly matching your scale-out business model. Retell requires more manual configuration per client.</p>
+                  <p style={{ marginBottom: 8 }}><strong>2. Built for multi-client deployment.</strong> VAPI&apos;s assistant API is designed around reusable assistant templates. One base configuration, duplicated and parameterized per client — exactly matching your scale-out business model. Retell requires more manual configuration per client.</p>
                   <p style={{ marginBottom: 8 }}><strong>3. Native Twilio &amp; GoHighLevel support.</strong> VAPI plugs directly into Twilio for phone number management and has documented GoHighLevel integration patterns, eliminating custom middleware complexity.</p>
-                  <p style={{ marginBottom: 8 }}><strong>4. Healthcare-appropriate voice quality.</strong> VAPI's ElevenLabs and PlayHT voice options produce the professional, calm tone medical patients expect. The latency (&lt;800ms average) is acceptable for medical office calls.</p>
+                  <p style={{ marginBottom: 8 }}><strong>4. Healthcare-appropriate voice quality.</strong> VAPI&apos;s ElevenLabs and PlayHT voice options produce the professional, calm tone medical patients expect. The latency (&lt;800ms average) is acceptable for medical office calls.</p>
                   <p><strong>5. Cost model fits your business.</strong> VAPI charges per minute of voice usage, with no setup fee per assistant. As you add clients, your cost scales proportionally with usage — not with a per-seat license that hurts you before clients generate revenue.</p>
                 </div>
               </div>
