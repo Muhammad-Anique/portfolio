@@ -534,7 +534,7 @@ export default function BibleProposal() {
                     <li>One failed lesson forces a full course restart</li>
                     <li>Reruns risk duplicate courses/sections/units/lessons</li>
                     <li>Parent-child ID wiring done manually, error-prone</li>
-                    <li>No visibility into what generated, what's approved, what's uploaded</li>
+                    <li>No visibility into what generated, what&apos;s approved, what&apos;s uploaded</li>
                   </ul>
                 </div>
                 <div className="card card-accent-green">
@@ -669,7 +669,7 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
             <div className="sec" id="data">
               <div className="sec-label">Section 8</div>
               <h2 className="sec-title">Data Model — Google Sheets Staging Schema</h2>
-              <p style={{ fontSize: 13, color: "#57534e", marginBottom: 12 }}>Four tabs, one per hierarchy level, each carrying its own local key, its parent's key, and independent status columns.</p>
+              <p style={{ fontSize: 13, color: "#57534e", marginBottom: 12 }}>Four tabs, one per hierarchy level, each carrying its own local key, its parent&apos;s key, and independent status columns.</p>
               <h3 className="sub">Shared Column Set (every tab)</h3>
               <table className="tbl">
                 <thead><tr><th>Column</th><th>Type</th><th>Purpose</th></tr></thead>
@@ -744,10 +744,10 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
                   </ul>
                 </div>
                 <div className="card card-accent">
-                  <div className="card-title blue">How It's Achieved</div>
+                  <div className="card-title blue">How It&apos;s Achieved</div>
                   <ul className="blist">
                     <li>Per-lesson generation loop writes to Sheets immediately after each success</li>
-                    <li>Every stage filters its input by status column, not by "all rows"</li>
+                    <li>Every stage filters its input by status column, not by &ldquo;all rows&rdquo;</li>
                     <li>n8n batching processes one lesson/record at a time, not one giant array in memory</li>
                     <li>Hierarchical upload queries child-readiness (parent api_id present) before proceeding</li>
                     <li>Sub-workflows are independently retriable without re-invoking the parent</li>
@@ -772,7 +772,7 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
               <h2 className="sec-title">Error Handling & Logging</h2>
               <div className="alert">
                 <strong>Every error is captured at the row it belongs to</strong>
-                error_message and attempt_count live on the row itself — no separate log table to cross-reference. Opening the sheet answers "what broke and why" without touching n8n.
+                error_message and attempt_count live on the row itself — no separate log table to cross-reference. Opening the sheet answers &ldquo;what broke and why&rdquo; without touching n8n.
               </div>
               <table className="tbl">
                 <thead><tr><th>Layer</th><th>On Failure</th></tr></thead>
@@ -793,7 +793,7 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
                 <li>Batch/loop nodes process N lessons per run, not one massive AI call per course</li>
                 <li>Google Sheets read/write batched to stay under API rate limits as course count grows</li>
                 <li>Sub-workflows (generate, upload, retry) callable independently for future multi-course parallelism</li>
-                <li>Sheets staging is a v1 constraint by design — the API/schema-first data model means migrating staging to a database later doesn't touch the REST API integration</li>
+                <li>Sheets staging is a v1 constraint by design — the API/schema-first data model means migrating staging to a database later doesn&apos;t touch the REST API integration</li>
                 <li>Correlation via row_uid means work can be sharded across multiple workflow executions without collision</li>
               </ul>
             </div>
@@ -820,7 +820,7 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
               <div className="sec-label">Section 14</div>
               <h2 className="sec-title">Security & Credentials</h2>
               <ul className="blist">
-                <li>API credentials stored in n8n's encrypted credential store — never hardcoded in nodes</li>
+                <li>API credentials stored in n8n&apos;s encrypted credential store — never hardcoded in nodes</li>
                 <li>Dev vs. production API keys swappable via credential reference, no workflow edits</li>
                 <li>Google Sheets access scoped to a dedicated service account, least-privilege</li>
                 <li>LLM prompts and responses logged only as much as needed for debugging — no unnecessary retention</li>
@@ -872,7 +872,7 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
               <table className="tbl">
                 <thead><tr><th>Risk</th><th>Mitigation</th></tr></thead>
                 <tbody>
-                  <tr><td>LLM output doesn't match expected structure</td><td>Structured/JSON-mode prompting + schema validation before staging write</td></tr>
+                  <tr><td>LLM output doesn&apos;t match expected structure</td><td>Structured/JSON-mode prompting + schema validation before staging write</td></tr>
                   <tr><td>Google Sheets API rate limits at scale</td><td>Batched reads/writes, backoff on 429</td></tr>
                   <tr><td>Concurrent workflow runs corrupt shared rows</td><td>Row-level lock flag + status-filtered queries</td></tr>
                   <tr><td>Postman collection diverges from live API</td><td>Contract validated against dev credentials before upload logic is finalized</td></tr>
