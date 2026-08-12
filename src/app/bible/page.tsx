@@ -275,6 +275,8 @@ h3.sub{font-size:16px;font-weight:700;color:#292524;margin:20px 0 10px;font-fami
 
 const NAV = [
   { id: "exec", label: "Overview" },
+  { id: "proposal", label: "Proposal & Terms" },
+  { id: "experience", label: "Relevant Experience" },
   { id: "problem", label: "Problem" },
   { id: "stack", label: "Stack" },
   { id: "arch", label: "Architecture" },
@@ -377,6 +379,8 @@ export default function BibleProposal() {
                 <div className="hstat"><div className="hstat-val">3</div><div className="hstat-lbl">n8n Sub-Workflows</div></div>
                 <div className="hstat"><div className="hstat-val">100%</div><div className="hstat-lbl">Resumable</div></div>
                 <div className="hstat"><div className="hstat-val">0</div><div className="hstat-lbl">Duplicate Uploads</div></div>
+                <div className="hstat"><div className="hstat-val green">20</div><div className="hstat-lbl">Days to Test Course</div></div>
+                <div className="hstat"><div className="hstat-val">$16/hr</div><div className="hstat-lbl">Proposed Rate</div></div>
               </div>
             </div>
           </div>
@@ -435,9 +439,91 @@ export default function BibleProposal() {
               </div>
             </div>
 
-            {/* ═══ 2. PROBLEM ═══ */}
-            <div className="sec" id="problem">
+            {/* ═══ 2. PROPOSAL & TERMS ═══ */}
+            <div className="sec" id="proposal">
               <div className="sec-label">Section 2</div>
+              <h2 className="sec-title">Proposal &amp; Terms</h2>
+              <div className="g2">
+                <div className="card card-accent">
+                  <div className="card-title blue">Engagement Terms</div>
+                  <table className="tbl">
+                    <tbody>
+                      {[
+                        ["Bid rate", "$16.00/hr (client sees) · $14.40/hr net after 10% service fee"],
+                        ["Client budget range", "$20.00 – $40.00/hr"],
+                        ["Commitment", "Less than 30 hrs/week"],
+                        ["Project length", "1 to 3 months"],
+                        ["Experience level", "Intermediate"],
+                        ["Rate escalation", "None scheduled"],
+                        ["Timeline to first test course", "20 days from Postman + n8n workspace access"],
+                      ].map(([k, v]) => <tr key={k}><td>{k}</td><td>{v}</td></tr>)}
+                    </tbody>
+                  </table>
+                </div>
+                <div className="card card-accent-green">
+                  <div className="card-title green">What the Client Gets First</div>
+                  <ul className="blist green">
+                    <li>One test course driven fully end-to-end within 20 days of access</li>
+                    <li>Input → blueprint → staged records → approval → lesson generation → API upload → IDs saved back</li>
+                    <li>Integration only — existing API and database are never redesigned</li>
+                    <li>Google Sheets used exactly as specified, for staging and review</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h3 className="sub">Cover Letter</h3>
+              <div className="card card-accent-amber">
+                <p style={{ fontSize: 13.5, color: "#44403c", lineHeight: 1.8 }}>
+                  The line that stood out most: <em>&ldquo;if lesson 27 fails, lessons 1–26 remain saved.&rdquo;</em> That is exactly how this gets built — nothing lost, nothing uploaded twice.
+                </p>
+                <h3 className="sub" style={{ marginTop: 14 }}>Approach</h3>
+                <ul className="blist amber">
+                  <li>Every record saved the moment it&apos;s generated, so long jobs are always resumable</li>
+                  <li>Review status and upload status tracked separately, so approval and API state never get confused</li>
+                  <li>Strict upload hierarchy (Course → Section → Unit → Lesson), with returned API IDs written back so children reference the right parent</li>
+                  <li>Idempotent uploads — status checked before every API call, so reruns skip uploaded records instead of duplicating them</li>
+                  <li>Clean sub-workflows (blueprint, lesson generation, upload), each testable and triggerable on its own</li>
+                </ul>
+                <div className="alert amber" style={{ marginTop: 14 }}>
+                  <strong>Recommendation offered in the proposal</strong>
+                  A separate status field per stage — generation, review, upload — rather than one combined status. It makes retries and dashboards far cleaner.
+                </div>
+                <p style={{ fontSize: 13, color: "#57534e", marginTop: 10 }}>
+                  Built exactly as specified: Google Sheets for staging and review, integrating with the existing API, not redesigning anything. Ready to start whenever access is sent.
+                </p>
+              </div>
+            </div>
+
+            {/* ═══ 3. RELEVANT EXPERIENCE ═══ */}
+            <div className="sec" id="experience">
+              <div className="sec-label">Section 3</div>
+              <h2 className="sec-title">Relevant Experience</h2>
+              <p style={{ fontSize: 13, color: "#57534e", marginBottom: 12 }}>Hands-on delivery on both sides of this project&apos;s core skill set: reliable n8n orchestration and LLM-driven conversation/content pipelines integrated against real external APIs.</p>
+              <div className="g2">
+                <div className="card card-accent">
+                  <div className="card-title blue">SOFIA — Dr. Antonio / NOVVA Medical</div>
+                  <p style={{ fontSize: 13, color: "#44403c", lineHeight: 1.7 }}>
+                    Designed and deployed a self-hosted n8n workflow powering a WhatsApp assistant, integrated with Zoho CRM and Sisclinic in Brazil to handle patient bookings end to end — happy path and every edge case. Managed appointments, sent radiology reports, and handled follow-ups, built for reliability against messy real-world conditions, not just the ideal flow.
+                  </p>
+                  <div style={{ marginTop: 10 }}><span className="badge badge-blue">n8n</span> <span className="badge badge-blue">LLM conversation</span> <span className="badge badge-blue">Multi-API integration</span></div>
+                </div>
+                <div className="card card-accent-green">
+                  <div className="card-title green">Voice Agent — Jack Scanlan / One Roof Roofing</div>
+                  <p style={{ fontSize: 13, color: "#44403c", lineHeight: 1.7 }}>
+                    Built an n8n workflow paired with a voice agent to capture and handle inbound inquiries for a roofing business. Live at <strong>onerooff.com</strong>.
+                  </p>
+                  <div style={{ marginTop: 10 }}><span className="badge badge-green">n8n</span> <span className="badge badge-green">Voice agent</span> <span className="badge badge-green">Lead capture</span></div>
+                </div>
+              </div>
+              <div className="alert">
+                <strong>Why it transfers directly to this project</strong>
+                Both projects required LLM-driven logic, external API integration, and deliberate edge-case handling — the same reliability discipline this curriculum pipeline needs: resumable state, no duplicate writes, clear error visibility.
+              </div>
+            </div>
+
+            {/* ═══ 4. PROBLEM ═══ */}
+            <div className="sec" id="problem">
+              <div className="sec-label">Section 4</div>
               <h2 className="sec-title">The Problem This Solves</h2>
               <div className="g2">
                 <div className="card card-accent-red">
@@ -473,7 +559,7 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
 
             {/* ═══ 3. STACK ═══ */}
             <div className="sec" id="stack">
-              <div className="sec-label">Section 3</div>
+              <div className="sec-label">Section 5</div>
               <h2 className="sec-title">Technology Stack</h2>
               <div className="g3">
                 {[
@@ -496,7 +582,7 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
 
             {/* ═══ 4. ARCHITECTURE ═══ */}
             <div className="sec" id="arch">
-              <div className="sec-label">Section 4</div>
+              <div className="sec-label">Section 6</div>
               <h2 className="sec-title">Architecture Deep Dive</h2>
               <h3 className="sub">Golden Rules — Immutable Principles</h3>
               <table className="tbl">
@@ -541,7 +627,7 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
 
             {/* ═══ 5. PIPELINE ═══ */}
             <div className="sec" id="pipeline">
-              <div className="sec-label">Section 5</div>
+              <div className="sec-label">Section 7</div>
               <h2 className="sec-title">The 12-Stage Pipeline</h2>
               <div className="pipe">
                 {[
@@ -581,7 +667,7 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
 
             {/* ═══ 6. DATA MODEL ═══ */}
             <div className="sec" id="data">
-              <div className="sec-label">Section 6</div>
+              <div className="sec-label">Section 8</div>
               <h2 className="sec-title">Data Model — Google Sheets Staging Schema</h2>
               <p style={{ fontSize: 13, color: "#57534e", marginBottom: 12 }}>Four tabs, one per hierarchy level, each carrying its own local key, its parent's key, and independent status columns.</p>
               <h3 className="sub">Shared Column Set (every tab)</h3>
@@ -620,7 +706,7 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
 
             {/* ═══ 7. DEDUP & IDEMPOTENCY ═══ */}
             <div className="sec" id="dedup">
-              <div className="sec-label">Section 7</div>
+              <div className="sec-label">Section 9</div>
               <h2 className="sec-title">Deduplication & Idempotency</h2>
               <div className="card card-accent">
                 <div className="card-title blue">The Core Rule</div>
@@ -644,7 +730,7 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
 
             {/* ═══ 8. RELIABILITY ═══ */}
             <div className="sec" id="reliability">
-              <div className="sec-label">Section 8</div>
+              <div className="sec-label">Section 10</div>
               <h2 className="sec-title">Reliability & Resumability</h2>
               <div className="g2">
                 <div className="card card-accent-green">
@@ -682,7 +768,7 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
 
             {/* ═══ 9. ERROR HANDLING ═══ */}
             <div className="sec" id="errors">
-              <div className="sec-label">Section 9</div>
+              <div className="sec-label">Section 11</div>
               <h2 className="sec-title">Error Handling & Logging</h2>
               <div className="alert">
                 <strong>Every error is captured at the row it belongs to</strong>
@@ -701,7 +787,7 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
 
             {/* ═══ 10. SCALING ═══ */}
             <div className="sec" id="scaling">
-              <div className="sec-label">Section 10</div>
+              <div className="sec-label">Section 12</div>
               <h2 className="sec-title">Scaling Considerations</h2>
               <ul className="blist">
                 <li>Batch/loop nodes process N lessons per run, not one massive AI call per course</li>
@@ -714,7 +800,7 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
 
             {/* ═══ 11. TESTING & QA ═══ */}
             <div className="sec" id="testing">
-              <div className="sec-label">Section 11</div>
+              <div className="sec-label">Section 13</div>
               <h2 className="sec-title">Testing & QA Strategy</h2>
               <table className="tbl">
                 <thead><tr><th>Test</th><th>Validates</th></tr></thead>
@@ -731,7 +817,7 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
 
             {/* ═══ 12. SECURITY ═══ */}
             <div className="sec" id="security">
-              <div className="sec-label">Section 12</div>
+              <div className="sec-label">Section 14</div>
               <h2 className="sec-title">Security & Credentials</h2>
               <ul className="blist">
                 <li>API credentials stored in n8n's encrypted credential store — never hardcoded in nodes</li>
@@ -743,7 +829,7 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
 
             {/* ═══ 13. SUB-WORKFLOWS ═══ */}
             <div className="sec" id="subworkflows">
-              <div className="sec-label">Section 13</div>
+              <div className="sec-label">Section 15</div>
               <h2 className="sec-title">Sub-Workflow Breakdown</h2>
               <div className="g3">
                 {[
@@ -762,7 +848,7 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
 
             {/* ═══ 14. MILESTONES ═══ */}
             <div className="sec" id="milestones">
-              <div className="sec-label">Section 14</div>
+              <div className="sec-label">Section 16</div>
               <h2 className="sec-title">Delivery Milestones</h2>
               {[
                 ["M1", "Blueprint & staging workflow", "#EC420F"],
@@ -781,7 +867,7 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
 
             {/* ═══ 15. RISKS ═══ */}
             <div className="sec" id="risk">
-              <div className="sec-label">Section 15</div>
+              <div className="sec-label">Section 17</div>
               <h2 className="sec-title">Risks & Mitigations</h2>
               <table className="tbl">
                 <thead><tr><th>Risk</th><th>Mitigation</th></tr></thead>
@@ -796,13 +882,15 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
 
             {/* ═══ 16. Q&A ═══ */}
             <div className="sec" id="answers">
-              <div className="sec-label">Section 16</div>
-              <h2 className="sec-title">Questions & Answers</h2>
+              <div className="sec-label">Section 18</div>
+              <h2 className="sec-title">Screening Questions & Answers</h2>
+              <p style={{ fontSize: 13, color: "#57534e", marginBottom: 12 }}>Verbatim answers submitted with the proposal.</p>
               {[
-                ["What if lesson 27 of 40 fails?", "Lessons 1–26 stay saved and untouched. Only lesson 27 is marked failed and retried on the next run — the other 13 are unaffected either way."],
-                ["Can I edit content before it uploads?", "Yes — content lives in Sheets until approved. Edits are picked up as-is on the next upload pass."],
-                ["What stops duplicate uploads on rerun?", "The api_id column. Blank = safe to create. Populated = skip or PATCH, never a second create."],
-                ["Do I need to be a theology expert to build this?", "No — the developer implements the pipeline; the client supplies subject matter, prompts, and content guidance."],
+                ["What is your experience with n8n and OpenAI/LLM workflows?", "Strong hands-on experience on real client projects. For Dr. Antonio, designed and deployed a self-hosted n8n workflow powering a WhatsApp assistant (SOFIA), integrated with Zoho and Sisclinic in Brazil to handle patient bookings end to end — happy path and every edge case, including radiology report delivery and follow-ups. For Mr. Jack Scanlan, built an n8n workflow paired with a voice agent for a roofing business, live at onerooff.com. Both projects involved heavy LLM-driven conversation, external API integration, and edge-case handling — exactly the reliability and structured workflow design this curriculum project calls for."],
+                ["Have you built resumable workflows where individual failed items can be retried?", "Yes, item-level retry is built in deliberately. Every record is saved with its own status the moment it's processed, so state lives outside the run. If item 27 fails, items 1–26 stay saved and are skipped on the next run, and only 27 gets reprocessed. Status is checked before acting on each item, so successful records are never duplicated on a rerun. For this project, generation, review, and upload status would be tracked separately so a retry at one stage never disturbs another, with clear error logging for what failed and why."],
+                ["How would you prevent duplicate API uploads when a workflow is rerun?", "The upload step is idempotent, driven by status, not by the run. Each record has an upload-status field and a slot for the ID the API returns. Before every call, that field is checked — already uploaded with an ID means the record is skipped; only unsent or failed records upload on a rerun. The moment the API returns success, status and returned ID are written back to the sheet immediately, so the record is locked as done even if the workflow stops right after. This matters twice for the hierarchy: saving a parent's ID on first success keeps parents from being recreated, and children from pointing at the wrong parent."],
+                ["How would you manage course/section/unit/lesson parent-child IDs?", "The hierarchy is managed top-down, so a parent always has a real ID before any child uploads. Each staging row has an ID column for the API-returned ID plus a parent-reference column pointing to its parent row. Uploads run in strict order: Course, then Sections, then Units, then Lessons. When a Course uploads, its returned API ID is written back immediately. Each Section then reads its parent Course's saved ID and sends it as the parent reference — Units read their Section's ID, Lessons read their Unit's ID, same pattern down the chain. Because parent IDs are saved the moment they're created, children always resolve to the correct parent, and reruns reuse existing IDs instead of recreating parents."],
+                ["Would you recommend one workflow or multiple sub-workflows for this project?", "Multiple sub-workflows, not one large one. The project has clear stages triggered at different times — blueprint generation, lesson generation, and API upload — with human approval in between. Forcing all of that into one workflow makes it hard to test, hard to rerun one part, and fragile when something fails midway. Splitting it into three focused sub-workflows: Blueprint (read input, generate the blueprint, break it into records, stage them), Lesson Generation (take approved outlines, generate content, save each one immediately), and Upload (find approved records, push them through the API in hierarchy order, save returned IDs back). Each can be triggered on its own, so a retry only reruns the stage that failed. A small orchestrator can tie them together later for one-click runs if wanted."],
               ].map(([q, a], i) => (
                 <div className="qa" key={i as number}>
                   <div className="qa-q"><span className="qa-num">{i + 1}</span>{q}</div>
@@ -813,7 +901,7 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
 
             {/* ═══ 17. GLOSSARY ═══ */}
             <div className="sec" id="glossary">
-              <div className="sec-label">Section 17</div>
+              <div className="sec-label">Section 19</div>
               <h2 className="sec-title">Glossary</h2>
               <table className="tbl">
                 <tbody>
