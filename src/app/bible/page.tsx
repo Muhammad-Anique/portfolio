@@ -1,5 +1,17 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import {
+  BookOpen,
+  Workflow,
+  Brain,
+  Table2,
+  Globe,
+  Puzzle,
+  Lock,
+  Blocks,
+  PenLine,
+  UploadCloud,
+} from "lucide-react";
 
 /* ═══════════════════════════════════════════════════════════════════
    Curriculum Workflow — Complete Project Bible
@@ -30,11 +42,11 @@ body{font-family:'Manrope','Segoe UI',system-ui,-apple-system,sans-serif;}
 .login-card{
   position:relative;z-index:1;width:100%;max-width:420px;margin:20px;
   background:#141414;border:1px solid #2a2a2a;
-  border-radius:24px;padding:48px 40px 40px;
+  border-radius:8px;padding:48px 40px 40px;
   box-shadow:0 4px 6px -1px rgba(0,0,0,.2),0 20px 50px -12px rgba(0,0,0,.4);
 }
 .login-logo{
-  width:56px;height:56px;border-radius:16px;
+  width:56px;height:56px;border-radius:8px;
   background:linear-gradient(135deg,#EC420F,#d8681d);
   display:flex;align-items:center;justify-content:center;
   font-size:26px;margin:0 auto 28px;box-shadow:0 8px 24px rgba(236,66,15,.3);
@@ -46,7 +58,7 @@ body{font-family:'Manrope','Segoe UI',system-ui,-apple-system,sans-serif;}
 .field-input-wrap{position:relative;}
 .field input{
   width:100%;padding:14px 16px;background:#1a1a1a;
-  border:1.5px solid #2a2a2a;border-radius:12px;color:#f5f5f5;font-size:14.5px;outline:none;
+  border:1.5px solid #2a2a2a;border-radius:8px;color:#f5f5f5;font-size:14.5px;outline:none;
   font-family:'Manrope',sans-serif;
   transition:border-color .2s,background .2s,box-shadow .2s;
 }
@@ -62,7 +74,7 @@ body{font-family:'Manrope','Segoe UI',system-ui,-apple-system,sans-serif;}
 .login-btn{
   width:100%;padding:15px;margin-top:8px;
   background:linear-gradient(135deg,#EC420F,#d8681d);
-  border:none;border-radius:12px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;
+  border:none;border-radius:8px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;
   letter-spacing:.02em;transition:all .2s;box-shadow:0 4px 14px rgba(236,66,15,.3);
   font-family:'Manrope',sans-serif;
 }
@@ -70,7 +82,7 @@ body{font-family:'Manrope','Segoe UI',system-ui,-apple-system,sans-serif;}
 .login-btn:active{transform:translateY(0);box-shadow:0 2px 8px rgba(236,66,15,.2);}
 .login-error{
   display:none;text-align:center;color:#ef4444;font-size:13px;margin-top:14px;
-  padding:10px 14px;background:rgba(239,68,68,.1);border-radius:10px;border:1px solid rgba(239,68,68,.2);font-weight:500;
+  padding:10px 14px;background:rgba(239,68,68,.1);border-radius:8px;border:1px solid rgba(239,68,68,.2);font-weight:500;
 }
 .login-footer{text-align:center;margin-top:32px;color:#525252;font-size:12px;font-weight:500;}
 .login-divider{display:flex;align-items:center;gap:12px;margin:24px 0 4px;color:#404040;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;}
@@ -87,22 +99,6 @@ body{font-family:'Manrope','Segoe UI',system-ui,-apple-system,sans-serif;}
   font-family:'Manrope',sans-serif;
 }
 .pw.hidden{display:none;}
-
-/* ── STICKY NAV ── */
-.topnav{
-  position:sticky;top:0;z-index:100;
-  background:rgba(250,250,249,.92);backdrop-filter:blur(12px);
-  border-bottom:1px solid #e7e5e4;height:56px;
-  display:flex;align-items:center;justify-content:space-between;padding:0 32px;
-}
-.topnav-brand{font-weight:800;font-size:15px;color:#1c1917;display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;}
-.topnav-dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#EC420F,#d8681d);}
-.topnav-links{display:flex;gap:4px;overflow-x:auto;}
-.topnav-links a{
-  color:#78716c;font-size:12px;font-weight:600;padding:6px 10px;border-radius:6px;
-  text-decoration:none;white-space:nowrap;transition:.15s;font-family:'Lato',sans-serif;
-}
-.topnav-links a:hover{color:#EC420F;background:rgba(236,66,15,.06);}
 
 /* ── HERO ── */
 .hero{
@@ -124,15 +120,17 @@ body{font-family:'Manrope','Segoe UI',system-ui,-apple-system,sans-serif;}
 /* ── LAYOUT WITH SIDEBAR ── */
 .content-wrap{display:flex;max-width:1200px;margin:0 auto;padding:40px 24px 80px;gap:40px;}
 .content{flex:1;min-width:0;}
-.sidebar{position:sticky;top:72px;width:220px;max-height:calc(100vh - 90px);overflow-y:auto;flex-shrink:0;padding:16px 0;}
+.sidebar{position:sticky;top:24px;width:168px;max-height:calc(100vh - 48px);overflow-y:auto;flex-shrink:0;padding:16px 0;}
 .sidebar::-webkit-scrollbar{width:3px;}
-.sidebar::-webkit-scrollbar-thumb{background:#d6d3d1;border-radius:99px;}
+.sidebar::-webkit-scrollbar-thumb{background:#d6d3d1;border-radius:8px;}
 .sidebar-title{font-family:'Lato',sans-serif;font-size:14px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:#1c1917;margin-bottom:8px;}
-.sidebar-bar{width:40%;height:4px;border-radius:99px;background:linear-gradient(to right,#EC420F,#d8681d);margin-bottom:16px;}
-.sidebar a{display:flex;align-items:center;gap:8px;padding:5px 10px;margin-bottom:2px;font-size:12.5px;font-weight:500;color:#78716c;text-decoration:none;border-radius:6px;transition:.15s;font-family:'Manrope',sans-serif;border-left:2px solid transparent;}
+.sidebar-bar{width:40%;height:4px;border-radius:8px;background:linear-gradient(to right,#EC420F,#d8681d);margin-bottom:16px;}
+.sidebar a{display:flex;align-items:center;gap:8px;padding:5px 8px;margin-bottom:2px;font-size:12px;font-weight:500;color:#78716c;text-decoration:none;border-radius:6px;transition:.15s;font-family:'Manrope',sans-serif;border-left:2px solid transparent;}
 .sidebar a:hover{color:#EC420F;background:rgba(236,66,15,.04);border-left-color:#EC420F;}
 .sidebar a .dot{width:5px;height:5px;border-radius:50%;background:#d6d3d1;flex-shrink:0;transition:.15s;}
 .sidebar a:hover .dot{background:#EC420F;}
+.sidebar a.active{color:#EC420F;background:rgba(236,66,15,.06);border-left-color:#EC420F;font-weight:700;}
+.sidebar a.active .dot{background:#EC420F;}
 .sec{margin-bottom:56px;}
 .sec-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#EC420F;margin-bottom:4px;font-family:'Lato',sans-serif;}
 h2.sec-title{font-size:24px;font-weight:700;color:#1c1917;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #e7e5e4;font-family:'Playfair Display',serif;}
@@ -140,7 +138,7 @@ h3.sub{font-size:16px;font-weight:700;color:#292524;margin:20px 0 10px;font-fami
 
 /* ── CARDS ── */
 .card{
-  background:#fff;border:1px solid #e7e5e4;border-radius:12px;
+  background:#fff;border:1px solid #e7e5e4;border-radius:8px;
   padding:20px 22px;margin-bottom:14px;
   box-shadow:0 1px 3px rgba(0,0,0,.04);
   transition:box-shadow .2s;
@@ -165,7 +163,7 @@ h3.sub{font-size:16px;font-weight:700;color:#292524;margin:20px 0 10px;font-fami
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
 
 /* ── TABLES ── */
-.tbl{width:100%;border-collapse:separate;border-spacing:0;margin-bottom:16px;font-size:13px;border-radius:10px;overflow:hidden;border:1px solid #e7e5e4;font-family:'Manrope',sans-serif;}
+.tbl{width:100%;border-collapse:separate;border-spacing:0;margin-bottom:16px;font-size:13px;border-radius:8px;overflow:hidden;border:1px solid #e7e5e4;font-family:'Manrope',sans-serif;}
 .tbl thead tr{background:#fafaf9;}
 .tbl thead th{padding:10px 14px;text-align:left;font-weight:700;color:#78716c;font-size:12px;letter-spacing:.03em;border-bottom:2px solid #e7e5e4;font-family:'Lato',sans-serif;}
 .tbl tbody tr{border-bottom:1px solid #f5f5f4;transition:background .1s;}
@@ -201,12 +199,12 @@ h3.sub{font-size:16px;font-weight:700;color:#292524;margin:20px 0 10px;font-fami
 .alert strong{display:block;margin-bottom:3px;font-family:'Lato',sans-serif;}
 
 /* ── CODE BLOCK ── */
-.codeblock{background:#1c1917;color:#e7e5e4;padding:16px 20px;border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.7;overflow-x:auto;margin-bottom:16px;white-space:pre;border:1px solid #292524;}
+.codeblock{background:#1c1917;color:#e7e5e4;padding:16px 20px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.7;overflow-x:auto;margin-bottom:16px;white-space:pre;border:1px solid #292524;}
 
 /* ── PIPELINE VISUAL ── */
 .pipe{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:20px;}
 .pipe-stage{
-  flex:1;min-width:100px;background:#fff;border:2px solid #e7e5e4;border-radius:10px;
+  flex:1;min-width:100px;background:#fff;border:2px solid #e7e5e4;border-radius:8px;
   padding:12px 8px;text-align:center;transition:.2s;
 }
 .pipe-stage:hover{border-color:#EC420F;box-shadow:0 2px 12px rgba(236,66,15,.12);}
@@ -218,12 +216,12 @@ h3.sub{font-size:16px;font-weight:700;color:#292524;margin:20px 0 10px;font-fami
 /* ── MILESTONE ── */
 .ms-bar{
   display:flex;align-items:center;gap:14px;padding:14px 18px;
-  background:#fff;border:1px solid #e7e5e4;border-radius:12px;margin-bottom:10px;
+  background:#fff;border:1px solid #e7e5e4;border-radius:8px;margin-bottom:10px;
   box-shadow:0 1px 3px rgba(0,0,0,.04);transition:box-shadow .15s;
 }
 .ms-bar:hover{box-shadow:0 4px 16px rgba(0,0,0,.08);}
 .ms-icon{
-  width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  width:42px;height:42px;border-radius:8px;display:flex;align-items:center;justify-content:center;
   font-size:14px;font-weight:800;color:#fff;flex-shrink:0;
 }
 .ms-info{flex:1;}
@@ -232,18 +230,18 @@ h3.sub{font-size:16px;font-weight:700;color:#292524;margin:20px 0 10px;font-fami
 .ms-price{font-size:18px;font-weight:800;color:#c79573;font-family:'Lato',sans-serif;}
 
 /* ── QA ── */
-.qa{margin-bottom:10px;background:#fff;border:1px solid #e7e5e4;border-radius:10px;overflow:hidden;}
+.qa{margin-bottom:10px;background:#fff;border:1px solid #e7e5e4;border-radius:8px;overflow:hidden;}
 .qa-q{background:#fafaf9;padding:12px 16px;font-weight:700;font-size:14px;color:#1c1917;border-bottom:1px solid #e7e5e4;display:flex;align-items:center;gap:10px;font-family:'Manrope',sans-serif;}
 .qa-num{width:24px;height:24px;border-radius:50%;background:#EC420F;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .qa-a{padding:12px 16px;font-size:13.5px;color:#57534e;line-height:1.65;}
 
 /* ── TECH CARD ── */
 .tech-card{
-  background:#fff;border:1px solid #e7e5e4;border-radius:12px;padding:20px 18px;
+  background:#fff;border:1px solid #e7e5e4;border-radius:8px;padding:20px 18px;
   border-top:4px solid #EC420F;transition:transform .15s,box-shadow .15s;
 }
 .tech-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.08);}
-.tech-icon{font-size:24px;margin-bottom:8px;}
+.tech-icon{margin-bottom:8px;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:8px;background:rgba(236,66,15,.08);}
 .tech-name{font-size:15px;font-weight:700;color:#1c1917;font-family:'Manrope',sans-serif;}
 .tech-role{font-size:12px;font-weight:600;margin-bottom:6px;font-family:'Lato',sans-serif;}
 .tech-desc{font-size:12px;color:#78716c;line-height:1.5;}
@@ -302,10 +300,28 @@ export default function BibleProposal() {
   const [showPass, setShowPass] = useState(false);
   const [error, setError] = useState(false);
   const [shake, setShake] = useState(false);
+  const [activeSection, setActiveSection] = useState(NAV[0].id);
+  const scrollRef = useRef(null);
 
   useEffect(() => {
     if (loggedIn) document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = ""; };
+  }, [loggedIn]);
+
+  useEffect(() => {
+    if (!loggedIn) return;
+    const root = scrollRef.current;
+    if (!root) return;
+    const targets = NAV.map((n) => document.getElementById(n.id)).filter(Boolean);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length > 0) setActiveSection(visible[0].target.id);
+      },
+      { root, rootMargin: "-10% 0px -70% 0px", threshold: 0 }
+    );
+    targets.forEach((t) => observer.observe(t as Element));
+    return () => observer.disconnect();
   }, [loggedIn]);
 
   function doLogin() {
@@ -326,7 +342,7 @@ export default function BibleProposal() {
       {!loggedIn && (
         <div id="login-screen">
           <div className={`login-card${shake ? " shake" : ""}`}>
-            <div className="login-logo">📖</div>
+            <div className="login-logo"><BookOpen size={26} color="#fff" /></div>
             <h1>Proposal Portal</h1>
             <p className="subtitle">Curriculum Workflow · Restricted Access</p>
             <div className="field">
@@ -346,7 +362,7 @@ export default function BibleProposal() {
                 </button>
               </div>
             </div>
-            <button className="login-btn" onClick={doLogin}>Sign In</button>
+            <button type="button" className="login-btn" onClick={doLogin}>Sign In</button>
             {error && <div className="login-error" style={{ display: "block" }}>Incorrect credentials. Please try again.</div>}
             <div className="login-divider">Restricted</div>
             <p className="login-footer">Confidential — For authorized recipients only</p>
@@ -355,15 +371,7 @@ export default function BibleProposal() {
       )}
 
       {loggedIn && (
-        <div className="pw">
-          {/* ═══ TOP NAV ═══ */}
-          <nav className="topnav">
-            <div className="topnav-brand"><span className="topnav-dot" />Curriculum Workflow — Project Bible</div>
-            <div className="topnav-links">
-              {NAV.map((n) => (<a key={n.id} href={`#${n.id}`}>{n.label}</a>))}
-            </div>
-          </nav>
-
+        <div className="pw" ref={scrollRef}>
           {/* ═══ HERO ═══ */}
           <div className="hero">
             <div className="hero-inner">
@@ -391,7 +399,7 @@ export default function BibleProposal() {
               <div className="sidebar-title">Contents</div>
               <div className="sidebar-bar" />
               {NAV.map((n) => (
-                <a key={n.id} href={`#${n.id}`}>
+                <a key={n.id} href={`#${n.id}`} className={n.id === activeSection ? "active" : undefined}>
                   <span className="dot" />
                   {n.label}
                 </a>
@@ -563,15 +571,15 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
               <h2 className="sec-title">Technology Stack</h2>
               <div className="g3">
                 {[
-                  { icon: "🔀", name: "n8n", role: "Orchestration engine", desc: "Self-hosted. Drives every stage — Sheets read, AI calls, staging writes, approval polling, hierarchical upload, retries.", color: "#EC420F" },
-                  { icon: "🧠", name: "OpenAI / LLM", role: "Blueprint & content generation", desc: "Structured JSON output for course blueprints and full lesson content, validated before it's ever staged.", color: "#d8681d" },
-                  { icon: "📊", name: "Google Sheets", role: "Staging & review surface", desc: "Course / Section / Unit / Lesson tabs. Source of truth for approval state until upload succeeds.", color: "#c79573" },
-                  { icon: "🌐", name: "REST API", role: "Existing backend (given)", desc: "Course, Section, Unit, Lesson endpoints. Documented in Postman. Not redesigned — only integrated with.", color: "#a16207" },
-                  { icon: "🧩", name: "Sub-workflows", role: "Reusable building blocks", desc: "Generate-lesson, upload-record, and retry-handler isolated as callable n8n sub-workflows.", color: "#78716c" },
-                  { icon: "🔐", name: "HTTP Auth", role: "API credential handling", desc: "n8n credential store for dev API keys; swappable for production without workflow changes.", color: "#EC420F" },
+                  { Icon: Workflow, name: "n8n", role: "Orchestration engine", desc: "Self-hosted. Drives every stage — Sheets read, AI calls, staging writes, approval polling, hierarchical upload, retries.", color: "#EC420F" },
+                  { Icon: Brain, name: "OpenAI / LLM", role: "Blueprint & content generation", desc: "Structured JSON output for course blueprints and full lesson content, validated before it's ever staged.", color: "#d8681d" },
+                  { Icon: Table2, name: "Google Sheets", role: "Staging & review surface", desc: "Course / Section / Unit / Lesson tabs. Source of truth for approval state until upload succeeds.", color: "#c79573" },
+                  { Icon: Globe, name: "REST API", role: "Existing backend (given)", desc: "Course, Section, Unit, Lesson endpoints. Documented in Postman. Not redesigned — only integrated with.", color: "#a16207" },
+                  { Icon: Puzzle, name: "Sub-workflows", role: "Reusable building blocks", desc: "Generate-lesson, upload-record, and retry-handler isolated as callable n8n sub-workflows.", color: "#78716c" },
+                  { Icon: Lock, name: "HTTP Auth", role: "API credential handling", desc: "n8n credential store for dev API keys; swappable for production without workflow changes.", color: "#EC420F" },
                 ].map((s) => (
                   <div className="tech-card" key={s.name} style={{ borderTopColor: s.color }}>
-                    <div className="tech-icon">{s.icon}</div>
+                    <div className="tech-icon" style={{ background: `${s.color}14` }}><s.Icon size={20} color={s.color} /></div>
                     <div className="tech-name">{s.name}</div>
                     <div className="tech-role" style={{ color: s.color }}>{s.role}</div>
                     <div className="tech-desc">{s.desc}</div>
@@ -833,12 +841,12 @@ RESULT: slow, fragile, unrepeatable         RESULT: fast, safe, resumable, audit
               <h2 className="sec-title">Sub-Workflow Breakdown</h2>
               <div className="g3">
                 {[
-                  { icon: "🧱", name: "Blueprint Workflow", desc: "Sheet trigger → LLM structured call → explode into Course/Section/Unit/Lesson rows → write to staging." },
-                  { icon: "✍️", name: "Generate-Lesson Sub-Workflow", desc: "Called per approved outline. Generates content, saves immediately, returns status to parent loop." },
-                  { icon: "📤", name: "Upload Sub-Workflow", desc: "Called per approved record. Checks api_id, POST or PATCH, writes ID + status back, retries on transient failure." },
+                  { Icon: Blocks, name: "Blueprint Workflow", desc: "Sheet trigger → LLM structured call → explode into Course/Section/Unit/Lesson rows → write to staging." },
+                  { Icon: PenLine, name: "Generate-Lesson Sub-Workflow", desc: "Called per approved outline. Generates content, saves immediately, returns status to parent loop." },
+                  { Icon: UploadCloud, name: "Upload Sub-Workflow", desc: "Called per approved record. Checks api_id, POST or PATCH, writes ID + status back, retries on transient failure." },
                 ].map((s) => (
                   <div className="tech-card" key={s.name}>
-                    <div className="tech-icon">{s.icon}</div>
+                    <div className="tech-icon"><s.Icon size={20} color="#EC420F" /></div>
                     <div className="tech-name">{s.name}</div>
                     <div className="tech-desc">{s.desc}</div>
                   </div>
